@@ -20,7 +20,7 @@
 <meta name="googlebot" content="noindex, nofollow">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<!-- Build version: 1779282527 -->
+<!-- Build version: 1779685914 -->
 <title>중국어 음성 학습 플레이어 (통합)</title>
 <style>
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -39,17 +39,21 @@
   }
   .set-tabs {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 6px; margin-bottom: 14px;
-    background: rgba(255,255,255,0.2); padding: 6px; border-radius: 12px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px; margin-bottom: 14px;
+    background: rgba(255,255,255,0.2); padding: 5px; border-radius: 12px;
   }
   .set-tab {
-    flex: none; padding: 10px 4px;
+    flex: none; padding: 9px 2px;
     background: transparent; color: white; border: none;
-    border-radius: 8px; font-size: 13px; font-weight: 700;
+    border-radius: 8px; font-size: 12px; font-weight: 700;
     cursor: pointer; transition: all 0.2s;
-    text-align: center; line-height: 1.3; position: relative;
+    text-align: center; line-height: 1.2; position: relative;
     white-space: nowrap;
+  }
+  .set-tab .tab-sub {
+    display: block; font-size: 9px; font-weight: 500; opacity: 0.85; margin-top: 2px;
+    white-space: normal;
   }
   .set-tab:active { transform: scale(0.95); }
   .set-tab.active { background: white; color: #4472C4; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
@@ -291,11 +295,12 @@
 </head>
 <body>
 <div class="container">
-  <h1>🎧 중국어 학습 플레이어 <span style="font-size:11px;opacity:0.6;font-weight:400;">v7 · Set 1-6</span></h1>
+  <h1>🎧 중국어 학습 플레이어 <span style="font-size:11px;opacity:0.6;font-weight:400;">v8 · Set 1-7</span></h1>
   <div class="subtitle">🇨🇳/🇬🇧 → 3초 → 같은 언어 → 3초 → 다른 언어 → 3초 → 같은 언어 → 3초</div>
 
   <div class="set-tabs">
-    <button class="set-tab active newest" id="tab-6" onclick="switchSet(6)">Set 6<span class="tab-sub">57개 (부정/날씨)</span></button>
+    <button class="set-tab active newest" id="tab-7" onclick="switchSet(7)">Set 7<span class="tab-sub">85개 (그림 대화)</span></button>
+    <button class="set-tab" id="tab-6" onclick="switchSet(6)">Set 6<span class="tab-sub">57개 (부정/날씨)</span></button>
     <button class="set-tab" id="tab-5" onclick="switchSet(5)">Set 5<span class="tab-sub">69개 (종합+대화)</span></button>
     <button class="set-tab" id="tab-4" onclick="switchSet(4)">Set 4<span class="tab-sub">35개 (일상/날씨)</span></button>
     <button class="set-tab" id="tab-3" onclick="switchSet(3)">Set 3<span class="tab-sub">13개 (숙제/완료)</span></button>
@@ -303,7 +308,7 @@
     <button class="set-tab" id="tab-1" onclick="switchSet(1)">Set 1<span class="tab-sub">19개 (기초)</span></button>
   </div>
 
-  <div class="set-info" id="setInfo"><strong>Set 6</strong>: 진행형 부정 / 날씨 / 위치 전치사 / 양사 2탄 / 사진 표현</div>
+  <div class="set-info" id="setInfo"><strong>Set 7</strong>: 진행형/현재형/의문문/가족/그림 대화 - 68개 + 대화 17줄</div>
 
   <div class="master-toggle-row">
     <button class="master-toggle" onclick="showAll()">👁️ 전체 보기</button>
@@ -667,6 +672,111 @@ const set6 = [
   { zh: "不,她没有和本一起徒步。", py: "Bù, tā méiyǒu hé Běn yīqǐ túbù.", en: "No, she isn't hiking with Ben.", ko: "아니, 그녀는 벤이랑 하이킹하지 않아", words: "没有=not / 和=with / 本=Ben / 一起=together / 徒步=hike", grammar: "&lt;b&gt;和 + 사람 + 一起 + V&lt;/b&gt; = '~와 함께 V' 패턴 복습" },
 ];
 
+const set7 = [
+  { zh: "马克斯在学中文。", py: "Mǎkèsī zài xué Zhōngwén.", en: "Max is studying Chinese.", ko: "맥스는 중국어를 공부하고 있다", words: "马克斯=Max / 在=-ing / 学=study / 中文=Chinese", grammar: "&lt;b&gt;在 + 동사&lt;/b&gt; 진행형. 学(배우다) + 中文(중국어) = 중국어 배우다" },
+  { zh: "他们在学一门新语言。", py: "Tāmen zài xué yī mén xīn yǔyán.", en: "They are studying a new language.", ko: "그들은 새 언어를 배우고 있다", words: "他们=they / 在=-ing / 学=study / 一门=a (과목 양사) / 新=new / 语言=language", grammar: "&lt;b&gt;门&lt;/b&gt; = 과목/수업 양사 (一门课, 一门语言)" },
+  { zh: "我在网上了解猫的知识!", py: "Wǒ zài wǎngshàng liǎojiě māo de zhīshi!", en: "I'm learning about cats on the internet!", ko: "인터넷에서 고양이에 대해 배우고 있어!", words: "在网上=online / 了解=understand/learn about / 猫=cat / 知识=knowledge", grammar: "&lt;b&gt;了解 + N + 知识&lt;/b&gt; = 'N에 대해 알다/배우다'. 学(체계적 학습) vs 了解(이해)" },
+  { zh: "我们的老师正在写邮件。", py: "Wǒmen de lǎoshī zhèngzài xiě yóujiàn.", en: "Our teacher is writing an email right now.", ko: "우리 선생님이 지금 이메일을 쓰고 있어", words: "老师=teacher / 正在=-ing (강조) / 写=write / 邮件=email", grammar: "&lt;b&gt;正在 + V&lt;/b&gt; 강조된 진행형. 邮件 = 우편물 + 메일" },
+  { zh: "你好,你在画什么?", py: "Nǐhǎo, nǐ zài huà shénme?", en: "Hi, what are you painting?", ko: "안녕, 뭐 그리고 있어?", words: "你好=hi / 在=-ing / 画=paint/draw / 什么=what", grammar: "&lt;b&gt;在 + V + 什么?&lt;/b&gt; = '뭐 V하고 있어?'. 의문사가 동사 뒤에 위치" },
+  { zh: "他在画什么?", py: "Tā zài huà shénme?", en: "What is he painting?", ko: "그는 뭘 그리고 있어?", words: "他=he / 画=paint", grammar: "&lt;b&gt;주어 + 在 + V + 什么?&lt;/b&gt; 패턴 반복" },
+  { zh: "我现在在画一只猫。", py: "Wǒ xiànzài zài huà yī zhī māo.", en: "I am drawing a cat right now.", ko: "지금 고양이 그리고 있어", words: "现在=now / 在=-ing / 画=draw / 一只=a (동물 양사) / 猫=cat", grammar: "&lt;b&gt;现在 + 在 + V&lt;/b&gt;. 동물 양사 只 (Set 6 복습)" },
+  { zh: "我在画一张地图。", py: "Wǒ zài huà yī zhāng dìtú.", en: "I am drawing a map.", ko: "지도를 그리고 있어", words: "画=draw / 一张=a (납작한 것 양사) / 地图=map", grammar: "&lt;b&gt;张&lt;/b&gt; 양사 = 종이/사진/지도 (Set 4 #8 복습). 地图 = 땅(地) + 그림(图)" },
+  { zh: "我现在在读一本书。", py: "Wǒ xiànzài zài dú yī běn shū.", en: "I am reading a book right now.", ko: "지금 책 읽고 있어", words: "现在=now / 读=read / 一本=a (책 양사) / 书=book", grammar: "&lt;b&gt;在 + 读 + 一本 + 书&lt;/b&gt;. 读(읽다) - 책 양사 本" },
+  { zh: "玛丽亚在画那些房子。", py: "Mǎlìyà zài huà nàxiē fángzi.", en: "Maria is drawing the houses.", ko: "마리아는 그 집들을 그리고 있다", words: "玛丽亚=Maria / 那些=those / 房子=house", grammar: "&lt;b&gt;那些 + N&lt;/b&gt; = '그 N들' (복수 지시사)" },
+  { zh: "大卫在买一台新相机。", py: "Dàwèi zài mǎi yī tái xīn xiàngjī.", en: "David is buying a new camera.", ko: "데이비드는 새 카메라를 사고 있다", words: "大卫=David / 买=buy / 一台=a (기계 양사) / 新=new / 相机=camera", grammar: "&lt;b&gt;台&lt;/b&gt; = 기계 양사 (一台电脑, 一台相机, 一台车). 기계·차량·악기 등" },
+  { zh: "他车画得很好。", py: "Tā chē huà de hěn hǎo.", en: "He draws cars very well.", ko: "그는 차를 잘 그린다", words: "他=he / 车=car / 画=draw / 得=degree / 很好=very well", grammar: "&lt;b&gt;O + V + 得 + 부사&lt;/b&gt; 또는 &lt;b&gt;V + O + V + 得 + 부사&lt;/b&gt; (정도 보어, Set 6 #32 복습)" },
+  { zh: "我会说三种语言。", py: "Wǒ huì shuō sān zhǒng yǔyán.", en: "I speak three languages.", ko: "나는 3개 언어를 말할 수 있다", words: "会=can / 说=speak / 三种=3 kinds / 语言=language", grammar: "&lt;b&gt;会 + V&lt;/b&gt; = '~할 줄 안다' (학습된 능력). &lt;b&gt;种&lt;/b&gt; = 종류 양사" },
+  { zh: "我也会说一点法语。", py: "Wǒ yě huì shuō yīdiǎn Fǎyǔ.", en: "I speak a little French too.", ko: "나도 프랑스어 조금 할 줄 알아", words: "也=too / 会=can / 一点=a little / 法语=French", grammar: "&lt;b&gt;一点&lt;/b&gt; = '조금'. 어순: 也 → 会 → 说 → 一点 → 법语" },
+  { zh: "我每天画画。", py: "Wǒ měi tiān huà huà.", en: "I draw every day.", ko: "나는 매일 그림을 그린다", words: "每天=every day / 画画=draw (paintings)", grammar: "&lt;b&gt;画画&lt;/b&gt; = 그림을 그리다 (동사 + 목적어 합성. 동사 画 + 명사 画)" },
+  { zh: "我每天看书。", py: "Wǒ měi tiān kàn shū.", en: "I read every day.", ko: "나는 매일 책을 본다", words: "每天=every day / 看=read / 书=book", grammar: "&lt;b&gt;每天 + V + O&lt;/b&gt;. 看书 = 책을 보다 (가장 일반적인 '읽기' 표현)" },
+  { zh: "这里经常下雪。", py: "Zhèlǐ jīngcháng xià xuě.", en: "It snows a lot here.", ko: "여기 자주 눈이 와", words: "这里=here / 经常=often / 下雪=snow", grammar: "&lt;b&gt;장소 + 부사 + V&lt;/b&gt;. 下雪 (Set 6 패턴 복습)" },
+  { zh: "我们经常一起露营。", py: "Wǒmen jīngcháng yīqǐ lùyíng.", en: "We often camp together.", ko: "우리는 자주 같이 캠핑한다", words: "经常=often / 一起=together / 露营=camp", grammar: "&lt;b&gt;부사 어순&lt;/b&gt;: 经常 → 一起 → 동사 (Set 5 #22 복습)" },
+  { zh: "她很喜欢篮球。", py: "Tā hěn xǐhuān lánqiú.", en: "She loves basketball.", ko: "그녀는 농구를 정말 좋아한다", words: "很喜欢=really like / 篮球=basketball", grammar: "&lt;b&gt;love&lt;/b&gt; → 중국어 &lt;b&gt;很喜欢&lt;/b&gt; (强조된 좋아함). 爱는 가족·연인에 주로 사용" },
+  { zh: "我打网球,她踢足球。", py: "Wǒ dǎ wǎngqiú, tā tī zúqiú.", en: "I play tennis, and she plays soccer.", ko: "나는 테니스, 그녀는 축구를 한다", words: "打=play (with hands) / 网球=tennis / 踢=kick / 足球=soccer", grammar: "&lt;b&gt;打 vs 踢&lt;/b&gt;: 打(손/도구로 치다) - 테니스/농구, 踢(발로 차다) - 축구" },
+  { zh: "每周我们在课上学习一个新话题。", py: "Měi zhōu wǒmen zài kè shàng xuéxí yī gè xīn huàtí.", en: "Every week, we learn about a new topic in class.", ko: "매주 수업에서 새 주제를 배운다", words: "每周=every week / 课上=in class / 学习=study/learn / 话题=topic", grammar: "&lt;b&gt;每周 + 주어 + 在 + 장소 + V + O&lt;/b&gt;. 话题 = 화제, 토픽" },
+  { zh: "你为什么看我的邮件?", py: "Nǐ wèishénme kàn wǒ de yóujiàn?", en: "Why are you reading my emails?", ko: "왜 내 이메일을 읽고 있어?", words: "为什么=why / 看=read / 邮件=email", grammar: "&lt;b&gt;为什么 + V?&lt;/b&gt; = '왜 ~?'. 의문사가 동사 앞 위치" },
+  { zh: "你在用这支笔吗?", py: "Nǐ zài yòng zhè zhī bǐ ma?", en: "Are you using this pen?", ko: "이 펜 쓰고 있어?", words: "用=use / 这支=this (가늘고 긴 것 양사) / 笔=pen", grammar: "&lt;b&gt;支&lt;/b&gt; = 가늘고 긴 것 양사 (펜·연필, Set 5 #23 복습)" },
+  { zh: "今天是星期二吗?", py: "Jīntiān shì xīngqī'èr ma?", en: "Is today Tuesday?", ko: "오늘 화요일이야?", words: "今天=today / 是=is / 星期二=Tuesday", grammar: "&lt;b&gt;요일&lt;/b&gt;: 星期一/二/三/四/五/六 (월/화/수/목/금/토), 星期天 또는 星期日 (일)" },
+  { zh: "等等,汤姆在睡觉吗?", py: "Děngdeng, Tāngmǔ zài shuìjiào ma?", en: "Wait, is Tom sleeping?", ko: "잠깐, 톰 자고 있어?", words: "等等=wait / 汤姆=Tom / 睡觉=sleep", grammar: "&lt;b&gt;在 + V + 吗?&lt;/b&gt; = 'V하고 있어?' 진행형 의문" },
+  { zh: "这里的网络快吗?", py: "Zhèlǐ de wǎngluò kuài ma?", en: "Is the internet fast here?", ko: "여기 인터넷 빨라?", words: "这里的=here's / 网络=internet/network / 快=fast", grammar: "&lt;b&gt;장소 + 的 + N + 형용사 + 吗?&lt;/b&gt;. 网络 = 인터넷, 네트워크" },
+  { zh: "你爸爸为什么坐在那边?", py: "Nǐ bàba wèishénme zuò zài nàbiān?", en: "Why is your dad sitting over there?", ko: "네 아빠 왜 저쪽에 앉아있어?", words: "你爸爸=your dad / 为什么=why / 坐在=sitting at / 那边=over there", grammar: "&lt;b&gt;那边&lt;/b&gt; = 저쪽 (那=그/저 + 边=쪽). 这边 = 이쪽" },
+  { zh: "山怎么样?", py: "Shān zěnme yàng?", en: "How are the mountains?", ko: "산은 어때?", words: "山=mountain / 怎么样=how", grammar: "&lt;b&gt;N + 怎么样?&lt;/b&gt; 패턴 (Set 6 #20 복습)" },
+  { zh: "现在天气怎么样?", py: "Xiànzài tiānqì zěnme yàng?", en: "How is the weather right now?", ko: "지금 날씨 어때?", words: "现在=now / 天气=weather / 怎么样=how", grammar: "Set 6 패턴 + 시간 표현 추가" },
+  { zh: "你的假期怎么样?", py: "Nǐ de jiàqī zěnme yàng?", en: "How is your vacation?", ko: "휴가 어때?", words: "你的=your / 假期=vacation", grammar: "&lt;b&gt;假期&lt;/b&gt; = 휴가 (假=쉬다 + 期=기간)" },
+  { zh: "你有儿子吗?", py: "Nǐ yǒu érzi ma?", en: "Do you have a son?", ko: "아들 있어?", words: "你=you / 有=have / 儿子=son / 吗=?", grammar: "&lt;b&gt;有 + N + 吗?&lt;/b&gt; = '~ 있어?' 소유 의문" },
+  { zh: "你哥哥是单身吗?", py: "Nǐ gēge shì dānshēn ma?", en: "Is your brother single?", ko: "오빠/형 미혼이야?", words: "哥哥=older brother / 是=is / 单身=single", grammar: "&lt;b&gt;哥哥&lt;/b&gt; = 형/오빠. 弟弟 = 남동생. 姐姐 = 누나/언니. 妹妹 = 여동생" },
+  { zh: "马克斯画画画得好吗?", py: "Mǎkèsī huà huà huà de hǎo ma?", en: "Does Max draw well?", ko: "맥스는 그림 잘 그려?", words: "马克斯=Max / 画画=draw / 画得=draws / 好=well", grammar: "&lt;b&gt;V + O + V + 得 + 부사 + 吗?&lt;/b&gt; 정도 보어 의문 (Set 6 #32 패턴)" },
+  { zh: "他们没有在看书。", py: "Tāmen méiyǒu zài kàn shū.", en: "They are not reading.", ko: "그들은 책을 안 읽고 있어", words: "他们=they / 没有在=not V-ing / 看书=read", grammar: "&lt;b&gt;没有在 + V&lt;/b&gt; 진행 부정 (Set 6 복습)" },
+  { zh: "他没有在图书馆学习。", py: "Tā méiyǒu zài túshūguǎn xuéxí.", en: "He is not studying at the library.", ko: "그는 도서관에서 공부하고 있지 않아", words: "图书馆=library / 学习=study", grammar: "&lt;b&gt;没有 + 在 + 장소 + V&lt;/b&gt;. 图书馆 = 책(图书) + 건물(馆)" },
+  { zh: "我们没有在冲浪。", py: "Wǒmen méiyǒu zài chōnglàng.", en: "We are not surfing.", ko: "우리는 서핑하고 있지 않아", words: "(Set 6 패턴 복습)", grammar: "진행 부정 기본 패턴" },
+  { zh: "对不起,我不想要。", py: "Duìbuqǐ, wǒ bù xiǎng yào.", en: "Sorry, but no, I don't want it.", ko: "미안한데, 안 갖고 싶어", words: "对不起=sorry / 不想要=don't want", grammar: "&lt;b&gt;不 + 想 + 要&lt;/b&gt; = '갖고 싶지 않다'. 想要(원하다)의 부정" },
+  { zh: "我现在没有在海滩放松。", py: "Wǒ xiànzài méiyǒu zài hǎitān fàngsōng.", en: "I am not relaxing on the beach right now.", ko: "지금 해변에서 쉬고 있지 않아", words: "现在=now / 海滩=beach / 放松=relax", grammar: "&lt;b&gt;시간 + 没有在 + 장소 + V&lt;/b&gt;" },
+  { zh: "他个子很矮。", py: "Tā gèzi hěn ǎi.", en: "He's very short.", ko: "그는 키가 작다", words: "他=he / 个子=height/build / 很矮=short", grammar: "&lt;b&gt;个子 + 高/矮&lt;/b&gt; = 키가 크다/작다. 키 표현 전용 패턴" },
+  { zh: "我有金色的头发。", py: "Wǒ yǒu jīnsè de tóufa.", en: "I have blonde hair.", ko: "나는 금발이야", words: "金色=golden/blonde / 头发=hair", grammar: "&lt;b&gt;有 + 색깔 + 的 + 신체부위&lt;/b&gt;. 黑色(검정), 棕色(갈색), 红色(빨강)" },
+  { zh: "我有蓝色的眼睛。", py: "Wǒ yǒu lánsè de yǎnjing.", en: "I have blue eyes.", ko: "나는 파란 눈이야", words: "蓝色=blue / 眼睛=eyes", grammar: "&lt;b&gt;有 + 蓝色的 + 眼睛&lt;/b&gt;. Set 5 #38 패턴 응용" },
+  { zh: "你的枕头太硬了。", py: "Nǐ de zhěntou tài yìng le.", en: "Your pillow is too hard.", ko: "네 베개가 너무 딱딱해", words: "枕头=pillow / 太硬了=too hard", grammar: "&lt;b&gt;太 + 형용사 + 了&lt;/b&gt; (Set 1 #13 복습)" },
+  { zh: "这些椅子真硬。", py: "Zhèxiē yǐzi zhēn yìng.", en: "These chairs are really hard.", ko: "이 의자들 정말 딱딱해", words: "这些=these / 椅子=chair / 真=really / 硬=hard", grammar: "&lt;b&gt;真 + 형용사&lt;/b&gt; = '정말 ~하다'. 很(형식) vs 真(진정)" },
+  { zh: "是的,她是我的阿姨。", py: "Shì de, tā shì wǒ de āyí.", en: "Yes, she's my aunt.", ko: "응, 그녀는 내 이모야", words: "是的=yes / 阿姨=aunt (mom's side)", grammar: "&lt;b&gt;阿姨&lt;/b&gt; = 이모/엄마 친구. 姑姑 = 고모. 婶婶 = 작은어머니" },
+  { zh: "他是你的叔叔吗?", py: "Tā shì nǐ de shūshu ma?", en: "Is he your uncle?", ko: "그는 네 삼촌이야?", words: "他=he / 叔叔=uncle", grammar: "&lt;b&gt;叔叔&lt;/b&gt; = 작은아버지/삼촌. 伯伯 = 큰아버지. 舅舅 = 외삼촌" },
+  { zh: "我有一个非常漂亮的妻子。", py: "Wǒ yǒu yī gè fēicháng piàoliang de qīzi.", en: "I have a very beautiful wife.", ko: "내 아내는 정말 예뻐", words: "非常=very / 漂亮=beautiful / 妻子=wife", grammar: "&lt;b&gt;非常&lt;/b&gt; = 매우 (很 < 非常 < 太). &lt;b&gt;妻子&lt;/b&gt; = 아내. 丈夫 = 남편" },
+  { zh: "我妈妈有蓝色的眼睛。", py: "Wǒ māma yǒu lánsè de yǎnjing.", en: "My mom has blue eyes.", ko: "엄마는 파란 눈이야", words: "妈妈=mom / 蓝色=blue / 眼睛=eyes", grammar: "&lt;b&gt;가족 호칭&lt;/b&gt;: 妈妈(엄마), 爸爸(아빠), 爷爷(할아버지), 奶奶(할머니)" },
+  { zh: "篮球是你最喜欢的运动吗?", py: "Lánqiú shì nǐ zuì xǐhuān de yùndòng ma?", en: "Is basketball your favorite sport?", ko: "농구가 가장 좋아하는 스포츠야?", words: "篮球=basketball / 最喜欢的=favorite / 运动=sport", grammar: "&lt;b&gt;N + 是 + 你最喜欢的 + N + 吗?&lt;/b&gt; (Set 5 패턴 응용)" },
+  { zh: "我喜欢足球,你呢?", py: "Wǒ xǐhuān zúqiú, nǐ ne?", en: "I like soccer and you?", ko: "나는 축구 좋아해, 너는?", words: "喜欢=like / 足球=soccer / 你呢=and you?", grammar: "&lt;b&gt;你呢?&lt;/b&gt; = '너는?' (질문을 되묻는 간단한 표현). 我呢? = 나는?" },
+  { zh: "你在录视频,对吧?", py: "Nǐ zài lù shìpín, duì ba?", en: "You're taking a video, right?", ko: "영상 찍고 있는 거 맞지?", words: "录视频=take video / 对吧=right?", grammar: "&lt;b&gt;对吧?&lt;/b&gt; = '맞지?' (对吗?와 비슷, 더 친근한 톤)" },
+  { zh: "我在拍照。", py: "Wǒ zài pāizhào.", en: "I'm taking a picture.", ko: "사진 찍고 있어", words: "拍照=take a photo", grammar: "&lt;b&gt;拍照&lt;/b&gt; 기본 표현 (Set 6 패턴)" },
+  { zh: "这是一张山的照片。", py: "Zhè shì yī zhāng shān de zhàopiàn.", en: "Here is a photo of the mountain.", ko: "여기 산 사진 있어", words: "这是=this is / 一张=a (사진 양사) / 山=mountain / 照片=photo", grammar: "&lt;b&gt;一张 + N + 的 + 照片&lt;/b&gt; = 'N의 사진'" },
+  { zh: "我在给玛丽亚拍照。", py: "Wǒ zài gěi Mǎlìyà pāizhào.", en: "I'm taking a photo of Maria.", ko: "마리아 사진 찍고 있어", words: "给=for / 玛丽亚=Maria", grammar: "&lt;b&gt;给 + 사람 + 拍照&lt;/b&gt; (Set 6 #17 패턴 복습)" },
+  { zh: "我和家人在露营。", py: "Wǒ hé jiārén zài lùyíng.", en: "I'm camping with my family.", ko: "가족이랑 캠핑하고 있어", words: "和=with / 家人=family / 露营=camp", grammar: "&lt;b&gt;我和 N 在 + V&lt;/b&gt; (Set 6 #15 패턴 복습)" },
+  { zh: "我们在山附近露营。", py: "Wǒmen zài shān fùjìn lùyíng.", en: "We are camping near the mountain.", ko: "우리는 산 근처에서 캠핑하고 있어", words: "山=mountain / 附近=nearby / 露营=camp", grammar: "&lt;b&gt;在 + N + 附近 + V&lt;/b&gt; = 'N 근처에서 V'. 附近 = 근처 (Set 5 #36 복습)" },
+  { zh: "我们在河边徒步。", py: "Wǒmen zài hé biān túbù.", en: "We are hiking near the river.", ko: "강가에서 하이킹하고 있어", words: "河边=riverside / 徒步=hike", grammar: "&lt;b&gt;在 + 河边 + V&lt;/b&gt;. 河边(강가, Set 6 #3 복습)" },
+  { zh: "詹姆斯在喝河水。", py: "Zhānmǔsī zài hē héshuǐ.", en: "James is drinking water from the river.", ko: "제임스는 강물을 마시고 있다", words: "詹姆斯=James / 喝=drink / 河水=river water", grammar: "&lt;b&gt;喝 + 河水&lt;/b&gt;. 河水 = 강물 (Set 6 #25 복습)" },
+  { zh: "一只熊在我们的帐篷旁边走。", py: "Yī zhī xióng zài wǒmen de zhàngpeng pángbiān zǒu.", en: "A bear is walking near our tent.", ko: "곰이 우리 텐트 옆에서 걷고 있어", words: "一只熊=a bear / 帐篷=tent / 旁边=beside / 走=walk", grammar: "&lt;b&gt;在 + N + 旁边 + V&lt;/b&gt; = 'N 옆에서 V'" },
+  { zh: "熊真的是很可怕的动物!", py: "Xióng zhēn de shì hěn kěpà de dòngwù!", en: "Bears are really scary animals!", ko: "곰은 정말 무서운 동물이야!", words: "熊=bear / 真的=really / 可怕=scary / 动物=animal", grammar: "&lt;b&gt;真的是 + 很 + 형용사 + 的 + N&lt;/b&gt;. 真的 = 정말 (강조)" },
+  { zh: "天哪,我有二十封新邮件!", py: "Tiān na, wǒ yǒu èrshí fēng xīn yóujiàn!", en: "Oh no, I have twenty new emails!", ko: "이런, 새 이메일이 20개야!", words: "天哪=oh no / 二十=20 / 封=(편지 양사) / 邮件=email", grammar: "&lt;b&gt;封&lt;/b&gt; = 편지/이메일 양사. &lt;b&gt;天哪&lt;/b&gt; = 이런/세상에 (감탄사)" },
+  { zh: "我需要我的钱包。", py: "Wǒ xūyào wǒ de qiánbāo.", en: "I need my wallet.", ko: "지갑이 필요해", words: "需要=need / 钱包=wallet", grammar: "&lt;b&gt;钱包&lt;/b&gt; = 돈(钱) + 가방(包) = 지갑" },
+  { zh: "我们需要更多草莓。", py: "Wǒmen xūyào gèng duō cǎoméi.", en: "We need more strawberries.", ko: "딸기가 더 필요해", words: "更多=more / 草莓=strawberry", grammar: "&lt;b&gt;更多 + N&lt;/b&gt; = '더 많은 N' (Set 4 #14 복습)" },
+  { zh: "我需要预订。", py: "Wǒ xūyào yùdìng.", en: "I need a reservation.", ko: "예약이 필요해", words: "需要=need / 预订=reservation", grammar: "&lt;b&gt;预订&lt;/b&gt; = 미리(预) + 정하다(订) = 예약하다" },
+  { zh: "我们爬山需要新衣服。", py: "Wǒmen pá shān xūyào xīn yīfu.", en: "We need new clothes for the mountains.", ko: "등산하려면 새 옷이 필요해", words: "爬山=climb mountain / 新=new / 衣服=clothes", grammar: "&lt;b&gt;V1 + 需要 + N&lt;/b&gt; (Set 5 #26 패턴 응용)" },
+  { zh: "今天是我的生日。", py: "Jīntiān shì wǒ de shēngrì.", en: "Today is my birthday.", ko: "오늘은 내 생일이야", words: "今天=today / 生日=birthday", grammar: "&lt;b&gt;今天 + 是 + N&lt;/b&gt; = '오늘은 ~이다' (날짜·기념일 표현)" },
+  { zh: "这是我最喜欢的咖啡店。我很喜欢这里的饮料。", py: "Zhè shì wǒ zuì xǐhuān de kāfēi diàn. Wǒ hěn xǐhuān zhèlǐ de yǐnliào.", en: "This is my favorite coffee shop. I love the drinks here.", ko: "여기가 내가 가장 좋아하는 카페야. 여기 음료가 너무 좋아", words: "咖啡店=coffee shop / 这里的=here's / 饮料=drinks", grammar: "&lt;b&gt;最喜欢的 + N&lt;/b&gt; (Set 5 #29 복습). 咖啡店 = 커피(咖啡) + 가게(店)" },
+  { zh: "现在两点半,我们迟到了。", py: "Xiànzài liǎng diǎn bàn, wǒmen chídào le.", en: "It's two thirty and we're late.", ko: "지금 2시 30분이야, 우리 늦었어", words: "两点半=2:30 / 迟到=late / 了=상태 변화", grammar: "&lt;b&gt;시간 + 半&lt;/b&gt; = '~시 반' (两点半 = 2:30). 迟到了 = 늦게 됐다 (변화의 了)" },
+  { zh: "我的食物在地上。", py: "Wǒ de shíwù zài dì shàng.", en: "My food is on the ground.", ko: "내 음식이 땅에 있어", words: "食物=food / 地上=on the ground", grammar: "&lt;b&gt;地上&lt;/b&gt; (Set 6 #39 복습)" },
+  { zh: "[奥斯卡和他的朋友露西坐在公园里。]", py: "[Àosīkǎ hé tā de péngyou Lùxī zuò zài gōngyuán lǐ.]", en: "[Oscar and his friend, Lucy, are sitting in the park.]", ko: "[오스카와 친구 루시가 공원에 앉아 있다]", words: "奥斯卡=Oscar / 朋友=friend / 露西=Lucy / 坐在=sitting at / 公园=park", grammar: "&lt;b&gt;A 和 B 坐在 + 장소&lt;/b&gt; = 'A와 B가 ~에 앉아 있다'" },
+  { zh: "[奥斯卡在画露西。]", py: "[Àosīkǎ zài huà Lùxī.]", en: "[Oscar is painting Lucy.]", ko: "[오스카가 루시를 그리고 있다]", words: "在=-ing / 画=paint", grammar: "&lt;b&gt;在 + 画 + 사람&lt;/b&gt; = '~를 그리는 중'" },
+  { zh: "[Oscar] 好了,你现在可以看画了!你喜欢吗?", py: "Hǎo le, nǐ xiànzài kěyǐ kàn huà le! Nǐ xǐhuān ma?", en: "[Oscar] OK, you can look at the painting now! Do you like it?", ko: "[Oscar] 다 됐어, 이제 그림 봐도 돼! 마음에 들어?", words: "好了=OK / 现在=now / 可以=can / 看=look at / 画=painting", grammar: "&lt;b&gt;好了&lt;/b&gt; = 끝/완료 + &lt;b&gt;可以 + V + 了&lt;/b&gt; = '~할 수 있게 됐다'" },
+  { zh: "[奥斯卡把画给露西看。]", py: "[Àosīkǎ bǎ huà gěi Lùxī kàn.]", en: "[Oscar shows Lucy the painting.]", ko: "[오스카가 루시에게 그림을 보여준다]", words: "把=(처치 표시) / 画=painting / 给=to / 看=look at", grammar: "&lt;b&gt;把 + O + 给 + 사람 + 看&lt;/b&gt; = '~에게 ~을 보여주다' (把 처치문)" },
+  { zh: "[Lucy] 为什么我的头发是蓝色的?", py: "Wèishénme wǒ de tóufa shì lánsè de?", en: "[Lucy] Why is my hair blue in the painting?", ko: "[Lucy] 왜 내 머리카락이 파란색이야?", words: "为什么=why / 头发=hair / 蓝色=blue", grammar: "&lt;b&gt;为什么 + 주어 + 是 + 색깔 + 的?&lt;/b&gt;. 是...的 강조 구조" },
+  { zh: "[Oscar] 我有很多蓝色颜料。", py: "Wǒ yǒu hěn duō lánsè yánliào.", en: "[Oscar] I have a lot of blue paint.", ko: "[Oscar] 파란 물감이 많아서", words: "很多=a lot / 蓝色=blue / 颜料=paint", grammar: "&lt;b&gt;有 + 很多 + N&lt;/b&gt; = '많은 N이 있다'. 颜料 = 안료, 물감" },
+  { zh: "[Lucy] 那为什么我的头那么大?", py: "Nà wèishénme wǒ de tóu nàme dà?", en: "[Lucy] And why is my head so big?", ko: "[Lucy] 근데 왜 내 머리가 그렇게 커?", words: "那=well/then / 为什么=why / 头=head / 那么大=so big", grammar: "&lt;b&gt;那么 + 형용사&lt;/b&gt; = '그렇게/저렇게 ~'. 这么 = 이렇게" },
+  { zh: "[Oscar] 我不知道,问你父母。", py: "Wǒ bù zhīdào, wèn nǐ fùmǔ.", en: "[Oscar] I don't know. Ask your parents.", ko: "[Oscar] 몰라, 부모님께 물어봐", words: "不知道=don't know / 问=ask / 父母=parents", grammar: "&lt;b&gt;不知道&lt;/b&gt; = 모른다. 父母 = 부모 (父=아빠, 母=엄마)" },
+  { zh: "[Lucy] 我的鼻子才不是那样的。", py: "Wǒ de bízi cái bù shì nàyàng de.", en: "[Lucy] My nose doesn't look like that.", ko: "[Lucy] 내 코는 저렇지 않아", words: "鼻子=nose / 才=actually/really / 那样=like that", grammar: "&lt;b&gt;才不是&lt;/b&gt; = '결코 ~아니다' (강한 부정). 那样 = 저렇게/저런 모양" },
+  { zh: "[Oscar] 是的!你的鼻子很好看!", py: "Shì de! Nǐ de bízi hěn hǎokàn!", en: "[Oscar] Yes, it does! You have a nice nose!", ko: "[Oscar] 맞다구! 네 코 예뻐!", words: "是的=yes / 鼻子=nose / 好看=nice-looking", grammar: "&lt;b&gt;好看&lt;/b&gt; = 예쁘다 (好=좋다 + 看=보다). 好吃(맛있다), 好喝(맛있다-음료)" },
+  { zh: "[Lucy] 嗯,我的鼻子是很好看。", py: "Èn, wǒ de bízi shì hěn hǎokàn.", en: "[Lucy] Yes, I do have a nice nose.", ko: "[Lucy] 음, 내 코 예쁘긴 하지", words: "嗯=hmm/yes / 是=indeed", grammar: "&lt;b&gt;是 + 형용사&lt;/b&gt; = '확실히/정말 ~하다' (是로 강조)" },
+  { zh: "[Lucy] 但是画里的鼻子不好看。", py: "Dànshì huà lǐ de bízi bù hǎokàn.", en: "[Lucy] But it doesn't look nice in the painting.", ko: "[Lucy] 근데 그림 속 코는 안 예뻐", words: "但是=but / 画里=in the painting / 不好看=not nice", grammar: "&lt;b&gt;N + 里 + 的 + N&lt;/b&gt; = 'N 안의 N'. 画里的鼻子 = 그림 속의 코" },
+  { zh: "[Oscar] 你到底要不要这幅画?", py: "Nǐ dàodǐ yào bú yào zhè fú huà?", en: "[Oscar] Do you want the painting or not?", ko: "[Oscar] 그래서 그림 살 거야 말 거야?", words: "到底=on earth/anyway / 要不要=want or not / 这幅画=this painting", grammar: "&lt;b&gt;到底&lt;/b&gt; = 도대체/결국. &lt;b&gt;V + 不 + V&lt;/b&gt; 정반의문문 (要不要=원해 안 원해). &lt;b&gt;幅&lt;/b&gt; = 그림 양사" },
+  { zh: "[一个男人停下来看这幅画。]", py: "[Yī gè nánrén tíng xiàlái kàn zhè fú huà.]", en: "[A man stops and looks at the painting.]", ko: "[한 남자가 멈추고 그림을 본다]", words: "男人=man / 停下来=stop / 看=look at / 幅=(그림 양사)", grammar: "&lt;b&gt;停下来&lt;/b&gt; = 멈추다 (停=멈추다 + 下来=방향 보어, 동작의 정지)" },
+  { zh: "[Man] 画得真好!我能花一百美元买吗?", py: "Huà de zhēn hǎo! Wǒ néng huā yī bǎi měiyuán mǎi ma?", en: "[Man] That's really good! Can I buy it for one hundred dollars?", ko: "[Man] 정말 잘 그렸네요! 100달러에 살 수 있을까요?", words: "画得=drawn / 真好=really good / 能=can / 花=spend / 一百美元=100 dollars / 买=buy", grammar: "&lt;b&gt;花 + 금액 + V&lt;/b&gt; = '~돈 들여 V하다'. 美元 = 달러" },
+  { zh: "[露西拿起画。]", py: "[Lùxī ná qǐ huà.]", en: "[Lucy takes the painting.]", ko: "[루시가 그림을 들어 올린다]", words: "拿起=pick up", grammar: "&lt;b&gt;拿起&lt;/b&gt; = 들어 올리다 (拿=들다 + 起=방향 보어, 위로)" },
+  { zh: "[Lucy] 这是我的画,要两百美元。", py: "Zhè shì wǒ de huà, yào liǎng bǎi měiyuán.", en: "[Lucy] It's my painting, and it's two hundred dollars.", ko: "[Lucy] 이건 내 그림이고, 200달러예요", words: "这是=this is / 我的=my / 画=painting / 要=needs/costs / 两百美元=200 dollars", grammar: "&lt;b&gt;要 + 금액&lt;/b&gt; = '~원이다/필요하다' (가격 표현). 两百 = 200 (两 + 百)" },
+];
+
+const patterns7 = [
+  { name: "1. 진행형 + 의문사 (在 V 什么?)", desc: "&lt;code&gt;주어 + 在 + V + 什么?&lt;/code&gt; = '뭐 V하고 있어?'&lt;br&gt;• 你在画什么? (뭐 그려?)&lt;br&gt;• 他在画什么? (그는 뭐 그려?)&lt;br&gt;💡 의문사 &lt;b&gt;什么는 동사 뒤&lt;/b&gt; 위치" },
+  { name: "2. 새 양사 정리", desc: "이번 Set 새 양사:&lt;br&gt;• &lt;code&gt;台&lt;/code&gt; → 기계 (一台相机/电脑)&lt;br&gt;• &lt;code&gt;门&lt;/code&gt; → 과목/언어 (一门语言)&lt;br&gt;• &lt;code&gt;种&lt;/code&gt; → 종류 (三种语言)&lt;br&gt;• &lt;code&gt;封&lt;/code&gt; → 편지/이메일 (一封邮件)&lt;br&gt;• &lt;code&gt;幅&lt;/code&gt; → 그림 (一幅画)" },
+  { name: "3. 会 + V (학습된 능력)", desc: "&lt;code&gt;会 + 동사&lt;/code&gt; = '~할 줄 안다' (배워서 가능)&lt;br&gt;• 我会说中文 (중국어 할 줄 알아)&lt;br&gt;💡 &lt;b&gt;会&lt;/b&gt;(배운 능력) vs &lt;b&gt;能&lt;/b&gt;(가능/조건) vs &lt;b&gt;可以&lt;/b&gt;(허락)" },
+  { name: "4. 정도 보어 동사 반복", desc: "목적어 있을 때 동사 반복:&lt;br&gt;• &lt;code&gt;O + V + 得 + 부사&lt;/code&gt;: 中文说得很好&lt;br&gt;• &lt;code&gt;V + O + V + 得 + 부사&lt;/code&gt;: 说中文说得很好&lt;br&gt;예: 画画画得好 (그림 잘 그린다)" },
+  { name: "5. 키·외모 표현", desc: "&lt;code&gt;个子 + 高/矮&lt;/code&gt; = 키가 크다/작다&lt;br&gt;&lt;code&gt;有 + 색깔 + 的 + 신체부위&lt;/code&gt;:&lt;br&gt;• 我有蓝色的眼睛 (파란 눈)&lt;br&gt;• 我有金色的头发 (금발)" },
+  { name: "6. 가족 호칭 정리", desc: "• &lt;code&gt;爸爸/妈妈&lt;/code&gt; = 아빠/엄마&lt;br&gt;• &lt;code&gt;哥哥/弟弟&lt;/code&gt; = 형/남동생&lt;br&gt;• &lt;code&gt;姐姐/妹妹&lt;/code&gt; = 누나/여동생&lt;br&gt;• &lt;code&gt;叔叔/阿姨&lt;/code&gt; = 삼촌/이모&lt;br&gt;• &lt;code&gt;妻子/丈夫&lt;/code&gt; = 아내/남편" },
+  { name: "7. 정도 부사 강도 비교", desc: "약함 → 강함:&lt;br&gt;• &lt;code&gt;很&lt;/code&gt; (형식) → 我很好&lt;br&gt;• &lt;code&gt;真&lt;/code&gt; (진짜) → 真好&lt;br&gt;• &lt;code&gt;非常&lt;/code&gt; (매우) → 非常漂亮&lt;br&gt;• &lt;code&gt;太...了&lt;/code&gt; (너무) → 太好了!" },
+  { name: "8. 你呢? (너는?)", desc: "&lt;code&gt;A. 我...&lt;br&gt;B. 你呢?&lt;/code&gt; = 'A: 나는~. B: 너는?'&lt;br&gt;예: 我喜欢足球,你呢? (나는 축구 좋아, 너는?)&lt;br&gt;💡 짧고 자연스러운 대화 표현" },
+  { name: "9. 把 처치문 (물건 처리)", desc: "&lt;code&gt;주어 + 把 + O + V&lt;/code&gt; = 'O를 V하다' (영향 강조)&lt;br&gt;• 把画给露西看 (그림을 루시에게 보여주다)&lt;br&gt;• 把书放在桌子上 (책을 책상에 놓다)&lt;br&gt;💡 일반 SVO보다 처리·영향을 강조할 때 사용" },
+  { name: "10. V + 不 + V? (정반의문문)", desc: "&lt;code&gt;V + 不 + V?&lt;/code&gt; = 'V해 안 해?'&lt;br&gt;• 要不要? (원해 안 원해?)&lt;br&gt;• 是不是? (맞아 안 맞아?)&lt;br&gt;• 好不好? (괜찮아 안 괜찮아?)&lt;br&gt;💡 吗?보다 더 직접적인 질문" },
+  { name: "11. 방향 보어 拿起/停下来", desc: "&lt;code&gt;V + 起/下来&lt;/code&gt; = 동작 방향/완료&lt;br&gt;• 拿起 = 들어 올리다 (위로)&lt;br&gt;• 停下来 = 멈추다 (정지)&lt;br&gt;• 坐下 = 앉다 (아래로)&lt;br&gt;💡 走进, 进来, 过来와 같은 방향 보어 계열" },
+  { name: "12. 가격·금액 표현", desc: "&lt;code&gt;要 + 금액&lt;/code&gt; = '~원이다' (가격)&lt;br&gt;&lt;code&gt;花 + 금액 + V&lt;/code&gt; = '~돈 들여 V하다'&lt;br&gt;• 要两百美元 (200달러)&lt;br&gt;• 花一百美元买 (100달러에 사다)&lt;br&gt;💡 美元(달러), 人民币(위안), 韩元(원)" },
+  { name: "13. 这么 vs 那么 (이렇게/저렇게)", desc: "&lt;code&gt;这么 + 형용사&lt;/code&gt; = '이렇게 ~'&lt;br&gt;&lt;code&gt;那么 + 형용사&lt;/code&gt; = '저렇게/그렇게 ~'&lt;br&gt;예: 你的头那么大 (네 머리 그렇게 커)" },
+  { name: "14. 好看/好吃/好喝 (좋다 + 감각)", desc: "&lt;code&gt;好 + 감각동사&lt;/code&gt; = '~기 좋다'&lt;br&gt;• &lt;code&gt;好看&lt;/code&gt; = 예쁘다 (보기 좋다)&lt;br&gt;• &lt;code&gt;好吃&lt;/code&gt; = 맛있다 (먹기 좋다)&lt;br&gt;• &lt;code&gt;好喝&lt;/code&gt; = 맛있다 (음료, 마시기 좋다)&lt;br&gt;• &lt;code&gt;好听&lt;/code&gt; = 듣기 좋다" },
+];
+
 const patterns6 = [
   { name: "1. 진행형 부정 (没有在/没在 + V)", desc: "&lt;code&gt;没有在 + V&lt;/code&gt; = '~하고 있지 않다' (진행 부정)&lt;br&gt;• 他没有站在蛇旁边&lt;br&gt;• 她没有在冲浪&lt;br&gt;💡 &lt;b&gt;不在 + V&lt;/b&gt;(의지 부정) vs &lt;b&gt;没有在 + V&lt;/b&gt;(진행 부정)" },
   { name: "2. 날씨 표현 (下雪/下雨)", desc: "&lt;code&gt;下 + 날씨&lt;/code&gt; = '~이 내리다'&lt;br&gt;• &lt;code&gt;下雪&lt;/code&gt; = 눈 오다 (下+雪)&lt;br&gt;• &lt;code&gt;下雨&lt;/code&gt; = 비 오다 (下+雨)&lt;br&gt;💡 &lt;b&gt;还在下雪&lt;/b&gt; = 아직도 눈 오고 있어 (还在+V)" },
@@ -719,11 +829,12 @@ const setData = {
   4: { sentences: set4, patterns: patterns4, info: "&lt;strong&gt;Set 4&lt;/strong&gt;: 일상 / 음식 / 운동 / 날씨 / 외부·내부 / 진행형 종합" },
   5: { sentences: set5, patterns: patterns5, info: "&lt;strong&gt;Set 5&lt;/strong&gt;: 진행형/필요/지시사/대화문 - 49개 + 대화 20줄" },
   6: { sentences: set6, patterns: patterns6, info: "&lt;strong&gt;Set 6&lt;/strong&gt;: 진행형 부정 / 날씨 / 위치 전치사 / 양사 2탄 / 사진 표현" },
+  7: { sentences: set7, patterns: patterns7, info: "&lt;strong&gt;Set 7&lt;/strong&gt;: 진행형/현재형/의문문/가족/그림 대화 - 68개 + 대화 17줄" },
 };
 
-let currentSet = 6;
-let sentences = setData[6].sentences;
-let currentPatterns = setData[6].patterns;
+let currentSet = 7;
+let sentences = setData[7].sentences;
+let currentPatterns = setData[7].patterns;
 let stopRequested = false;
 let startLang = 'zh'; // 'zh' or 'en' - which language plays first
 
@@ -753,7 +864,7 @@ function switchSet(setNum) {
   currentSet = setNum;
   sentences = setData[setNum].sentences;
   currentPatterns = setData[setNum].patterns;
-  [1, 2, 3, 4, 5, 6].forEach(n => {
+  [1, 2, 3, 4, 5, 6, 7].forEach(n => {
     const tab = document.getElementById(`tab-${n}`);
     if (tab) tab.classList.toggle('active', n === setNum);
   });
