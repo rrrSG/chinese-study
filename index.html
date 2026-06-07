@@ -20,7 +20,7 @@
 <meta name="googlebot" content="noindex, nofollow">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<!-- Build version: 1780827559 -->
+<!-- Build version: 1780828356 -->
 <title>중국어 음성 학습 플레이어 (통합)</title>
 <style>
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -915,6 +915,48 @@ let sentences = setData[8].sentences;
 let currentPatterns = setData[8].patterns;
 let stopRequested = false;
 let startLang = 'zh'; // 'zh' or 'en' - which language plays first
+let wakeLock = null; // 화면 깨우기 잠금 (운전 중 화면 꺼짐 방지)
+
+// 화면 꺼짐 방지 활성화
+async function enableWakeLock() {
+  try {
+    if ('wakeLock' in navigator) {
+      wakeLock = await navigator.wakeLock.request('screen');
+      console.log('화면 잠금 활성화됨');
+      
+      // 페이지가 다시 보이면 자동 재요청 (탭 전환 시 등)
+      wakeLock.addEventListener('release', () => {
+        console.log('화면 잠금 해제됨');
+      });
+    } else {
+      console.log('Wake Lock API 미지원 (iOS 16.4 이상 필요)');
+    }
+  } catch (err) {
+    console.error('Wake Lock 실패:', err);
+  }
+}
+
+// 화면 꺼짐 방지 해제
+async function disableWakeLock() {
+  if (wakeLock !== null) {
+    try {
+      await wakeLock.release();
+      wakeLock = null;
+    } catch (err) {
+      console.error('Wake Lock 해제 실패:', err);
+    }
+  }
+}
+
+// 페이지 visibility 변경 시 wake lock 재요청 (탭 전환 후 돌아왔을 때)
+document.addEventListener('visibilitychange', async () => {
+  if (wakeLock !== null && document.visibilityState === 'visible') {
+    // 재생 중이라면 다시 활성화
+    if (!stopRequested) {
+      await enableWakeLock();
+    }
+  }
+});
 
 function setStartLang(lang) {
   startLang = lang;
@@ -1080,6 +1122,7 @@ async function speakOne(i, lang) {
   stopAll();
   await new Promise(r => setTimeout(r, 100));
   stopRequested = false;
+  await enableWakeLock(); // 화면 꺼짐 방지 시작
   const repeat = parseInt(document.getElementById('repeatSelect').value);
   const pauseMs = parseInt(document.getElementById('pauseSelect').value);
   const langLabel = lang === 'zh' ? '🇨🇳 중국어' : '🇬🇧 영어';
@@ -1105,6 +1148,7 @@ async function playPair(i) {
   stopAll();
   await new Promise(r => setTimeout(r, 100));
   stopRequested = false;
+  await enableWakeLock(); // 화면 꺼짐 방지 시작
   const repeat = parseInt(document.getElementById('repeatSelect').value);
   const pauseMs = parseInt(document.getElementById('pauseSelect').value);
   const firstLang = startLang;
@@ -1147,6 +1191,7 @@ async function playAll() {
   stopAll();
   await new Promise(r => setTimeout(r, 100));
   stopRequested = false;
+  await enableWakeLock(); // 화면 꺼짐 방지 시작
   const repeat = parseInt(document.getElementById('repeatSelect').value);
   const pauseMs = parseInt(document.getElementById('pauseSelect').value);
   const firstLang = startLang;
@@ -1187,6 +1232,7 @@ async function playAll() {
   }
   setCardStage(-1);
   setStatus(stopRequested ? '⏹ 정지됨' : '✅ 전체 재생 완료!');
+  await disableWakeLock(); // 재생 완료 - 화면 잠금 해제
 }
 
 function stopAll() {
@@ -1194,6 +1240,7 @@ function stopAll() {
   speechSynthesis.cancel();
   setCardStage(-1);
   setStatus('⏹ 정지됨');
+  disableWakeLock(); // 화면 꺼짐 방지 해제
 }
 
 if (speechSynthesis.onvoiceschanged !== undefined) {
