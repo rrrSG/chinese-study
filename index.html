@@ -20,7 +20,7 @@
 <meta name="googlebot" content="noindex, nofollow">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<!-- Build version: 1781243093 -->
+<!-- Build version: 1781268990 -->
 <title>중국어 음성 학습 플레이어 (통합)</title>
 <style>
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -916,6 +916,31 @@ let currentPatterns = setData[8].patterns;
 let stopRequested = false;
 let startLang = 'zh'; // 'zh' or 'en' - which language plays first
 let wakeLock = null; // 화면 깨우기 잠금 (운전 중 화면 꺼짐 방지)
+let ttsReady = false; // TTS 엔진이 깨어났는지 (iOS Safari 대응)
+
+// iOS Safari에서 TTS 깨우기 (사용자 첫 터치에서 호출 필수)
+function unlockTTS() {
+  if (ttsReady) return;
+  try {
+    // 빈 발음으로 TTS 엔진 활성화
+    const u = new SpeechSynthesisUtterance('');
+    u.volume = 0;
+    speechSynthesis.speak(u);
+    speechSynthesis.cancel();
+    
+    // voices 미리 로드
+    speechSynthesis.getVoices();
+    
+    ttsReady = true;
+    console.log('TTS 엔진 활성화됨');
+  } catch (e) {
+    console.error('TTS 활성화 실패:', e);
+  }
+}
+
+// 첫 사용자 터치/클릭에서 TTS 깨우기
+document.addEventListener('touchstart', unlockTTS, { once: true });
+document.addEventListener('click', unlockTTS, { once: true });
 
 // 화면 꺼짐 방지 활성화
 async function enableWakeLock() {
@@ -1074,15 +1099,39 @@ function getVoice(langPrefix) {
 function speak(text, lang) {
   return new Promise((resolve) => {
     if (stopRequested) { resolve(); return; }
+    if (!text) { resolve(); return; }
+    
+    // iOS Safari에서 가끔 멈춤 - 재시작
+    if (speechSynthesis.paused) {
+      speechSynthesis.resume();
+    }
+    
     const utter = new SpeechSynthesisUtterance(text);
     utter.lang = lang === 'zh' ? 'zh-CN' : 'en-US';
     const voice = getVoice(lang === 'zh' ? 'zh' : 'en');
     if (voice) utter.voice = voice;
     utter.rate = parseFloat(document.getElementById('speedSelect').value);
-    utter.pitch = 1.0; utter.volume = 1.0;
-    utter.onend = () => resolve();
-    utter.onerror = () => resolve();
-    speechSynthesis.speak(utter);
+    utter.pitch = 1.0; 
+    utter.volume = 1.0;
+    
+    let resolved = false;
+    const finish = () => {
+      if (resolved) return;
+      resolved = true;
+      resolve();
+    };
+    
+    utter.onend = finish;
+    utter.onerror = finish;
+    
+    // 안전망: 너무 길면 강제 종료 (15초)
+    setTimeout(finish, 15000);
+    
+    try {
+      speechSynthesis.speak(utter);
+    } catch (e) {
+      finish();
+    }
   });
 }
 
@@ -1119,6 +1168,7 @@ function setCardStage(i, stage) {
 }
 
 async function speakOne(i, lang) {
+  unlockTTS();
   // 새 패턴: 같은 언어 2번 + 매번 3초 대기
   // 반복 N회 = 2 × N 번 재생
   stopAll();
@@ -1145,6 +1195,7 @@ async function speakOne(i, lang) {
 }
 
 async function playPair(i) {
+  unlockTTS();
   // 새 패턴: 시작언어 2번 → 다른언어 2번 (사이마다 3초)
   // 반복 N회: 위 패턴이 N번 반복
   stopAll();
@@ -1188,6 +1239,7 @@ async function playPair(i) {
 }
 
 async function playAll() {
+  unlockTTS();
   // 새 패턴: 각 문장마다 [시작언어 2번 → 다른언어 2번] (사이마다 3초)
   // 반복 N회: 위 패턴이 N번 반복, 모든 문장 끝나도 3초 대기
   stopAll();
