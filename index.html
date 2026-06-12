@@ -20,7 +20,7 @@
 <meta name="googlebot" content="noindex, nofollow">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<!-- Build version: 1780828356 -->
+<!-- Build version: 1781243093 -->
 <title>중국어 음성 학습 플레이어 (통합)</title>
 <style>
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -919,20 +919,19 @@ let wakeLock = null; // 화면 깨우기 잠금 (운전 중 화면 꺼짐 방지
 
 // 화면 꺼짐 방지 활성화
 async function enableWakeLock() {
+  // Wake Lock은 옵션이라 실패해도 절대 재생을 막지 않음
   try {
-    if ('wakeLock' in navigator) {
+    if (typeof navigator !== 'undefined' && 'wakeLock' in navigator) {
       wakeLock = await navigator.wakeLock.request('screen');
-      console.log('화면 잠금 활성화됨');
-      
-      // 페이지가 다시 보이면 자동 재요청 (탭 전환 시 등)
-      wakeLock.addEventListener('release', () => {
-        console.log('화면 잠금 해제됨');
-      });
-    } else {
-      console.log('Wake Lock API 미지원 (iOS 16.4 이상 필요)');
+      if (wakeLock && wakeLock.addEventListener) {
+        wakeLock.addEventListener('release', () => {
+          // 잠금 해제됨 (조용히)
+        });
+      }
     }
   } catch (err) {
-    console.error('Wake Lock 실패:', err);
+    // Wake Lock 실패해도 무시 - 재생은 계속됨
+    wakeLock = null;
   }
 }
 
@@ -941,20 +940,23 @@ async function disableWakeLock() {
   if (wakeLock !== null) {
     try {
       await wakeLock.release();
-      wakeLock = null;
     } catch (err) {
-      console.error('Wake Lock 해제 실패:', err);
+      // 무시
     }
+    wakeLock = null;
   }
 }
 
 // 페이지 visibility 변경 시 wake lock 재요청 (탭 전환 후 돌아왔을 때)
 document.addEventListener('visibilitychange', async () => {
-  if (wakeLock !== null && document.visibilityState === 'visible') {
-    // 재생 중이라면 다시 활성화
-    if (!stopRequested) {
-      await enableWakeLock();
+  try {
+    if (wakeLock !== null && document.visibilityState === 'visible') {
+      if (!stopRequested) {
+        await enableWakeLock();
+      }
     }
+  } catch (err) {
+    // 무시
   }
 });
 
