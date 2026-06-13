@@ -20,7 +20,7 @@
 <meta name="googlebot" content="noindex, nofollow">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<!-- Build version: 1781269303 -->
+<!-- Build version: 1781355902 -->
 <title>중국어 음성 학습 플레이어 (통합)</title>
 <style>
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -39,7 +39,7 @@
   }
   .set-tabs {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 5px; margin-bottom: 14px;
     background: rgba(255,255,255,0.2); padding: 5px; border-radius: 12px;
   }
@@ -295,11 +295,12 @@
 </head>
 <body>
 <div class="container">
-  <h1>🎧 중국어 학습 플레이어 <span style="font-size:11px;opacity:0.6;font-weight:400;">v9 · Set 1-8</span></h1>
+  <h1>🎧 중국어 학습 플레이어 <span style="font-size:11px;opacity:0.6;font-weight:400;">v10 · Set 1-9</span></h1>
   <div class="subtitle">🇨🇳/🇬🇧 → 3초 → 같은 언어 → 3초 → 다른 언어 → 3초 → 같은 언어 → 3초</div>
 
   <div class="set-tabs">
-    <button class="set-tab active newest" id="tab-8" onclick="switchSet(8)">Set 8<span class="tab-sub">56개 (길찾기)</span></button>
+    <button class="set-tab active newest" id="tab-9" onclick="switchSet(9)">Set 9<span class="tab-sub">128개 (길찾기심화)</span></button>
+    <button class="set-tab" id="tab-8" onclick="switchSet(8)">Set 8<span class="tab-sub">45개 (길찾기)</span></button>
     <button class="set-tab" id="tab-7" onclick="switchSet(7)">Set 7<span class="tab-sub">85개 (그림 대화)</span></button>
     <button class="set-tab" id="tab-6" onclick="switchSet(6)">Set 6<span class="tab-sub">57개 (부정/날씨)</span></button>
     <button class="set-tab" id="tab-5" onclick="switchSet(5)">Set 5<span class="tab-sub">69개 (종합)</span></button>
@@ -820,6 +821,155 @@ const set8 = [
   { zh: "现在玛丽亚和安娜在喝茶,讨论项目。", py: "Xiànzài Mǎlìyà hé Ānnà zài hē chá, tǎolùn xiàngmù.", en: "Right now, Maria and Anna are drinking tea and discussing their project.", ko: "지금 마리아와 안나는 차 마시며 프로젝트를 논의해", words: "喝茶=drink tea / 讨论=discuss / 项目=project", grammar: "복합문 - 두 진행 동작 동시 표현" },
 ];
 
+const set9 = [
+  { zh: "你往前走!", py: "Nǐ wǎng qián zǒu!", en: "Go forward!", ko: "앞으로 가!", words: "你=you / 往前=forward / 走=walk", grammar: "&lt;b&gt;你 + 往 + 방향 + V&lt;/b&gt; = '너 ~로 가' (명령). Set 8 패턴 복습" },
+  { zh: "先往右开!", py: "Xiān wǎng yòu kāi!", en: "First, drive to the right!", ko: "먼저 오른쪽으로 가요!", words: "先=first / 往右=right / 开=drive", grammar: "&lt;b&gt;先 + V&lt;/b&gt; = '먼저 ~' (Set 8 복습)" },
+  { zh: "你应该往前开。", py: "Nǐ yīnggāi wǎng qián kāi.", en: "You should drive forward.", ko: "앞으로 운전해야 해", words: "应该=should / 往前=forward / 开=drive", grammar: "&lt;b&gt;应该 + 往 + 방향 + V&lt;/b&gt;. 应该(Set 8) + 往(Set 8) 결합" },
+  { zh: "别往前走!", py: "Bié wǎng qián zǒu!", en: "Don't go forward!", ko: "앞으로 가지 마!", words: "别=don't / 往前=forward", grammar: "&lt;b&gt;别 + V&lt;/b&gt; 금지 (Set 8). 往前走 = 앞으로 가다" },
+  { zh: "别往右走。", py: "Bié wǎng yòu zǒu.", en: "Don't go right.", ko: "오른쪽으로 가지 마", words: "(Set 8 복습)", grammar: "别 + 往 결합 패턴 반복" },
+  { zh: "我们应该往右转,对不对?", py: "Wǒmen yīnggāi wǎng yòu zhuǎn, duì bú duì?", en: "We should turn right, right?", ko: "오른쪽으로 돌아야 맞지?", words: "应该=should / 往右转=turn right / 对不对=right?", grammar: "&lt;b&gt;应该 + V + 对不对?&lt;/b&gt;. 对不对(Set 3) 확인 의문문" },
+  { zh: "我们应该往左走一百米。", py: "Wǒmen yīnggāi wǎng zuǒ zǒu yī bǎi mǐ.", en: "We should walk 100m to the left.", ko: "왼쪽으로 100m 가야 해", words: "应该=should / 往左走=go left / 一百米=100m", grammar: "&lt;b&gt;应该 + 往 + 방향 + V + 거리&lt;/b&gt;. 거리 포함 명령" },
+  { zh: "现在往左转还是往右转?", py: "Xiànzài wǎng zuǒ zhuǎn háishì wǎng yòu zhuǎn?", en: "Turn left or right now?", ko: "지금 왼쪽으로 돌아 오른쪽으로 돌아?", words: "现在=now / 还是=or", grammar: "&lt;b&gt;还是&lt;/b&gt; 선택 의문문 (Set 4 복습)" },
+  { zh: "刚刚我们不应该往左转。", py: "Gānggāng wǒmen bù yīnggāi wǎng zuǒ zhuǎn.", en: "We shouldn't have turned left just now.", ko: "방금 좌회전하지 말았어야 했어", words: "刚刚=just now", grammar: "&lt;b&gt;刚刚 + 不应该 + V&lt;/b&gt; (Set 8 복습)" },
+  { zh: "我们现在往左开吧。", py: "Wǒmen xiànzài wǎng zuǒ kāi ba.", en: "Let's drive left now.", ko: "지금 왼쪽으로 운전하자", words: "现在=now / 往左开=drive left / 吧=(제안)", grammar: "&lt;b&gt;V + 吧&lt;/b&gt; = '~하자' (제안, Set 2 복습)" },
+  { zh: "往左转还是往右转?", py: "Wǎng zuǒ zhuǎn háishì wǎng yòu zhuǎn?", en: "Turn left or right?", ko: "왼쪽? 오른쪽?", words: "(Set 8 복습)", grammar: "还是 선택 의문문 단순 버전" },
+  { zh: "你们不应该往右转。", py: "Nǐmen bù yīnggāi wǎng yòu zhuǎn.", en: "You shouldn't turn right.", ko: "오른쪽으로 가면 안 돼", words: "你们=you (plural)", grammar: "&lt;b&gt;你们 + 不应该&lt;/b&gt; (Set 8 복습)" },
+  { zh: "我们往前走五百米吗?", py: "Wǒmen wǎng qián zǒu wǔ bǎi mǐ ma?", en: "Shall we walk 500m forward?", ko: "500미터 앞으로 갈까?", words: "五百米=500m", grammar: "&lt;b&gt;V + 거리 + 吗?&lt;/b&gt; 제안 (Set 8 복습)" },
+  { zh: "先往前走三百米然后往左转。", py: "Xiān wǎng qián zǒu sān bǎi mǐ ránhòu wǎng zuǒ zhuǎn.", en: "Walk 300m forward, then turn left.", ko: "먼저 300m 직진하고 왼쪽으로 돌아요", words: "先=first / 然后=then / 三百米=300m", grammar: "&lt;b&gt;先 V1 然后 V2&lt;/b&gt; 순서 표현 (Set 8 복습)" },
+  { zh: "我们先往里走吧。", py: "Wǒmen xiān wǎng lǐ zǒu ba.", en: "Let's go inside first.", ko: "먼저 안으로 들어가자", words: "先=first / 往里=inside", grammar: "&lt;b&gt;先 + 往里 + V + 吧&lt;/b&gt;. 往里走 (Set 8)" },
+  { zh: "我应该往前走吗?", py: "Wǒ yīnggāi wǎng qián zǒu ma?", en: "Should I walk forward?", ko: "앞으로 가야 해?", words: "应该=should", grammar: "&lt;b&gt;应该 + V + 吗?&lt;/b&gt; 확인 질문" },
+  { zh: "往里走!", py: "Wǎng lǐ zǒu!", en: "Go inside!", ko: "안으로 들어가요!", words: "往里=inward", grammar: "Set 8 복습" },
+  { zh: "请问天安门怎么走?", py: "Qǐngwèn Tiān'ānmén zěnme zǒu?", en: "Excuse me, how do I get to Tiananmen?", ko: "실례지만 톈안먼 어떻게 가요?", words: "请问=excuse me / 天安门=Tiananmen", grammar: "&lt;b&gt;请问 + 장소 + 怎么走?&lt;/b&gt; (Set 8 복습)" },
+  { zh: "王明长城怎么走?", py: "Wáng Míng, Chángchéng zěnme zǒu?", en: "Wang Ming, how do I get to the Great Wall?", ko: "왕밍, 만리장성 어떻게 가요?", words: "长城=Great Wall", grammar: "호칭 + 怎么走 (Set 8 복습)" },
+  { zh: "北京大学怎么走?", py: "Běijīng Dàxué zěnme zǒu?", en: "How do I get to Peking University?", ko: "베이징대학 어떻게 가요?", words: "北京大学=Peking University", grammar: "장소 + 怎么走 패턴" },
+  { zh: "这条街怎么走?", py: "Zhè tiáo jiē zěnme zǒu?", en: "How do I get to this street?", ko: "이 길은 어떻게 가요?", words: "这条街=this street", grammar: "&lt;b&gt;这条 + 街 + 怎么走?&lt;/b&gt; (Set 8 복습)" },
+  { zh: "请问,市中心怎么走?", py: "Qǐngwèn, shìzhōngxīn zěnme zǒu?", en: "Excuse me, how do I get downtown?", ko: "실례지만 시내 어떻게 가요?", words: "市中心=downtown", grammar: "市中心 (Set 8) + 请问 + 怎么走" },
+  { zh: "请问故宫怎么走?", py: "Qǐngwèn Gùgōng zěnme zǒu?", en: "Excuse me, how do I get to the Forbidden City?", ko: "실례지만 고궁 어떻게 가요?", words: "故宫=Forbidden City", grammar: "请问 + 故宫 + 怎么走 (Set 8 복습)" },
+  { zh: "长城离这里不远。", py: "Chángchéng lí zhèlǐ bù yuǎn.", en: "The Great Wall is not far from here.", ko: "만리장성은 여기서 멀지 않아", words: "不远=not far", grammar: "&lt;b&gt;A 离 B 不远&lt;/b&gt; = 'A는 B에서 멀지 않다' (离 응용)" },
+  { zh: "北京大学离这里有点儿远。", py: "Běijīng Dàxué lí zhèlǐ yǒu diǎnr yuǎn.", en: "Peking University is a bit far from here.", ko: "베이징대학은 여기서 조금 멀어", words: "有点儿=a bit / 远=far", grammar: "&lt;b&gt;A 离 B 有点儿 + 형용사&lt;/b&gt;. &lt;b&gt;有点儿&lt;/b&gt; = '조금' (불만족스러운 뉘앙스)" },
+  { zh: "故宫离长城远吗?", py: "Gùgōng lí Chángchéng yuǎn ma?", en: "Is the Forbidden City far from the Great Wall?", ko: "고궁은 만리장성에서 멀어?", words: "故宫=Forbidden City / 长城=Great Wall", grammar: "A 离 B 远吗? (Set 8 복습)" },
+  { zh: "北京大学离这里远吗?", py: "Běijīng Dàxué lí zhèlǐ yuǎn ma?", en: "Is Peking University far from here?", ko: "베이징대학 여기서 멀어?", words: "远=far", grammar: "기본 离 의문문" },
+  { zh: "故宫离这里差不多六百米。", py: "Gùgōng lí zhèlǐ chàbuduō liù bǎi mǐ.", en: "The Forbidden City is about 600m from here.", ko: "고궁은 여기서 약 600m야", words: "差不多=about / 六百米=600m", grammar: "差不多 + 거리 (Set 8 복습)" },
+  { zh: "我的酒店离故宫六百米,很近。", py: "Wǒ de jiǔdiàn lí Gùgōng liù bǎi mǐ, hěn jìn.", en: "My hotel is 600m from the Forbidden City, very close.", ko: "내 호텔은 고궁에서 600m, 가까워", words: "酒店=hotel / 很近=very close", grammar: "&lt;b&gt;A 离 B + 거리, 很近&lt;/b&gt; (거리 + 형용사 평가)" },
+  { zh: "这里离故宫一千米。", py: "Zhèlǐ lí Gùgōng yī qiān mǐ.", en: "It's 1000m from here to the Forbidden City.", ko: "여기서 고궁까지 1km야", words: "一千米=1000m", grammar: "&lt;b&gt;这里 离 N + 거리&lt;/b&gt; 패턴" },
+  { zh: "北京大学离这里差不多四百米。", py: "Běijīng Dàxué lí zhèlǐ chàbuduō sì bǎi mǐ.", en: "Peking University is about 400m from here.", ko: "베이징대학은 여기서 약 400m야", words: "四百米=400m", grammar: "差不多 + 거리 패턴" },
+  { zh: "天安门离这里五百米。", py: "Tiān'ānmén lí zhèlǐ wǔ bǎi mǐ.", en: "Tiananmen is 500m from here.", ko: "톈안먼은 여기서 500m야", words: "五百米=500m", grammar: "A 离 B + 거리 기본 패턴" },
+  { zh: "这里离北京大学很近。", py: "Zhèlǐ lí Běijīng Dàxué hěn jìn.", en: "It's very close to Peking University from here.", ko: "여기서 베이징대학 가까워", words: "很近=very close", grammar: "&lt;b&gt;离 + 远/近&lt;/b&gt; (거리 형용사 평가)" },
+  { zh: "长城离故宫近吗?", py: "Chángchéng lí Gùgōng jìn ma?", en: "Is the Great Wall close to the Forbidden City?", ko: "만리장성 고궁에서 가까워?", words: "近=close", grammar: "离 + 近吗? 의문문" },
+  { zh: "他家离北京大学两千米。", py: "Tā jiā lí Běijīng Dàxué liǎng qiān mǐ.", en: "His house is 2000m from Peking University.", ko: "그의 집은 베이징대학에서 2000m야", words: "两千米=2000m", grammar: "两千 (Set 8 복습)" },
+  { zh: "这里离长城特别近。", py: "Zhèlǐ lí Chángchéng tèbié jìn.", en: "It's especially close to the Great Wall from here.", ko: "여기서 만리장성 정말 가까워", words: "特别=especially", grammar: "&lt;b&gt;特别 + 형용사&lt;/b&gt; (Set 3 복습) + 离 결합" },
+  { zh: "故宫离公园两千米。", py: "Gùgōng lí gōngyuán liǎng qiān mǐ.", en: "The Forbidden City is 2000m from the park.", ko: "고궁은 공원에서 2000m야", words: "公园=park", grammar: "기본 离 + 거리" },
+  { zh: "故宫离这里一千米。", py: "Gùgōng lí zhèlǐ yī qiān mǐ.", en: "The Forbidden City is 1000m from here.", ko: "고궁은 여기서 1km야", words: "一千米=1km", grammar: "离 기본 패턴 반복" },
+  { zh: "我们的酒店离那里近吗?", py: "Wǒmen de jiǔdiàn lí nàlǐ jìn ma?", en: "Is our hotel close to there?", ko: "우리 호텔 거기서 가까워?", words: "酒店=hotel / 那里=there", grammar: "A 离 B 近吗? 의문문" },
+  { zh: "故宫离我们的酒店不远。", py: "Gùgōng lí wǒmen de jiǔdiàn bù yuǎn.", en: "The Forbidden City is not far from our hotel.", ko: "고궁은 우리 호텔에서 멀지 않아", words: "不远=not far", grammar: "&lt;b&gt;离 + 不远&lt;/b&gt; (가까움의 다른 표현)" },
+  { zh: "火车站离机场很远。", py: "Huǒchēzhàn lí jīchǎng hěn yuǎn.", en: "The train station is far from the airport.", ko: "기차역은 공항에서 멀어", words: "火车站=train station / 机场=airport / 很远=very far", grammar: "&lt;b&gt;火车站&lt;/b&gt; (Set 5 복습) + 离 + 远" },
+  { zh: "那个饭馆离酒店近吗?", py: "Nàge fànguǎn lí jiǔdiàn jìn ma?", en: "Is that restaurant close to the hotel?", ko: "그 식당 호텔에서 가까워?", words: "饭馆=restaurant", grammar: "那个 + N + 离 + N + 近吗?" },
+  { zh: "商场离这里非常近。", py: "Shāngchǎng lí zhèlǐ fēicháng jìn.", en: "The mall is very close to here.", ko: "쇼핑몰은 여기서 정말 가까워", words: "商场=mall / 非常=very", grammar: "&lt;b&gt;非常 + 형용사&lt;/b&gt; (Set 7 복습) + 离 결합" },
+  { zh: "那条街离这里远吗?", py: "Nà tiáo jiē lí zhèlǐ yuǎn ma?", en: "Is that street far from here?", ko: "그 길 여기서 멀어?", words: "那条街=that street", grammar: "那条 + 街 + 离 패턴" },
+  { zh: "动物园离地铁站特别近。", py: "Dòngwùyuán lí dìtiězhàn tèbié jìn.", en: "The zoo is especially close to the subway station.", ko: "동물원은 지하철역에서 정말 가까워", words: "动物园=zoo / 地铁站=subway station", grammar: "특별 + 近 패턴" },
+  { zh: "我想参观北京大学。", py: "Wǒ xiǎng cānguān Běijīng Dàxué.", en: "I want to visit Peking University.", ko: "베이징대학 가보고 싶어", words: "想=want / 参观=visit / 北京大学=Peking Univ", grammar: "&lt;b&gt;想 + V&lt;/b&gt; = '~하고 싶다' (Set 4 복습). &lt;b&gt;参观&lt;/b&gt; = 방문/관람 (장소·박물관 등)" },
+  { zh: "北京大学特别有名。", py: "Běijīng Dàxué tèbié yǒumíng.", en: "Peking University is especially famous.", ko: "베이징대학은 정말 유명해", words: "特别=especially / 有名=famous", grammar: "&lt;b&gt;特别 + 有名&lt;/b&gt; (Set 3 복습)" },
+  { zh: "我最想去天安门,因为它很漂亮。", py: "Wǒ zuì xiǎng qù Tiān'ānmén, yīnwèi tā hěn piàoliang.", en: "I most want to go to Tiananmen because it's beautiful.", ko: "톈안먼이 제일 가고 싶어. 예쁘니까", words: "最想=want the most / 因为=because / 漂亮=beautiful", grammar: "&lt;b&gt;A, 因为 B&lt;/b&gt; = 'A, B 때문에' (이유 표현 - 핵심 패턴!)" },
+  { zh: "我想去下个月,因为我有事请假。", py: "Wǒ xiǎng qù xià gè yuè, yīnwèi wǒ yǒu shì qǐngjià.", en: "I want to go next month because I have to take leave.", ko: "다음 달에 가고 싶어, 일이 있어서 휴가 낼 거라", words: "下个月=next month / 有事=have business / 请假=take leave", grammar: "&lt;b&gt;因为&lt;/b&gt; + 이유. &lt;b&gt;有事请假&lt;/b&gt; = 일이 있어 휴가 내다" },
+  { zh: "我想参观天安门。", py: "Wǒ xiǎng cānguān Tiān'ānmén.", en: "I want to visit Tiananmen.", ko: "톈안먼 가보고 싶어", words: "参观=visit", grammar: "想 + 参观 패턴 반복" },
+  { zh: "我想去天安门。", py: "Wǒ xiǎng qù Tiān'ānmén.", en: "I want to go to Tiananmen.", ko: "톈안먼 가고 싶어", words: "想=want / 去=go", grammar: "&lt;b&gt;想 + 去 + 장소&lt;/b&gt;. 参观(관람)보다 일반적" },
+  { zh: "他给我推荐了一个商场。", py: "Tā gěi wǒ tuījiàn le yī gè shāngchǎng.", en: "He recommended a mall to me.", ko: "그가 나에게 쇼핑몰 하나 추천했어", words: "给=to / 推荐=recommend / 了=(완료)", grammar: "&lt;b&gt;给 + 사람 + 推荐 + N + 了&lt;/b&gt; = '~에게 ~을 추천해줬다'" },
+  { zh: "我推荐那个博物馆。", py: "Wǒ tuījiàn nàge bówùguǎn.", en: "I recommend that museum.", ko: "그 박물관 추천해", words: "推荐=recommend / 博物馆=museum", grammar: "&lt;b&gt;推荐 + N&lt;/b&gt; 기본 추천 표현" },
+  { zh: "我推荐这个饭馆。这个饭馆特别好。", py: "Wǒ tuījiàn zhège fànguǎn. Zhège fànguǎn tèbié hǎo.", en: "I recommend this restaurant. It's especially good.", ko: "이 식당 추천해. 정말 좋아", words: "推荐=recommend / 特别好=especially good", grammar: "추천 + 이유 설명 패턴" },
+  { zh: "你推荐这里吗?", py: "Nǐ tuījiàn zhèlǐ ma?", en: "Do you recommend here?", ko: "여기 추천해?", words: "推荐=recommend / 这里=here", grammar: "&lt;b&gt;推荐 + 장소 + 吗?&lt;/b&gt;" },
+  { zh: "我不推荐这种奶茶。", py: "Wǒ bù tuījiàn zhè zhǒng nǎichá.", en: "I don't recommend this kind of milk tea.", ko: "이 밀크티는 추천 안 해", words: "不推荐=don't recommend / 这种=this kind / 奶茶=milk tea", grammar: "&lt;b&gt;不 + 推荐&lt;/b&gt;. 种 = 종류 양사 (Set 7 복습)" },
+  { zh: "附近没有医院。", py: "Fùjìn méiyǒu yīyuàn.", en: "There's no hospital nearby.", ko: "근처에 병원이 없어", words: "附近=nearby / 没有=not have / 医院=hospital", grammar: "&lt;b&gt;附近 + 没有 + N&lt;/b&gt; = '근처에 ~없다'. 附近 (Set 5 복습)" },
+  { zh: "附近没有公交站。", py: "Fùjìn méiyǒu gōngjiāo zhàn.", en: "There's no bus stop nearby.", ko: "근처에 버스 정류장이 없어", words: "公交站=bus stop", grammar: "附近 + 没有 + N 패턴" },
+  { zh: "附近有什么饭馆?", py: "Fùjìn yǒu shénme fànguǎn?", en: "What restaurants are nearby?", ko: "근처에 어떤 식당 있어?", words: "附近=nearby / 什么=what / 饭馆=restaurant", grammar: "&lt;b&gt;附近 + 有 + 什么 + N?&lt;/b&gt; = '근처에 어떤 N 있어?'" },
+  { zh: "你好,附近有地铁站吗?", py: "Nǐhǎo, fùjìn yǒu dìtiězhàn ma?", en: "Hi, is there a subway station nearby?", ko: "안녕하세요, 근처에 지하철역 있어요?", words: "你好=hi / 地铁站=subway station", grammar: "&lt;b&gt;附近 + 有 + N + 吗?&lt;/b&gt; (관광객 핵심 표현!)" },
+  { zh: "这条街上有洗手间吗?", py: "Zhè tiáo jiē shàng yǒu xǐshǒujiān ma?", en: "Is there a restroom on this street?", ko: "이 길에 화장실 있어?", words: "街上=on the street / 洗手间=restroom", grammar: "&lt;b&gt;장소 + 上 + 有 + N + 吗?&lt;/b&gt; (Set 8 복습)" },
+  { zh: "天安门在故宫前面。", py: "Tiān'ānmén zài Gùgōng qiánmiàn.", en: "Tiananmen is in front of the Forbidden City.", ko: "톈안먼은 고궁 앞에 있어", words: "在=at / 前面=in front", grammar: "&lt;b&gt;A + 在 + B + 前面&lt;/b&gt; = 'A는 B 앞에'. 前面/后面/旁边" },
+  { zh: "天安门在哪里?", py: "Tiān'ānmén zài nǎlǐ?", en: "Where is Tiananmen?", ko: "톈안먼 어디 있어?", words: "在哪里=where", grammar: "&lt;b&gt;N + 在哪里?&lt;/b&gt; (Set 6 복습)" },
+  { zh: "现在街上有很多人。", py: "Xiànzài jiē shàng yǒu hěn duō rén.", en: "There are many people on the street now.", ko: "지금 길에 사람이 많아", words: "现在=now / 街上=on the street / 很多=many", grammar: "&lt;b&gt;장소 + 有 + 很多 + N&lt;/b&gt; = '~에 N이 많이 있다'" },
+  { zh: "商场在那条街上。", py: "Shāngchǎng zài nà tiáo jiē shàng.", en: "The mall is on that street.", ko: "쇼핑몰은 그 길에 있어", words: "商场=mall / 那条街=that street", grammar: "&lt;b&gt;A + 在 + 那条街上&lt;/b&gt; = '~는 그 길에 있다'" },
+  { zh: "我在北京大学里面。", py: "Wǒ zài Běijīng Dàxué lǐmiàn.", en: "I'm inside Peking University.", ko: "나는 베이징대학 안에 있어", words: "里面=inside", grammar: "&lt;b&gt;在 + 장소 + 里面&lt;/b&gt; = '~ 안에'. 里 vs 里面 (거의 동의어)" },
+  { zh: "饭馆在哪条街上?", py: "Fànguǎn zài nǎ tiáo jiē shàng?", en: "On which street is the restaurant?", ko: "식당은 어느 길에 있어?", words: "哪条街=which street", grammar: "&lt;b&gt;哪条 + N&lt;/b&gt; = '어느 N'. 의문사 + 양사" },
+  { zh: "那条街很热闹。", py: "Nà tiáo jiē hěn rènao.", en: "That street is lively.", ko: "그 길 활기차", words: "那条街=that street / 热闹=lively", grammar: "&lt;b&gt;那条 + 街 + 很 + 형용사&lt;/b&gt; (Set 8 复습)" },
+  { zh: "这条街热闹吗?", py: "Zhè tiáo jiē rènao ma?", en: "Is this street lively?", ko: "이 길 활기차?", words: "这条街=this street", grammar: "热闹 (Set 8) 의문문" },
+  { zh: "市中心真热闹。", py: "Shìzhōngxīn zhēn rènao.", en: "Downtown is really lively.", ko: "시내가 정말 북적거리네", words: "市中心=downtown / 真=really", grammar: "市中心 + 真 + 热闹 (Set 8 복습)" },
+  { zh: "北京有差不多三千条老街。", py: "Běijīng yǒu chàbuduō sān qiān tiáo lǎojiē.", en: "Beijing has about 3000 old streets.", ko: "베이징에 옛 거리가 약 3000개 있어", words: "差不多=about / 三千条=3000 (긴 양사) / 老街=old street", grammar: "&lt;b&gt;장소 + 有 + 差不多 + 수량 + N&lt;/b&gt;. 三千条 = 3000 + 条" },
+  { zh: "两千条街。", py: "Liǎng qiān tiáo jiē.", en: "Two thousand streets.", ko: "2000개의 거리", words: "两千条=2000", grammar: "两千 + 条 (Set 8 복습)" },
+  { zh: "北京有两千个饭馆吗?", py: "Běijīng yǒu liǎng qiān gè fànguǎn ma?", en: "Are there 2000 restaurants in Beijing?", ko: "베이징에 식당이 2000개 있어?", words: "两千个=2000 / 饭馆=restaurant", grammar: "两千 + 个 (Set 8 복습)" },
+  { zh: "我们先打车吧!", py: "Wǒmen xiān dǎchē ba!", en: "Let's take a taxi first!", ko: "우리 먼저 택시 타자!", words: "先=first / 打车=take a taxi / 吧=(제안)", grammar: "&lt;b&gt;打车&lt;/b&gt; = 택시 잡다/타다 (打 + 车). 打 = '치다'에서 확장된 '잡다'" },
+  { zh: "打车很方便。", py: "Dǎchē hěn fāngbiàn.", en: "Taking a taxi is convenient.", ko: "택시는 편리해", words: "打车=take a taxi / 方便=convenient", grammar: "&lt;b&gt;打车&lt;/b&gt; (이합동사) + 很 + 방便" },
+  { zh: "你要打车还是坐公交车?", py: "Nǐ yào dǎchē háishì zuò gōngjiāochē?", en: "Will you take a taxi or a bus?", ko: "택시 탈래 버스 탈래?", words: "打车=taxi / 还是=or / 坐=ride / 公交车=bus", grammar: "&lt;b&gt;A 还是 B?&lt;/b&gt; (Set 4) + 教 통수단" },
+  { zh: "打车太贵了。", py: "Dǎchē tài guì le.", en: "Taking a taxi is too expensive.", ko: "택시는 너무 비싸", words: "打车=taxi / 太贵了=too expensive", grammar: "&lt;b&gt;太 + 형용사 + 了&lt;/b&gt; (Set 1 복습)" },
+  { zh: "你最好打车。", py: "Nǐ zuì hǎo dǎchē.", en: "You'd better take a taxi.", ko: "택시 타는 게 좋겠어", words: "最好=had better", grammar: "&lt;b&gt;最好 + V&lt;/b&gt; = '~하는 게 가장 좋다' (조언)" },
+  { zh: "你最好骑自行车。", py: "Nǐ zuì hǎo qí zìxíngchē.", en: "You'd better ride a bike.", ko: "자전거 타는 게 좋겠어", words: "骑=ride / 自行车=bicycle", grammar: "&lt;b&gt;最好 + 骑 + N&lt;/b&gt; (Set 8 骑 복습)" },
+  { zh: "坐地铁差不多五块。", py: "Zuò dìtiě chàbuduō wǔ kuài.", en: "Taking the subway is about 5 yuan.", ko: "지하철 타면 약 5위안이야", words: "坐=ride / 地铁=subway / 五块=5 yuan", grammar: "坐 + 地铁 + 差不多 + 가격 (Set 8 복습)" },
+  { zh: "坐地铁很方便,也比较便宜。", py: "Zuò dìtiě hěn fāngbiàn, yě bǐjiào piányi.", en: "Taking the subway is convenient and relatively cheap.", ko: "지하철 편리하고 비교적 싸", words: "方便=convenient / 比较=relatively / 便宜=cheap", grammar: "&lt;b&gt;很 + A, 也 + 比较 + B&lt;/b&gt; (두 가지 평가)" },
+  { zh: "骑自行车很好玩儿,也比较便宜。", py: "Qí zìxíngchē hěn hǎowánr, yě bǐjiào piányi.", en: "Riding a bike is fun and relatively cheap.", ko: "자전거는 재밌고 비교적 싸", words: "好玩儿=fun / 比较=relatively", grammar: "같은 평가 패턴 (Set 8 복습)" },
+  { zh: "我每天骑自行车。", py: "Wǒ měi tiān qí zìxíngchē.", en: "I ride a bike every day.", ko: "나는 매일 자전거 타", words: "每天=every day / 骑=ride", grammar: "&lt;b&gt;每天 + V&lt;/b&gt; (Set 4 복습)" },
+  { zh: "二零一零年我们在北京生活。", py: "Èr líng yī líng nián wǒmen zài Běijīng shēnghuó.", en: "In 2010 we lived in Beijing.", ko: "2010년에 우리는 베이징에 살았어", words: "二零一零年=year 2010 / 在=at / 生活=live", grammar: "&lt;b&gt;연도 표현&lt;/b&gt;: 二零一零年 = 2-0-1-0년 (숫자 하나씩 읽기)" },
+  { zh: "二零二零年你在美国生活吗?", py: "Èr líng èr líng nián nǐ zài Měiguó shēnghuó ma?", en: "Did you live in the U.S. in 2020?", ko: "2020년에 미국에 살았어?", words: "二零二零年=year 2020 / 美国=USA", grammar: "연도 + 在 + 장소 + 生活" },
+  { zh: "二零二零年我在英国生活。", py: "Èr líng èr líng nián wǒ zài Yīngguó shēnghuó.", en: "I lived in the UK in 2020.", ko: "2020년에 영국에 살았어", words: "英国=UK", grammar: "같은 패턴 반복" },
+  { zh: "一九四九年爷爷上中学。", py: "Yī jiǔ sì jiǔ nián yéye shàng zhōngxué.", en: "In 1949 grandpa went to middle school.", ko: "1949년에 할아버지는 중학교에 다녔어", words: "一九四九年=year 1949 / 爷爷=grandpa / 上=attend / 中学=middle school", grammar: "&lt;b&gt;上 + 학교&lt;/b&gt; = '~학교에 다니다'. 上小学/中学/大学" },
+  { zh: "现在你在泰国生活吗?", py: "Xiànzài nǐ zài Tàiguó shēnghuó ma?", en: "Do you live in Thailand now?", ko: "지금 태국에 살아?", words: "现在=now / 泰国=Thailand", grammar: "기본 在 + 장소 + 生活" },
+  { zh: "对,我在美国工作。", py: "Duì, wǒ zài Měiguó gōngzuò.", en: "Yes, I work in the U.S.", ko: "맞아, 미국에서 일해", words: "对=yes / 美国=USA / 工作=work", grammar: "&lt;b&gt;对&lt;/b&gt; = '맞다' (긍정 응답)" },
+  { zh: "你几点去公司?", py: "Nǐ jǐ diǎn qù gōngsī?", en: "What time do you go to the company?", ko: "몇 시에 회사 가?", words: "几点=what time / 去=go / 公司=company", grammar: "&lt;b&gt;几点 + V?&lt;/b&gt; = '몇 시에 V?' (Set 3 복습)" },
+  { zh: "我今天要去新公司!", py: "Wǒ jīntiān yào qù xīn gōngsī!", en: "I'm going to a new company today!", ko: "오늘 새 회사 가!", words: "今天=today / 要=will / 新=new", grammar: "要 + V (Set 3 복습)" },
+  { zh: "小学的时候我有很多课。", py: "Xiǎoxué de shíhou wǒ yǒu hěn duō kè.", en: "In elementary school I had many classes.", ko: "초등학교 때 수업이 많았어", words: "小学=elementary / 的时候=when / 课=class", grammar: "&lt;b&gt;N + 的时候&lt;/b&gt; = '~할 때/때'. 小学的时候 = 초등학교 때" },
+  { zh: "电视剧十点四十五分开始。", py: "Diànshìjù shí diǎn sìshíwǔ fēn kāishǐ.", en: "The TV show starts at 10:45.", ko: "드라마는 10시 45분에 시작해", words: "电视剧=TV show / 十点四十五分=10:45 / 开始=start", grammar: "&lt;b&gt;시각 + V&lt;/b&gt;. 十点四十五分 = 10시 45분" },
+  { zh: "我九点四十五分睡觉。", py: "Wǒ jiǔ diǎn sìshíwǔ fēn shuìjiào.", en: "I sleep at 9:45.", ko: "9시 45분에 자", words: "九点四十五分=9:45 / 睡觉=sleep", grammar: "시각 + 동사" },
+  { zh: "昨天我们去了天安门。", py: "Zuótiān wǒmen qù le Tiān'ānmén.", en: "Yesterday we went to Tiananmen.", ko: "어제 우리는 톈안먼 갔어", words: "昨天=yesterday / 去了=went", grammar: "&lt;b&gt;V + 了&lt;/b&gt; 완료 (Set 3 복습)" },
+  { zh: "十年前摇滚音乐很流行。", py: "Shí nián qián yáogǔn yīnyuè hěn liúxíng.", en: "Ten years ago rock music was popular.", ko: "10년 전엔 록 음악이 유행이었어", words: "十年前=10 years ago / 摇滚音乐=rock music / 流行=popular", grammar: "&lt;b&gt;시간 + 前&lt;/b&gt; = '~ 전에' (Set 5 后의 반대)" },
+  { zh: "三年前这个桌游比较流行。", py: "Sān nián qián zhège zhuōyóu bǐjiào liúxíng.", en: "Three years ago this board game was popular.", ko: "3년 전엔 이 보드게임 유행했어", words: "三年前=3 years ago / 桌游=board game / 比较=relatively", grammar: "시간 + 前 + 주어 + 比较 + 형용사" },
+  { zh: "老板想订韩国饭馆。", py: "Lǎobǎn xiǎng dìng Hánguó fànguǎn.", en: "The boss wants to book a Korean restaurant.", ko: "사장님이 한국 식당 예약하고 싶대", words: "老板=boss / 订=book / 韩国=Korea", grammar: "&lt;b&gt;订&lt;/b&gt; = 예약하다 (예약 일반). 예약: 订/预订" },
+  { zh: "王经理参加今晚的派对吗?", py: "Wáng jīnglǐ cānjiā jīnwǎn de pàiduì ma?", en: "Is Manager Wang attending tonight's party?", ko: "왕 매니저 오늘 밤 파티 가?", words: "经理=manager / 参加=attend / 今晚=tonight / 派对=party", grammar: "&lt;b&gt;경리 + 参加 + 시간 + 的 + N&lt;/b&gt;" },
+  { zh: "今晚老板去不去?", py: "Jīnwǎn lǎobǎn qù bú qù?", en: "Is the boss going tonight?", ko: "오늘 밤 사장님 가?", words: "今晚=tonight", grammar: "&lt;b&gt;V + 不 + V?&lt;/b&gt; 정반의문문 (Set 7 복습). 去不去 = 가? 안 가?" },
+  { zh: "老板要去派对!我很紧张。", py: "Lǎobǎn yào qù pàiduì! Wǒ hěn jǐnzhāng.", en: "The boss is coming to the party! I'm nervous.", ko: "사장님이 파티 와! 긴장돼", words: "要=will / 派对=party / 紧张=nervous", grammar: "&lt;b&gt;紧张&lt;/b&gt; = 긴장한 (감정 형용사)" },
+  { zh: "今晚经理有空儿。", py: "Jīnwǎn jīnglǐ yǒu kòngr.", en: "The manager is free tonight.", ko: "오늘 밤 매니저 시간 있어", words: "经理=manager / 有空儿=have free time", grammar: "&lt;b&gt;有空儿&lt;/b&gt; = 시간/여유가 있다. 没空儿 = 시간 없다" },
+  { zh: "谁是我们的新同事?", py: "Shéi shì wǒmen de xīn tóngshì?", en: "Who is our new coworker?", ko: "우리 새 동료가 누구야?", words: "谁=who / 同事=coworker", grammar: "&lt;b&gt;谁 + 是 + N?&lt;/b&gt; (Set 3 복습)" },
+  { zh: "谁去告诉经理?", py: "Shéi qù gàosu jīnglǐ?", en: "Who's going to tell the manager?", ko: "누가 매니저한테 말하러 가?", words: "谁=who / 去=go / 告诉=tell", grammar: "&lt;b&gt;谁 + V?&lt;/b&gt; 의문문" },
+  { zh: "新同事下午要来公司。", py: "Xīn tóngshì xiàwǔ yào lái gōngsī.", en: "The new coworker is coming this afternoon.", ko: "새 동료가 오후에 회사 와", words: "下午=afternoon / 要=will / 来=come", grammar: "&lt;b&gt;시간 + 要 + V&lt;/b&gt; 미래 의지" },
+  { zh: "今晚我们给你准备了派对!", py: "Jīnwǎn wǒmen gěi nǐ zhǔnbèi le pàiduì!", en: "We prepared a party for you tonight!", ko: "오늘 밤 너를 위해 파티 준비했어!", words: "给你=for you / 准备了=prepared / 派对=party", grammar: "&lt;b&gt;给 + 사람 + 准备 + N&lt;/b&gt; = '~을 위해 ~ 준비하다'" },
+  { zh: "我们最好给张华打电话。", py: "Wǒmen zuì hǎo gěi Zhāng Huá dǎ diànhuà.", en: "We'd better call Zhang Hua.", ko: "장화한테 전화하는 게 좋겠어", words: "最好=had better / 给=to / 打电话=make a call", grammar: "&lt;b&gt;给 + 사람 + 打电话&lt;/b&gt; = '~에게 전화하다'. 打电话 (打 활용)" },
+  { zh: "我每天晚上给家人打电话。", py: "Wǒ měi tiān wǎnshang gěi jiārén dǎ diànhuà.", en: "I call my family every night.", ko: "매일 저녁 가족에게 전화해", words: "每天晚上=every night / 家人=family", grammar: "&lt;b&gt;每天晚上 + 给 + 사람 + 打电话&lt;/b&gt;" },
+  { zh: "我们在网上点菜吧!", py: "Wǒmen zài wǎngshàng diǎncài ba!", en: "Let's order food online!", ko: "인터넷으로 음식 주문하자!", words: "在网上=online / 点菜=order food", grammar: "&lt;b&gt;点菜&lt;/b&gt; = 음식 주문하다 (点=주문 + 菜=요리)" },
+  { zh: "我去点菜吧!", py: "Wǒ qù diǎncài ba!", en: "I'll go order food!", ko: "내가 가서 주문할게!", words: "我去=I'll go / 点菜=order food", grammar: "&lt;b&gt;V1 + V2&lt;/b&gt; = '~하러 가서 ~하다'. 去 + 点菜" },
+  { zh: "谁想去点菜?", py: "Shéi xiǎng qù diǎncài?", en: "Who wants to go order food?", ko: "누가 가서 주문할래?", words: "谁=who / 想去=want to go", grammar: "谁 + 想 + V?" },
+  { zh: "我们订哪个饭馆?", py: "Wǒmen dìng nǎge fànguǎn?", en: "Which restaurant should we book?", ko: "어느 식당 예약할까?", words: "订=book / 哪个=which", grammar: "&lt;b&gt;哪个 + N?&lt;/b&gt; = '어느 N?' (Set 8 복습)" },
+  { zh: "你忘了什么?", py: "Nǐ wàng le shénme?", en: "What did you forget?", ko: "뭐 잊었어?", words: "忘=forget / 了=(완료) / 什么=what", grammar: "&lt;b&gt;V + 了 + 什么?&lt;/b&gt; = '뭘 ~했어?'" },
+  { zh: "你最好带一件雨衣。", py: "Nǐ zuì hǎo dài yī jiàn yǔyī.", en: "You'd better bring a raincoat.", ko: "비옷 가져가는 게 좋겠어", words: "最好=had better / 带=bring / 一件=a (옷 양사) / 雨衣=raincoat", grammar: "&lt;b&gt;最好 + V&lt;/b&gt; 조언. 件 양사 (Set 6 복습)" },
+  { zh: "我们需要地图!", py: "Wǒmen xūyào dìtú!", en: "We need a map!", ko: "지도가 필요해!", words: "需要=need / 地图=map", grammar: "기본 需要 + N (Set 5 복습)" },
+  { zh: "你的手机里有地图吗?", py: "Nǐ de shǒujī lǐ yǒu dìtú ma?", en: "Is there a map in your phone?", ko: "휴대폰에 지도 있어?", words: "手机里=in the phone / 地图=map", grammar: "&lt;b&gt;N + 里 + 有 + N + 吗?&lt;/b&gt; = '~ 안에 ~ 있어?'" },
+  { zh: "这不是北京的地图!", py: "Zhè bú shì Běijīng de dìtú!", en: "This isn't a map of Beijing!", ko: "이거 베이징 지도가 아니야!", words: "不是=is not / 的=of", grammar: "&lt;b&gt;这不是 + 장소 + 的 + N&lt;/b&gt;" },
+  { zh: "哎呀,我不会看地图。", py: "Āiyā, wǒ bú huì kàn dìtú.", en: "Oh no, I can't read maps.", ko: "이런, 나 지도 못 봐", words: "哎呀=oh no / 不会=can't", grammar: "&lt;b&gt;哎呀&lt;/b&gt; 감탄사 + &lt;b&gt;不会 + V&lt;/b&gt; = '~할 줄 모른다' (Set 7 会 부정)" },
+  { zh: "好的,不用谢!", py: "Hǎo de, bú yòng xiè!", en: "OK, you're welcome!", ko: "응, 천만에!", words: "(Set 8 복습)", grammar: "不用谢 (Set 8)" },
+  { zh: "没问题,不用谢!", py: "Méi wèntí, bú yòng xiè!", en: "No problem, you're welcome!", ko: "문제 없어, 천만에!", words: "没问题=no problem", grammar: "&lt;b&gt;没问题&lt;/b&gt; = '문제 없다' (만능 응답)" },
+  { zh: "别着急。", py: "Bié zháojí.", en: "Don't worry.", ko: "걱정하지 마", words: "别=don't / 着急=worried", grammar: "&lt;b&gt;别 + 형용사&lt;/b&gt; = '~하지 마'. 别 + 동사·형용사 모두 가능" },
+  { zh: "你喜欢我的嘉宾吗?", py: "Nǐ xǐhuān wǒ de jiābīn ma?", en: "Do you like my guest?", ko: "내 게스트 좋아?", words: "嘉宾=guest", grammar: "&lt;b&gt;喜欢 + N + 吗?&lt;/b&gt;" },
+  { zh: "你喜欢我新电台节目吗?", py: "Nǐ xǐhuān wǒ xīn diàntái jiémù ma?", en: "Do you like my new radio show?", ko: "내 새 라디오 프로 좋아?", words: "电台=radio / 节目=show/program", grammar: "电台节目 = 라디오 프로그램" },
+  { zh: "我喜欢一边洗脸一边听音乐。", py: "Wǒ xǐhuān yībiān xǐliǎn yībiān tīng yīnyuè.", en: "I like washing my face while listening to music.", ko: "세수하면서 음악 듣는 거 좋아해", words: "洗脸=wash face / 听音乐=listen to music", grammar: "&lt;b&gt;喜欢 + 一边 V1 一边 V2&lt;/b&gt; (Set 8 복습)" },
+  { zh: "我有时候一边做饭一边看电视。", py: "Wǒ yǒu shíhou yībiān zuòfàn yībiān kàn diànshì.", en: "Sometimes I cook while watching TV.", ko: "가끔 요리하면서 TV 봐", words: "有时候=sometimes / 做饭=cook / 看电视=watch TV", grammar: "&lt;b&gt;有时候&lt;/b&gt; = 가끔. 一边V1一边V2 패턴" },
+  { zh: "我学中文,我的同事也学中文。", py: "Wǒ xué Zhōngwén, wǒ de tóngshì yě xué Zhōngwén.", en: "I study Chinese, my coworker also studies Chinese.", ko: "나는 중국어 배우고, 동료도 중국어 배워", words: "学=study / 中文=Chinese / 同事=coworker / 也=also", grammar: "&lt;b&gt;A V，B 也 V&lt;/b&gt; (Set 2 也 복습)" },
+  { zh: "我喜欢这个作家,我老婆也喜欢他。", py: "Wǒ xǐhuān zhège zuòjiā, wǒ lǎopo yě xǐhuān tā.", en: "I like this author, my wife also likes him.", ko: "이 작가 좋아하는데, 아내도 좋아해", words: "作家=author / 老婆=wife", grammar: "&lt;b&gt;老婆&lt;/b&gt; = 아내 (구어체). 妻子 (정식)" },
+  { zh: "我应该穿哪条裤子?", py: "Wǒ yīnggāi chuān nǎ tiáo kùzi?", en: "Which pants should I wear?", ko: "어떤 바지 입어야 해?", words: "穿=wear / 哪条=which (긴 것 양사) / 裤子=pants", grammar: "&lt;b&gt;穿 + 哪条 + 裤子&lt;/b&gt;. 条는 바지 양사 (Set 5 복습)" },
+];
+
+const patterns9 = [
+  { name: "1. 因为 + 이유 (왜냐하면)", desc: "&lt;code&gt;A，因为 B&lt;/code&gt; = 'A, 왜냐하면 B'&lt;br&gt;• 我想去天安门，因为它很漂亮&lt;br&gt;• 我请假，因为我有事&lt;br&gt;💡 이유 표현 핵심 패턴" },
+  { name: "2. 离 + 远/近 응용", desc: "&lt;code&gt;A 离 B + 远/近/不远&lt;/code&gt; = 거리 평가&lt;br&gt;• 长城离这里不远 (멀지 않다)&lt;br&gt;• 北京大学离这里有点儿远 (조금 멀다)&lt;br&gt;• 这里离长城特别近 (특히 가깝다)&lt;br&gt;💡 &lt;b&gt;有点儿 + 형용사&lt;/b&gt; = 조금 (부정적 뉘앙스)" },
+  { name: "3. 推荐 (추천 표현)", desc: "&lt;code&gt;推荐 + N&lt;/code&gt; = '~ 추천'&lt;br&gt;&lt;code&gt;给 + 사람 + 推荐 + N&lt;/code&gt; = '~에게 ~ 추천'&lt;br&gt;• 我推荐那个博物馆&lt;br&gt;• 他给我推荐了一个商场&lt;br&gt;• 我不推荐这种奶茶 (이런 종류 추천 안 함)" },
+  { name: "4. 想/想去 + 장소 (가고 싶다)", desc: "&lt;code&gt;想 + V + 장소&lt;/code&gt; = '~에 V하고 싶다'&lt;br&gt;• 我想去天安门 (가고 싶다)&lt;br&gt;• 我想参观天安门 (방문하고 싶다)&lt;br&gt;💡 &lt;b&gt;参观&lt;/b&gt; = 견학·관람 (박물관/대학 등)" },
+  { name: "5. 附近 + 有/没有 (근처에 있다/없다)", desc: "&lt;code&gt;附近 + 有/没有 + N&lt;/code&gt;&lt;br&gt;• 附近没有医院 (병원 없음)&lt;br&gt;• 附近有什么饭馆? (어떤 식당?)&lt;br&gt;• 附近有地铁站吗? (지하철역?)&lt;br&gt;💡 관광객 핵심 표현!" },
+  { name: "6. 位置 前面/后面/里面 (방위)", desc: "&lt;code&gt;A + 在 + B + 방위&lt;/code&gt; = 'A는 B 어디에'&lt;br&gt;• 天安门在故宫前面 (앞)&lt;br&gt;• 我在大学里面 (안)&lt;br&gt;• B + 旁边 (옆), B + 后面 (뒤)&lt;br&gt;💡 &lt;b&gt;里 vs 里面&lt;/b&gt;: 거의 동의어" },
+  { name: "7. 哪条 + 양사 (어느 ~?)", desc: "&lt;code&gt;哪 + 양사 + N?&lt;/code&gt; = '어느 N?'&lt;br&gt;• 哪条街? (어느 길?)&lt;br&gt;• 哪条裤子? (어느 바지?)&lt;br&gt;• 哪个饭馆? (어느 식당?)&lt;br&gt;💡 의문사 + 양사 조합" },
+  { name: "8. 打车 / 坐 / 骑 (교통수단)", desc: "&lt;code&gt;打车&lt;/code&gt; = 택시 잡다/타다&lt;br&gt;&lt;code&gt;坐 + 지하철/버스&lt;/code&gt; = 타다 (앉아서)&lt;br&gt;&lt;code&gt;骑 + 자전거&lt;/code&gt; = 타다 (다리벌리고)&lt;br&gt;💡 打车很方便 / 坐地铁五块 / 骑自行车便宜" },
+  { name: "9. 最好 + V (~하는 게 좋겠다)", desc: "&lt;code&gt;主语 + 最好 + V&lt;/code&gt; = '~하는 게 가장 좋다' (조언)&lt;br&gt;• 你最好打车 (택시 타는 게 좋겠어)&lt;br&gt;• 你最好带雨衣 (비옷 가져가는 게)&lt;br&gt;💡 应该(해야 한다)보다 부드러운 추천" },
+  { name: "10. 연도 표현 (숫자 + 年)", desc: "&lt;code&gt;숫자 + 年&lt;/code&gt; = 연도&lt;br&gt;• 二零一零年 = 2010년 (숫자 하나씩 읽기)&lt;br&gt;• 一九四九年 = 1949년&lt;br&gt;• 시간 + 前 = ~ 전에 (十年前)&lt;br&gt;💡 두 자리씩 X, &lt;b&gt;한 자리씩&lt;/b&gt; 읽음" },
+  { name: "11. 시각 표현 (~点~分)", desc: "&lt;code&gt;X点 + Y分&lt;/code&gt; = X시 Y분&lt;br&gt;• 九点四十五分 = 9:45&lt;br&gt;• 十点四十五分 = 10:45&lt;br&gt;• 几点 + V? = '몇 시에 V?'&lt;br&gt;💡 半 = 30분 (两点半 = 2:30)" },
+  { name: "12. 的时候 (~할 때)", desc: "&lt;code&gt;N + 的时候&lt;/code&gt; = '~할 때'&lt;br&gt;• 小学的时候 (초등학교 때)&lt;br&gt;• 上学的时候 (학교 다닐 때)&lt;br&gt;💡 시간/상황 배경 표현" },
+  { name: "13. 给 + 사람 + 打电话/准备", desc: "&lt;code&gt;给 + 사람 + 동작&lt;/code&gt; = '~에게 ~하다'&lt;br&gt;• 给张华打电话 (장화에게 전화)&lt;br&gt;• 给你准备派对 (널 위해 파티 준비)&lt;br&gt;• 给我推荐 (나에게 추천)&lt;br&gt;💡 给의 다양한 활용" },
+  { name: "14. 别 + V/형용사 (~하지 마)", desc: "&lt;code&gt;别 + V/형용사&lt;/code&gt; = '~하지 마'&lt;br&gt;• 别往前走 (앞으로 가지 마)&lt;br&gt;• 别着急 (걱정하지 마)&lt;br&gt;💡 别 = 不要 (구어체), 형용사도 가능" },
+  { name: "15. 点菜 / 订 (주문/예약)", desc: "&lt;code&gt;点菜&lt;/code&gt; = 음식 주문&lt;br&gt;&lt;code&gt;订 + N&lt;/code&gt; = 예약하다&lt;br&gt;• 我去点菜 (가서 주문)&lt;br&gt;• 订韩国饭馆 (한국 식당 예약)&lt;br&gt;• 在网上点菜 (인터넷 주문)" },
+];
+
 const patterns8 = [
   { name: "1. 往 + 방향 + V (길 찾기 핵심!)", desc: "&lt;code&gt;往 + 방향 + V&lt;/code&gt; = '~쪽으로 V하다'&lt;br&gt;• &lt;code&gt;往前走&lt;/code&gt; (앞으로 가다)&lt;br&gt;• &lt;code&gt;往右开&lt;/code&gt; (우회전 운전)&lt;br&gt;• &lt;code&gt;往左转&lt;/code&gt; (좌회전)&lt;br&gt;• &lt;code&gt;往里走&lt;/code&gt; (안으로 가다)&lt;br&gt;💡 방향: 前(앞)/后(뒤)/左(좌)/右(우)/里(안)/外(밖)/上(위)/下(아래)" },
   { name: "2. 怎么走? (어떻게 가요?)", desc: "&lt;code&gt;장소 + 怎么走?&lt;/code&gt; = '~ 어떻게 가요?'&lt;br&gt;• 这条街怎么走? (이 거리 어떻게 가요?)&lt;br&gt;• 商场怎么走? (쇼핑몰 어떻게?)&lt;br&gt;• 请问,天安门怎么走? (실례지만 천안문...)&lt;br&gt;💡 길 묻기 필수 표현! &lt;b&gt;请问&lt;/b&gt; 붙이면 더 정중함" },
@@ -908,11 +1058,12 @@ const setData = {
   6: { sentences: set6, patterns: patterns6, info: "&lt;strong&gt;Set 6&lt;/strong&gt;: 진행형 부정 / 날씨 / 위치 전치사 / 양사 2탄 / 사진 표현" },
   7: { sentences: set7, patterns: patterns7, info: "&lt;strong&gt;Set 7&lt;/strong&gt;: 진행형/현재형/의문문/가족/그림 대화 - 68개 + 대화 17줄" },
   8: { sentences: set8, patterns: patterns8, info: "&lt;strong&gt;Set 8&lt;/strong&gt;: 베이징 길찾기 / 往 방향 / 离 거리 / 一边一边 / 56개" },
+  9: { sentences: set9, patterns: patterns9, info: "&lt;strong&gt;Set 9&lt;/strong&gt;: 길찾기 심화/추천/연도·시각/회사·전화 - 128개" },
 };
 
-let currentSet = 8;
-let sentences = setData[8].sentences;
-let currentPatterns = setData[8].patterns;
+let currentSet = 9;
+let sentences = setData[9].sentences;
+let currentPatterns = setData[9].patterns;
 let stopRequested = false;
 let startLang = 'zh'; // 'zh' or 'en' - which language plays first
 
@@ -942,7 +1093,7 @@ function switchSet(setNum) {
   currentSet = setNum;
   sentences = setData[setNum].sentences;
   currentPatterns = setData[setNum].patterns;
-  [1, 2, 3, 4, 5, 6, 7, 8].forEach(n => {
+  [1, 2, 3, 4, 5, 6, 7, 8, 9].forEach(n => {
     const tab = document.getElementById(`tab-${n}`);
     if (tab) tab.classList.toggle('active', n === setNum);
   });
