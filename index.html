@@ -20,7 +20,7 @@
 <meta name="googlebot" content="noindex, nofollow">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<!-- Build version: 1781355902 -->
+<!-- Build version: 1781569922 -->
 <title>중국어 음성 학습 플레이어 (통합)</title>
 <style>
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -295,11 +295,12 @@
 </head>
 <body>
 <div class="container">
-  <h1>🎧 중국어 학습 플레이어 <span style="font-size:11px;opacity:0.6;font-weight:400;">v10 · Set 1-9</span></h1>
+  <h1>🎧 중국어 학습 플레이어 <span style="font-size:11px;opacity:0.6;font-weight:400;">v11 · Set 1-10</span></h1>
   <div class="subtitle">🇨🇳/🇬🇧 → 3초 → 같은 언어 → 3초 → 다른 언어 → 3초 → 같은 언어 → 3초</div>
 
   <div class="set-tabs">
-    <button class="set-tab active newest" id="tab-9" onclick="switchSet(9)">Set 9<span class="tab-sub">128개 (길찾기심화)</span></button>
+    <button class="set-tab active newest" id="tab-10" onclick="switchSet(10)">📚 단어<span class="tab-sub">Set 10 (어휘복습)</span></button>
+    <button class="set-tab" id="tab-9" onclick="switchSet(9)">Set 9<span class="tab-sub">128개 (길찾기심화)</span></button>
     <button class="set-tab" id="tab-8" onclick="switchSet(8)">Set 8<span class="tab-sub">45개 (길찾기)</span></button>
     <button class="set-tab" id="tab-7" onclick="switchSet(7)">Set 7<span class="tab-sub">85개 (그림 대화)</span></button>
     <button class="set-tab" id="tab-6" onclick="switchSet(6)">Set 6<span class="tab-sub">57개 (부정/날씨)</span></button>
@@ -952,6 +953,37 @@ const set9 = [
   { zh: "我应该穿哪条裤子?", py: "Wǒ yīnggāi chuān nǎ tiáo kùzi?", en: "Which pants should I wear?", ko: "어떤 바지 입어야 해?", words: "穿=wear / 哪条=which (긴 것 양사) / 裤子=pants", grammar: "&lt;b&gt;穿 + 哪条 + 裤子&lt;/b&gt;. 条는 바지 양사 (Set 5 복습)" },
 ];
 
+const set10 = [
+  { zh: "巴黎奥运会", py: "Bālí Àoyùnhuì", en: "Paris Olympics", ko: "파리 올림픽", words: "巴黎=Paris / 奥运会=Olympics", grammar: "&lt;b&gt;奥运会&lt;/b&gt; = 올림픽 (奥运 + 회의/행사). &lt;br&gt;📌 예문: &lt;code&gt;我喜欢看巴黎奥运会&lt;/code&gt; (파리 올림픽 보는 거 좋아해)&lt;br&gt;📌 응용: 北京奥运会 (베이징 올림픽), 冬奥会 (동계 올림픽)" },
+  { zh: "打开电视", py: "dǎkāi diànshì", en: "turn on the TV", ko: "TV 켜다", words: "打开=open/turn on / 电视=TV", grammar: "&lt;b&gt;打开 + N&lt;/b&gt; = '~를 켜다/열다'. 반대: &lt;b&gt;关上&lt;/b&gt; (끄다/닫다).&lt;br&gt;📌 예문: &lt;code&gt;请打开电视&lt;/code&gt; (TV 켜주세요), &lt;code&gt;打开电脑&lt;/code&gt; (컴퓨터 켜다)&lt;br&gt;📌 응용: 打开门 (문 열다), 打开窗户 (창문 열다)" },
+  { zh: "国家", py: "guójiā", en: "country / nation", ko: "국가 / 나라", words: "国=country / 家=home (합쳐서 '국가')", grammar: "&lt;b&gt;国家&lt;/b&gt; = 나라. 韩国/中国/美国의 '国'과 연결.&lt;br&gt;📌 예문: &lt;code&gt;你来自哪个国家?&lt;/code&gt; (어느 나라에서 왔어?)&lt;br&gt;📌 응용: 国家队 (국가대표팀), 国家公园 (국립공원)" },
+  { zh: "期待", py: "qīdài", en: "look forward to / expect", ko: "기대하다", words: "期=period/time / 待=wait", grammar: "&lt;b&gt;期待 + N/V&lt;/b&gt; = '~를 기대하다'. 정중하고 문어적.&lt;br&gt;📌 예문: &lt;code&gt;我很期待巴黎奥运会&lt;/code&gt; (파리 올림픽이 기대돼)&lt;br&gt;📌 응용: 期待你的回复 (당신의 답장을 기다립니다 - 비즈니스)" },
+  { zh: "凌晨", py: "língchén", en: "early morning / dawn (1-5 AM)", ko: "새벽 / 이른 아침", words: "凌=approach / 晨=morning", grammar: "&lt;b&gt;凌晨&lt;/b&gt; = 새벽 1시~5시 무렵. 早上(아침 5-9시)보다 더 이른 시간.&lt;br&gt;📌 예문: &lt;code&gt;凌晨三点比赛开始&lt;/code&gt; (새벽 3시에 경기 시작)&lt;br&gt;📌 시간대: 凌晨(새벽) → 早上(아침) → 上午(오전) → 中午(점심) → 下午(오후) → 晚上(저녁) → 半夜(한밤중)" },
+  { zh: "羽毛球", py: "yǔmáoqiú", en: "badminton", ko: "배드민턴", words: "羽毛=feather / 球=ball ('깃털 공')", grammar: "&lt;b&gt;打 + 羽毛球&lt;/b&gt; = 배드민턴 치다 (손으로 치는 운동에는 打).&lt;br&gt;📌 예문: &lt;code&gt;我喜欢打羽毛球&lt;/code&gt; (배드민턴 좋아해)&lt;br&gt;📌 운동 종목: 网球(테니스), 篮球(농구), 足球(축구), 乒乓球(탁구)" },
+  { zh: "跳水", py: "tiàoshuǐ", en: "diving", ko: "다이빙 / 수영 입수", words: "跳=jump / 水=water ('물에 뛰어들기')", grammar: "&lt;b&gt;跳水&lt;/b&gt; = 다이빙 (수영의 한 종목). 跳 동작 응용.&lt;br&gt;📌 예문: &lt;code&gt;我在看跳水比赛&lt;/code&gt; (다이빙 경기 보고 있어)&lt;br&gt;📌 跳 응용: 跳舞(춤추다), 跳高(높이뛰기)" },
+  { zh: "精彩", py: "jīngcǎi", en: "excellent / brilliant / wonderful", ko: "멋지다 / 훌륭하다", words: "精=fine/skilled / 彩=color/splendid", grammar: "&lt;b&gt;精彩&lt;/b&gt; = 멋진/훌륭한 (공연·경기·연설 등 칭찬). 很好보다 더 강한 칭찬.&lt;br&gt;📌 예문: &lt;code&gt;比赛太精彩了!&lt;/code&gt; (경기 정말 멋졌다!)&lt;br&gt;📌 응용: 精彩的表演 (멋진 공연)" },
+  { zh: "跳水太无聊了", py: "Tiàoshuǐ tài wúliáo le", en: "Diving is so boring", ko: "다이빙 너무 지루해", words: "跳水=diving / 太...了=too / 无聊=boring", grammar: "&lt;b&gt;太 + 형용사 + 了&lt;/b&gt; (Set 1 패턴 복습). 无聊 (Set 4 복습).&lt;br&gt;📌 반대: &lt;code&gt;跳水太精彩了&lt;/code&gt; (다이빙 정말 멋져)" },
+  { zh: "跳水比赛", py: "tiàoshuǐ bǐsài", en: "diving competition", ko: "다이빙 경기", words: "跳水=diving / 比赛=competition/match", grammar: "&lt;b&gt;종목 + 比赛&lt;/b&gt; = '~ 경기/시합'.&lt;br&gt;📌 예문: &lt;code&gt;今晚有跳水比赛&lt;/code&gt; (오늘 밤 다이빙 경기 있어)&lt;br&gt;📌 응용: 羽毛球比赛, 足球比赛, 网球比赛" },
+  { zh: "西班牙队", py: "Xībānyá duì", en: "Spain team", ko: "스페인 팀", words: "西班牙=Spain / 队=team", grammar: "&lt;b&gt;국가 + 队&lt;/b&gt; = '~국 대표팀'.&lt;br&gt;📌 예문: &lt;code&gt;我支持西班牙队&lt;/code&gt; (스페인 팀 응원해)&lt;br&gt;📌 응용: 韩国队 (한국팀), 中国队, 美国队, 国家队 (국가대표팀)" },
+  { zh: "粉丝", py: "fěnsī", en: "fan(s)", ko: "팬", words: "粉丝=영어 'fans'의 음역 + '쌀국수' 이중의미", grammar: "&lt;b&gt;粉丝&lt;/b&gt; = 팬 (영어 fans 음역어). 어원: 粉丝(가는 면)에서 차용.&lt;br&gt;📌 예문: &lt;code&gt;我是他的粉丝&lt;/code&gt; (난 그의 팬이야)&lt;br&gt;📌 응용: 铁杆粉丝 (열혈팬), 路人粉 (라이트팬)" },
+  { zh: "运动员", py: "yùndòngyuán", en: "athlete", ko: "운동선수", words: "运动=sport / 员=person ('운동하는 사람')", grammar: "&lt;b&gt;~员&lt;/b&gt; = '~하는 사람' (직업). 接미사.&lt;br&gt;📌 예문: &lt;code&gt;他是运动员&lt;/code&gt; (그는 운동선수야)&lt;br&gt;📌 응용: 服务员(웨이터), 演员(배우), 售货员(판매원)" },
+  { zh: "他得了第三名", py: "Tā dé le dì sān míng", en: "He got 3rd place", ko: "그가 3등 했어", words: "得=get/win / 了=(완료) / 第三名=3rd place", grammar: "&lt;b&gt;得 + 第 + 숫자 + 名&lt;/b&gt; = '~등 하다'. &lt;b&gt;第&lt;/b&gt;는 서수 접두사.&lt;br&gt;📌 예문: &lt;code&gt;她得了第一名&lt;/code&gt; (그녀가 1등 했어)&lt;br&gt;📌 응용: 第一(1등=금메달), 第二(2등=은메달), 第三(3등=동메달)" },
+  { zh: "庆祝", py: "qìngzhù", en: "celebrate", ko: "축하하다 / 기념하다", words: "庆=celebrate / 祝=wish", grammar: "&lt;b&gt;庆祝 + N/V&lt;/b&gt; = '~를 축하/기념하다'.&lt;br&gt;📌 예문: &lt;code&gt;我们一起庆祝吧!&lt;/code&gt; (우리 같이 축하하자!), &lt;code&gt;庆祝生日&lt;/code&gt; (생일을 축하하다)&lt;br&gt;📌 비교: 祝贺 (개인에게 축하 - '축하해'), 庆祝 (행사/기념 - 함께 즐기다)" },
+];
+
+const patterns10 = [
+  { name: "📌 Set 10 안내", desc: "Set 10은 &lt;b&gt;단어 복습용&lt;/b&gt;이에요!&lt;br&gt;새 단어가 추가될 때마다 여기 모입니다.&lt;br&gt;각 단어마다 어원/예문/응용 표현이 함께 제공됩니다." },
+  { name: "1. 올림픽/대회 어휘", desc: "• &lt;code&gt;奥运会&lt;/code&gt; = 올림픽&lt;br&gt;• &lt;code&gt;比赛&lt;/code&gt; = 경기/시합&lt;br&gt;• &lt;code&gt;运动员&lt;/code&gt; = 선수&lt;br&gt;• &lt;code&gt;国家队&lt;/code&gt; = 국가대표팀&lt;br&gt;• &lt;code&gt;粉丝&lt;/code&gt; = 팬 (fans 음역)" },
+  { name: "2. 스포츠 종목", desc: "&lt;b&gt;打 + 종목&lt;/b&gt; (손으로 치는 운동):&lt;br&gt;• 打羽毛球 (배드민턴)&lt;br&gt;• 打网球 (테니스)&lt;br&gt;• 打篮球 (농구)&lt;br&gt;&lt;b&gt;踢 + 종목&lt;/b&gt; (발로 차는 운동):&lt;br&gt;• 踢足球 (축구)" },
+  { name: "3. 等级/순위 표현 (第 + 숫자 + 名)", desc: "&lt;code&gt;第 + 숫자 + 名&lt;/code&gt; = '~등'&lt;br&gt;• 第一名 = 1등 (金牌 금메달)&lt;br&gt;• 第二名 = 2등 (银牌 은메달)&lt;br&gt;• 第三名 = 3등 (铜牌 동메달)&lt;br&gt;💡 &lt;b&gt;得 + 第X名&lt;/b&gt; = '~등 하다'" },
+  { name: "4. 시간대 정리", desc: "하루 시간 흐름:&lt;br&gt;• &lt;code&gt;凌晨&lt;/code&gt; = 새벽 (1-5시)&lt;br&gt;• &lt;code&gt;早上&lt;/code&gt; = 아침 (5-9시)&lt;br&gt;• &lt;code&gt;上午&lt;/code&gt; = 오전 (9-12시)&lt;br&gt;• &lt;code&gt;中午&lt;/code&gt; = 점심 (12-13시)&lt;br&gt;• &lt;code&gt;下午&lt;/code&gt; = 오후 (13-18시)&lt;br&gt;• &lt;code&gt;晚上&lt;/code&gt; = 저녁 (18-24시)&lt;br&gt;• &lt;code&gt;半夜&lt;/code&gt; = 한밤중" },
+  { name: "5. ~员 (직업 접미사)", desc: "&lt;code&gt;~员&lt;/code&gt; = '~하는 사람' (직업/역할)&lt;br&gt;• &lt;code&gt;运动员&lt;/code&gt; = 운동선수&lt;br&gt;• &lt;code&gt;服务员&lt;/code&gt; = 웨이터&lt;br&gt;• &lt;code&gt;演员&lt;/code&gt; = 배우&lt;br&gt;• &lt;code&gt;售货员&lt;/code&gt; = 판매원&lt;br&gt;• &lt;code&gt;教员&lt;/code&gt; = 교사" },
+  { name: "6. 打开 vs 关上 (켜다/끄다)", desc: "&lt;code&gt;打开 + N&lt;/code&gt; = 열다/켜다&lt;br&gt;&lt;code&gt;关上 + N&lt;/code&gt; = 닫다/끄다&lt;br&gt;• 打开电视 / 关上电视 (TV)&lt;br&gt;• 打开门 / 关上门 (문)&lt;br&gt;• 打开窗户 / 关上窗户 (창문)" },
+  { name: "7. 감정/평가 표현 (精彩 등)", desc: "강도별 칭찬:&lt;br&gt;• &lt;code&gt;不错&lt;/code&gt; = 괜찮다 (보통)&lt;br&gt;• &lt;code&gt;很好&lt;/code&gt; = 좋다&lt;br&gt;• &lt;code&gt;精彩&lt;/code&gt; = 멋지다 (공연/경기)&lt;br&gt;• &lt;code&gt;太棒了&lt;/code&gt; = 정말 짱이야!&lt;br&gt;💡 반대: 无聊 (지루), 不好 (안 좋다)" },
+  { name: "8. 期待 vs 等待", desc: "둘 다 '기다리다':&lt;br&gt;• &lt;code&gt;期待&lt;/code&gt; = 기대하며 기다림 (긍정)&lt;br&gt;• &lt;code&gt;等待&lt;/code&gt; = 단순히 기다림 (중립)&lt;br&gt;예: 期待你的回复 (당신의 답장을 기대합니다 - 비즈니스 표현)" },
+  { name: "9. 庆祝 vs 祝贺", desc: "둘 다 '축하':&lt;br&gt;• &lt;code&gt;庆祝&lt;/code&gt; = 행사·기념을 함께 즐기다 (행위)&lt;br&gt;• &lt;code&gt;祝贺&lt;/code&gt; = 개인에게 '축하해' (말)&lt;br&gt;• 我们一起庆祝吧 (같이 축하하자)&lt;br&gt;• 祝贺你! (축하해!)" },
+];
+
 const patterns9 = [
   { name: "1. 因为 + 이유 (왜냐하면)", desc: "&lt;code&gt;A，因为 B&lt;/code&gt; = 'A, 왜냐하면 B'&lt;br&gt;• 我想去天安门，因为它很漂亮&lt;br&gt;• 我请假，因为我有事&lt;br&gt;💡 이유 표현 핵심 패턴" },
   { name: "2. 离 + 远/近 응용", desc: "&lt;code&gt;A 离 B + 远/近/不远&lt;/code&gt; = 거리 평가&lt;br&gt;• 长城离这里不远 (멀지 않다)&lt;br&gt;• 北京大学离这里有点儿远 (조금 멀다)&lt;br&gt;• 这里离长城特别近 (특히 가깝다)&lt;br&gt;💡 &lt;b&gt;有点儿 + 형용사&lt;/b&gt; = 조금 (부정적 뉘앙스)" },
@@ -1059,11 +1091,12 @@ const setData = {
   7: { sentences: set7, patterns: patterns7, info: "&lt;strong&gt;Set 7&lt;/strong&gt;: 진행형/현재형/의문문/가족/그림 대화 - 68개 + 대화 17줄" },
   8: { sentences: set8, patterns: patterns8, info: "&lt;strong&gt;Set 8&lt;/strong&gt;: 베이징 길찾기 / 往 방향 / 离 거리 / 一边一边 / 56개" },
   9: { sentences: set9, patterns: patterns9, info: "&lt;strong&gt;Set 9&lt;/strong&gt;: 길찾기 심화/추천/연도·시각/회사·전화 - 128개" },
+  10: { sentences: set10, patterns: patterns10, info: "&lt;strong&gt;Set 10&lt;/strong&gt;: 📚 단어 복습 (어휘+예문+응용)" },
 };
 
-let currentSet = 9;
-let sentences = setData[9].sentences;
-let currentPatterns = setData[9].patterns;
+let currentSet = 10;
+let sentences = setData[10].sentences;
+let currentPatterns = setData[10].patterns;
 let stopRequested = false;
 let startLang = 'zh'; // 'zh' or 'en' - which language plays first
 
@@ -1093,7 +1126,7 @@ function switchSet(setNum) {
   currentSet = setNum;
   sentences = setData[setNum].sentences;
   currentPatterns = setData[setNum].patterns;
-  [1, 2, 3, 4, 5, 6, 7, 8, 9].forEach(n => {
+  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].forEach(n => {
     const tab = document.getElementById(`tab-${n}`);
     if (tab) tab.classList.toggle('active', n === setNum);
   });
