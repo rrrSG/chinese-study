@@ -20,7 +20,7 @@
 <meta name="googlebot" content="noindex, nofollow">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<!-- Build version: 1781569922 -->
+<!-- Build version: 1781757967 -->
 <title>중국어 음성 학습 플레이어 (통합)</title>
 <style>
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -295,11 +295,11 @@
 </head>
 <body>
 <div class="container">
-  <h1>🎧 중국어 학습 플레이어 <span style="font-size:11px;opacity:0.6;font-weight:400;">v11 · Set 1-10</span></h1>
+  <h1>🎧 중국어 학습 플레이어 <span style="font-size:11px;opacity:0.6;font-weight:400;">v12 · Set 1-10</span></h1>
   <div class="subtitle">🇨🇳/🇬🇧 → 3초 → 같은 언어 → 3초 → 다른 언어 → 3초 → 같은 언어 → 3초</div>
 
   <div class="set-tabs">
-    <button class="set-tab active newest" id="tab-10" onclick="switchSet(10)">📚 단어<span class="tab-sub">Set 10 (어휘복습)</span></button>
+    <button class="set-tab active newest" id="tab-10" onclick="switchSet(10)">📚 단어<span class="tab-sub">64개 (어휘복습)</span></button>
     <button class="set-tab" id="tab-9" onclick="switchSet(9)">Set 9<span class="tab-sub">128개 (길찾기심화)</span></button>
     <button class="set-tab" id="tab-8" onclick="switchSet(8)">Set 8<span class="tab-sub">45개 (길찾기)</span></button>
     <button class="set-tab" id="tab-7" onclick="switchSet(7)">Set 7<span class="tab-sub">85개 (그림 대화)</span></button>
@@ -969,6 +969,55 @@ const set10 = [
   { zh: "运动员", py: "yùndòngyuán", en: "athlete", ko: "운동선수", words: "运动=sport / 员=person ('운동하는 사람')", grammar: "&lt;b&gt;~员&lt;/b&gt; = '~하는 사람' (직업). 接미사.&lt;br&gt;📌 예문: &lt;code&gt;他是运动员&lt;/code&gt; (그는 운동선수야)&lt;br&gt;📌 응용: 服务员(웨이터), 演员(배우), 售货员(판매원)" },
   { zh: "他得了第三名", py: "Tā dé le dì sān míng", en: "He got 3rd place", ko: "그가 3등 했어", words: "得=get/win / 了=(완료) / 第三名=3rd place", grammar: "&lt;b&gt;得 + 第 + 숫자 + 名&lt;/b&gt; = '~등 하다'. &lt;b&gt;第&lt;/b&gt;는 서수 접두사.&lt;br&gt;📌 예문: &lt;code&gt;她得了第一名&lt;/code&gt; (그녀가 1등 했어)&lt;br&gt;📌 응용: 第一(1등=금메달), 第二(2등=은메달), 第三(3등=동메달)" },
   { zh: "庆祝", py: "qìngzhù", en: "celebrate", ko: "축하하다 / 기념하다", words: "庆=celebrate / 祝=wish", grammar: "&lt;b&gt;庆祝 + N/V&lt;/b&gt; = '~를 축하/기념하다'.&lt;br&gt;📌 예문: &lt;code&gt;我们一起庆祝吧!&lt;/code&gt; (우리 같이 축하하자!), &lt;code&gt;庆祝生日&lt;/code&gt; (생일을 축하하다)&lt;br&gt;📌 비교: 祝贺 (개인에게 축하 - '축하해'), 庆祝 (행사/기념 - 함께 즐기다)" },
+  { zh: "放松", py: "fàngsōng", en: "relax", ko: "긴장을 풀다 / 휴식하다", words: "放=put / 松=loose ('느슨하게 놓다')", grammar: "&lt;b&gt;放松&lt;/b&gt; = 긴장을 풀다, 쉬다.&lt;br&gt;📌 예문: &lt;code&gt;我们在海滩放松&lt;/code&gt; (해변에서 쉬고 있어)&lt;br&gt;📌 응용: 放松心情 (마음을 편하게)" },
+  { zh: "个子", py: "gèzi", en: "height / build", ko: "키 / 체격", words: "个=measure / 子=suffix", grammar: "&lt;b&gt;个子 + 高/矮&lt;/b&gt; = 키가 크다/작다.&lt;br&gt;📌 예문: &lt;code&gt;他个子很高&lt;/code&gt; (그는 키가 크다)&lt;br&gt;📌 응용: 我个子比较矮 (난 키가 작은 편이야)" },
+  { zh: "矮", py: "ǎi", en: "short (height)", ko: "키가 작은", words: "키·높이가 낮은 (사람·물건 모두)", grammar: "&lt;b&gt;矮&lt;/b&gt; ↔ 高 (높다).&lt;br&gt;📌 예문: &lt;code&gt;这张桌子很矮&lt;/code&gt; (이 책상 낮아)&lt;br&gt;📌 비교: 矮(키/높이) vs 短(길이) vs 小(크기)" },
+  { zh: "金色的头发", py: "jīnsè de tóufa", en: "golden/blonde hair", ko: "금발", words: "金色=golden / 头发=hair", grammar: "&lt;b&gt;색깔 + 的 + 신체부위&lt;/b&gt; = '~색 ~'.&lt;br&gt;📌 예문: &lt;code&gt;我有金色的头发&lt;/code&gt; (난 금발이야)&lt;br&gt;📌 색깔: 金(금), 黑(검), 棕(갈), 红(빨), 白(흰)" },
+  { zh: "蓝色的眼睛", py: "lánsè de yǎnjing", en: "blue eyes", ko: "파란 눈", words: "蓝色=blue / 眼睛=eyes", grammar: "&lt;b&gt;有 + 색깔 + 的 + 신체부위&lt;/b&gt; 패턴.&lt;br&gt;📌 예문: &lt;code&gt;她有蓝色的眼睛&lt;/code&gt; (그녀는 파란 눈)&lt;br&gt;📌 응용: 黑色的头发 (검은 머리), 棕色的眼睛 (갈색 눈)" },
+  { zh: "枕头", py: "zhěntou", en: "pillow", ko: "베개", words: "枕=pillow / 头=head ('머리 두는 것')", grammar: "&lt;b&gt;枕头&lt;/b&gt; 침구 어휘.&lt;br&gt;📌 예문: &lt;code&gt;你的枕头太硬了&lt;/code&gt; (네 베개 너무 딱딱해)&lt;br&gt;📌 응용: 침구: 床(침대), 被子(이불), 床单(시트), 枕头(베개)" },
+  { zh: "阿姨", py: "āyí", en: "aunt (mom's side) / auntie", ko: "이모 / 아주머니", words: "엄마 자매 또는 친한 여성 호칭", grammar: "&lt;b&gt;阿姨&lt;/b&gt; = 이모, 아주머니 (친근한 호칭).&lt;br&gt;📌 예문: &lt;code&gt;她是我的阿姨&lt;/code&gt; (그녀는 내 이모)&lt;br&gt;📌 가족: 阿姨(이모/엄마쪽), 姑姑(고모/아빠쪽), 婶婶(작은어머니)" },
+  { zh: "叔叔", py: "shūshu", en: "uncle (younger, dad's side) / mister", ko: "삼촌 / 아저씨", words: "아빠의 동생 또는 친한 남성 호칭", grammar: "&lt;b&gt;叔叔&lt;/b&gt; = 작은아버지/삼촌.&lt;br&gt;📌 예문: &lt;code&gt;他是你的叔叔吗?&lt;/code&gt; (네 삼촌이야?)&lt;br&gt;📌 가족: 叔叔(작은아버지), 伯伯(큰아버지), 舅舅(외삼촌)" },
+  { zh: "妻子", py: "qīzi", en: "wife", ko: "아내", words: "공식적인 '아내'", grammar: "&lt;b&gt;妻子&lt;/b&gt; (공식) vs 老婆 (구어) = 아내.&lt;br&gt;📌 예문: &lt;code&gt;我有一个漂亮的妻子&lt;/code&gt; (예쁜 아내가 있어)&lt;br&gt;📌 응용: 丈夫(남편-공식), 老公(남편-구어)" },
+  { zh: "录视频", py: "lù shìpín", en: "record a video", ko: "영상 녹화하다", words: "录=record / 视频=video", grammar: "&lt;b&gt;录 + N&lt;/b&gt; = 기록하다 (영상·녹음).&lt;br&gt;📌 예문: &lt;code&gt;我在录视频&lt;/code&gt; (영상 찍고 있어)&lt;br&gt;📌 비교: 拍照(사진) vs 录视频(영상) vs 录音(녹음)" },
+  { zh: "拍照", py: "pāizhào", en: "take a photo", ko: "사진 찍다", words: "拍=hit/snap / 照=light/photo", grammar: "&lt;b&gt;给 + N + 拍照&lt;/b&gt; = 'N 사진을 찍다'.&lt;br&gt;📌 예문: &lt;code&gt;给猫拍照&lt;/code&gt; (고양이 사진 찍기)&lt;br&gt;📌 응용: 拍照 (사진), 拍视频 (영상)" },
+  { zh: "河边徒步", py: "hé biān túbù", en: "hike along the river", ko: "강가 하이킹", words: "河边=riverside / 徒步=hike", grammar: "&lt;b&gt;徒步&lt;/b&gt; = 도보 여행 (徒=걷다 + 步=걸음).&lt;br&gt;📌 예문: &lt;code&gt;我喜欢河边徒步&lt;/code&gt; (강가 하이킹 좋아해)&lt;br&gt;📌 응용: 山上徒步 (산 하이킹)" },
+  { zh: "喝河水", py: "hē héshuǐ", en: "drink river water", ko: "강물을 마시다", words: "喝=drink / 河水=river water", grammar: "&lt;b&gt;喝 + 음료&lt;/b&gt; = '~을 마시다'.&lt;br&gt;📌 예문: &lt;code&gt;不要喝河水&lt;/code&gt; (강물 마시지 마)&lt;br&gt;📌 마시는 것: 喝水, 喝茶, 喝咖啡, 喝牛奶" },
+  { zh: "一只熊", py: "yī zhī xióng", en: "a bear", ko: "곰 한 마리", words: "一只=a (동물 양사) / 熊=bear", grammar: "&lt;b&gt;只&lt;/b&gt; = 동물 양사.&lt;br&gt;📌 예문: &lt;code&gt;一只熊在我们的帐篷旁边&lt;/code&gt; (곰이 우리 텐트 옆에)&lt;br&gt;📌 양사 只 응용: 一只猫, 一只狗, 一只鸟" },
+  { zh: "帐篷", py: "zhàngpeng", en: "tent", ko: "텐트", words: "帐=screen / 篷=canopy", grammar: "&lt;b&gt;帐篷&lt;/b&gt; 양사는 顶 (一顶帐篷).&lt;br&gt;📌 예문: &lt;code&gt;我们在帐篷里睡觉&lt;/code&gt; (텐트에서 잠을 자)&lt;br&gt;📌 캠핑 어휘: 帐篷(텐트), 睡袋(침낭), 火堆(모닥불)" },
+  { zh: "走", py: "zǒu", en: "walk / go / leave", ko: "걷다 / 가다", words: "이동의 가장 기본 동사", grammar: "&lt;b&gt;走&lt;/b&gt; = 걷다, 떠나다, 가다 (다용도).&lt;br&gt;📌 예문: &lt;code&gt;我们走吧!&lt;/code&gt; (가자!), &lt;code&gt;往前走&lt;/code&gt; (앞으로 가)&lt;br&gt;📌 응용: 走路 (걷다), 走开 (떠나다), 走进 (들어가다)" },
+  { zh: "很可怕的动物", py: "hěn kěpà de dòngwù", en: "a very scary animal", ko: "매우 무서운 동물", words: "可怕=scary / 动物=animal", grammar: "&lt;b&gt;형용사 + 的 + N&lt;/b&gt; = '~한 N'.&lt;br&gt;📌 예문: &lt;code&gt;熊是很可怕的动物&lt;/code&gt; (곰은 무서운 동물)&lt;br&gt;📌 비교: 可怕(무서운) vs 吓人(놀라운) vs 恐怖(공포)" },
+  { zh: "天哪", py: "tiān na", en: "oh my god / oh no", ko: "세상에 / 이런", words: "天=sky/heaven / 哪=어조사", grammar: "&lt;b&gt;天哪!&lt;/b&gt; 놀람·당황 표현.&lt;br&gt;📌 예문: &lt;code&gt;天哪,我有二十封新邮件!&lt;/code&gt; (세상에, 새 메일 20개야!)&lt;br&gt;📌 응용: 我的天哪! (오마이갓!), 哎呀 (어머나)" },
+  { zh: "二十封新邮件!", py: "èrshí fēng xīn yóujiàn!", en: "20 new emails!", ko: "새 메일 20통!", words: "二十=20 / 封=(편지 양사) / 邮件=email", grammar: "&lt;b&gt;封&lt;/b&gt; = 편지/이메일 양사 (봉투).&lt;br&gt;📌 예문: &lt;code&gt;我收到三封邮件&lt;/code&gt; (3통 받았어)&lt;br&gt;📌 우편 어휘: 邮件(메일), 信(편지), 包裹(소포)" },
+  { zh: "感到", py: "gǎndào", en: "feel", ko: "~게 느끼다", words: "感=feel / 到=reach (감정에 도달)", grammar: "&lt;b&gt;感到 + 형용사&lt;/b&gt; = '~게 느끼다' (强).&lt;br&gt;📌 예문: &lt;code&gt;我感到累&lt;/code&gt; (피곤하다)&lt;br&gt;📌 비교: 感到(강한 느낌) vs 觉得(가벼운 생각)" },
+  { zh: "冲浪", py: "chōnglàng", en: "surf", ko: "서핑하다", words: "冲=rush / 浪=wave ('파도를 가르다')", grammar: "&lt;b&gt;冲浪&lt;/b&gt; 액티비티 동사.&lt;br&gt;📌 예문: &lt;code&gt;我在海滩冲浪&lt;/code&gt; (해변에서 서핑해)&lt;br&gt;📌 응용: 滑雪(스키), 潜水(다이빙), 游泳(수영)" },
+  { zh: "海滩", py: "hǎitān", en: "beach", ko: "해변", words: "海=sea / 滩=beach/shore", grammar: "&lt;b&gt;海滩&lt;/b&gt; 휴양지 어휘.&lt;br&gt;📌 예문: &lt;code&gt;海滩很漂亮&lt;/code&gt; (해변 예뻐)&lt;br&gt;📌 응용: 沙滩 (모래사장)" },
+  { zh: "露营", py: "lùyíng", en: "camp", ko: "캠핑하다", words: "露=open air / 营=camp", grammar: "&lt;b&gt;露营&lt;/b&gt; = 야영하다.&lt;br&gt;📌 예문: &lt;code&gt;我们一起露营吧&lt;/code&gt; (같이 캠핑하자)&lt;br&gt;📌 응용: 露营地 (캠핑장), 帐篷(텐트)" },
+  { zh: "那只熊", py: "nà zhī xióng", en: "that bear", ko: "저 곰", words: "那只=that (동물 양사)", grammar: "&lt;b&gt;那 + 只 + N&lt;/b&gt; 패턴.&lt;br&gt;📌 예문: &lt;code&gt;那只熊很大&lt;/code&gt; (저 곰 커)&lt;br&gt;📌 응용: 这只猫 (이 고양이), 那只狗 (저 강아지)" },
+  { zh: "微笑", py: "wēixiào", en: "smile", ko: "미소 짓다 / 미소", words: "微=slight / 笑=laugh ('살짝 웃다')", grammar: "&lt;b&gt;微笑&lt;/b&gt; (살짝 미소) vs 笑 (일반 웃음).&lt;br&gt;📌 예문: &lt;code&gt;她在微笑&lt;/code&gt; (그녀는 미소짓고 있어)&lt;br&gt;📌 비교: 微笑(살짝), 笑(일반), 大笑(크게)" },
+  { zh: "火堆旁边", py: "huǒduī pángbiān", en: "beside the bonfire", ko: "모닥불 옆", words: "火堆=bonfire / 旁边=beside", grammar: "&lt;b&gt;N + 旁边&lt;/b&gt; = 'N 옆'.&lt;br&gt;📌 예문: &lt;code&gt;我们坐在火堆旁边&lt;/code&gt; (모닥불 옆에 앉아)&lt;br&gt;📌 응용: 桌子旁边(책상 옆), 门旁边(문 옆)" },
+  { zh: "巴西", py: "Bāxī", en: "Brazil", ko: "브라질", words: "음역어", grammar: "&lt;b&gt;巴西&lt;/b&gt; 국가명.&lt;br&gt;📌 예문: &lt;code&gt;巴西怎么样?&lt;/code&gt; (브라질 어때?)&lt;br&gt;📌 응용: 中国(중), 韩国(한), 美国(미), 日本(일), 墨西哥(멕)" },
+  { zh: "墨西哥", py: "Mòxīgē", en: "Mexico", ko: "멕시코", words: "음역어", grammar: "&lt;b&gt;墨西哥&lt;/b&gt; 국가명.&lt;br&gt;📌 예문: &lt;code&gt;墨西哥的天气怎么样?&lt;/code&gt; (멕시코 날씨 어때?)&lt;br&gt;📌 응용: 西班牙(스페인), 法国(프랑스), 德国(독일)" },
+  { zh: "食物", py: "shíwù", en: "food", ko: "음식", words: "食=eat / 物=thing", grammar: "&lt;b&gt;食物&lt;/b&gt; (일반적 '음식') vs 菜 (요리).&lt;br&gt;📌 예문: &lt;code&gt;酒店的食物怎么样?&lt;/code&gt; (호텔 음식 어때?)&lt;br&gt;📌 비교: 食物(음식 일반), 菜(요리), 饭(밥/식사)" },
+  { zh: "一件外套", py: "yī jiàn wàitào", en: "a coat / jacket", ko: "외투 / 재킷 한 벌", words: "一件=a (옷 양사) / 外套=coat", grammar: "&lt;b&gt;件&lt;/b&gt; = 옷 양사.&lt;br&gt;📌 예문: &lt;code&gt;我需要一件外套&lt;/code&gt; (재킷이 필요해)&lt;br&gt;📌 응용: 一件T恤(티셔츠), 一件衬衫(셔츠), 一条裤子(바지-条)" },
+  { zh: "河水", py: "héshuǐ", en: "river water", ko: "강물", words: "河=river / 水=water", grammar: "&lt;b&gt;河水&lt;/b&gt; 자연 어휘.&lt;br&gt;📌 예문: &lt;code&gt;河水很冷&lt;/code&gt; (강물 차가워)&lt;br&gt;📌 비교: 河水(강물), 海水(바닷물), 雨水(빗물)" },
+  { zh: "一座很高的山", py: "yī zuò hěn gāo de shān", en: "a tall mountain", ko: "높은 산 하나", words: "一座=a (큰 것 양사) / 高=tall / 山=mountain", grammar: "&lt;b&gt;座&lt;/b&gt; = 크고 고정된 것 양사 (산, 건물).&lt;br&gt;📌 예문: &lt;code&gt;那座山很高&lt;/code&gt; (저 산 높아)&lt;br&gt;📌 응용: 一座桥(다리), 一座城市(도시), 一座建筑(건물)" },
+  { zh: "一片美丽的海滩", py: "yī piàn měilì de hǎitān", en: "a beautiful beach", ko: "아름다운 해변", words: "一片=a (넓은 것 양사) / 美丽=beautiful", grammar: "&lt;b&gt;片&lt;/b&gt; = 넓고 평평한 것 양사.&lt;br&gt;📌 예문: &lt;code&gt;一片美丽的海滩&lt;/code&gt; (아름다운 해변)&lt;br&gt;📌 응용: 一片森林(숲), 一片云(구름)" },
+  { zh: "灰色帐篷", py: "huīsè zhàngpeng", en: "gray tent", ko: "회색 텐트", words: "灰色=gray / 帐篷=tent", grammar: "&lt;b&gt;색깔 + N&lt;/b&gt; (수식 of 생략).&lt;br&gt;📌 예문: &lt;code&gt;一顶灰色帐篷&lt;/code&gt; (회색 텐트 하나)&lt;br&gt;📌 색: 灰(회), 黑(검), 白(흰), 棕(갈)" },
+  { zh: "了解", py: "liǎojiě", en: "understand / know about", ko: "이해하다 / 알다", words: "了=clear / 解=understand", grammar: "&lt;b&gt;了解 + N&lt;/b&gt; = '~을 알다, 이해하다'.&lt;br&gt;📌 예문: &lt;code&gt;我了解中国文化&lt;/code&gt; (중국 문화를 안다)&lt;br&gt;📌 비교: 了解(이해/안다) vs 知道(정보 알다) vs 学(배운다)" },
+  { zh: "知识", py: "zhīshi", en: "knowledge", ko: "지식", words: "知=know / 识=knowledge", grammar: "&lt;b&gt;知识&lt;/b&gt; 학습 어휘.&lt;br&gt;📌 예문: &lt;code&gt;我了解猫的知识&lt;/code&gt; (고양이 지식을 안다)&lt;br&gt;📌 응용: 学知识 (지식을 배우다)" },
+  { zh: "地图", py: "dìtú", en: "map", ko: "지도", words: "地=ground/earth / 图=picture", grammar: "&lt;b&gt;地图&lt;/b&gt; 여행 필수 어휘.&lt;br&gt;📌 예문: &lt;code&gt;手机里有地图&lt;/code&gt; (휴대폰에 지도 있어)&lt;br&gt;📌 응용: 看地图 (지도 보다), 北京地图" },
+  { zh: "一台新相机", py: "yī tái xīn xiàngjī", en: "a new camera", ko: "새 카메라 한 대", words: "一台=a (기계 양사) / 相机=camera", grammar: "&lt;b&gt;台&lt;/b&gt; = 기계·기기 양사.&lt;br&gt;📌 예문: &lt;code&gt;我买了一台相机&lt;/code&gt; (카메라 샀어)&lt;br&gt;📌 응용: 一台电脑(컴퓨터), 一台车(차), 一台空调(에어컨)" },
+  { zh: "汽车", py: "qìchē", en: "car", ko: "자동차", words: "汽=gas / 车=vehicle", grammar: "&lt;b&gt;汽车&lt;/b&gt; (정식 명칭). 구어: 车.&lt;br&gt;📌 예문: &lt;code&gt;我开汽车&lt;/code&gt; (자동차 운전해)&lt;br&gt;📌 차량: 汽车(자동차), 火车(기차), 自行车(자전거), 公交车(버스)" },
+  { zh: "这支笔", py: "zhè zhī bǐ", en: "this pen", ko: "이 펜", words: "这支=this (가늘고 긴 것 양사) / 笔=pen", grammar: "&lt;b&gt;支&lt;/b&gt; = 가늘고 긴 것 양사.&lt;br&gt;📌 예문: &lt;code&gt;你在用这支笔吗?&lt;/code&gt; (이 펜 쓰고 있어?)&lt;br&gt;📌 응용: 一支铅笔(연필), 一支花(꽃)" },
+  { zh: "网络", py: "wǎngluò", en: "internet / network", ko: "인터넷 / 네트워크", words: "网=net / 络=connection", grammar: "&lt;b&gt;网络&lt;/b&gt; vs 网上 (인터넷 상에서).&lt;br&gt;📌 예문: &lt;code&gt;网络很快&lt;/code&gt; (인터넷 빨라)&lt;br&gt;📌 응용: 上网(인터넷 하다), 在网上(인터넷에서)" },
+  { zh: "假期", py: "jiàqī", en: "vacation / holiday", ko: "휴가 / 방학", words: "假=rest/leave / 期=period", grammar: "&lt;b&gt;假期&lt;/b&gt; = 휴가 기간.&lt;br&gt;📌 예문: &lt;code&gt;假期怎么样?&lt;/code&gt; (휴가 어때?)&lt;br&gt;📌 응용: 寒假(겨울방학), 暑假(여름방학), 请假(휴가 신청)" },
+  { zh: "单身", py: "dānshēn", en: "single", ko: "미혼 / 솔로", words: "单=single / 身=body/self", grammar: "&lt;b&gt;单身&lt;/b&gt; 결혼 상태 표현.&lt;br&gt;📌 예문: &lt;code&gt;你哥哥是单身吗?&lt;/code&gt; (오빠 미혼?)&lt;br&gt;📌 응용: 已婚(기혼), 单身狗(솔로 - 농담)" },
+  { zh: "迟到了", py: "chídào le", en: "be late", ko: "늦었다", words: "迟=late / 到=arrive / 了=상태 변화", grammar: "&lt;b&gt;迟到了&lt;/b&gt; = 늦었다 (상태 변화).&lt;br&gt;📌 예문: &lt;code&gt;我迟到了&lt;/code&gt; (나 늦었어)&lt;br&gt;📌 반대: 早到 (일찍 도착), 准时(정시)" },
+  { zh: "把画给他看", py: "bǎ huà gěi tā kàn", en: "show him the painting", ko: "그에게 그림을 보여주다", words: "把=처치 / 画=painting / 给=to / 看=look at", grammar: "&lt;b&gt;把 + O + 给 + 사람 + 看&lt;/b&gt; = '~에게 ~을 보여주다' (把 처치문).&lt;br&gt;📌 예문: &lt;code&gt;把书给我看&lt;/code&gt; (책 보여줘)&lt;br&gt;📌 응용: 把 + O + V (목적어 강조)" },
+  { zh: "蓝色颜料", py: "lánsè yánliào", en: "blue paint", ko: "파란 물감", words: "蓝色=blue / 颜料=paint/pigment", grammar: "&lt;b&gt;颜料&lt;/b&gt; = 안료, 물감.&lt;br&gt;📌 예문: &lt;code&gt;我有很多蓝色颜料&lt;/code&gt; (파란 물감 많아)&lt;br&gt;📌 응용: 红色颜料(빨강), 油画颜料(유화 물감)" },
+  { zh: "转", py: "zhuǎn", en: "turn / rotate", ko: "돌다 / 회전하다", words: "방향 전환", grammar: "&lt;b&gt;往 + 방향 + 转&lt;/b&gt; = '~로 돌다'.&lt;br&gt;📌 예문: &lt;code&gt;往左转&lt;/code&gt; (좌회전), &lt;code&gt;往右转&lt;/code&gt; (우회전)&lt;br&gt;📌 응용: 转身 (몸을 돌리다), 转弯 (모퉁이 돌다)" },
+  { zh: "不用谢", py: "bú yòng xiè", en: "you're welcome", ko: "천만에", words: "不用=no need / 谢=thank", grammar: "&lt;b&gt;不用谢&lt;/b&gt; 감사 답례 (캐주얼).&lt;br&gt;📌 예문: &lt;code&gt;不用谢,朋友!&lt;/code&gt; (천만에, 친구!)&lt;br&gt;📌 비교: 不用谢 < 不客气 < 没事 (가장 캐주얼)" },
+  { zh: "不客气", py: "bú kèqi", en: "you're welcome", ko: "천만에 / 별말씀을요", words: "不=not / 客气=polite/courteous", grammar: "&lt;b&gt;不客气&lt;/b&gt; 감사 답례 (정중함 ↑).&lt;br&gt;📌 예문: &lt;code&gt;不客气,请慢用!&lt;/code&gt; (천만에요, 맛있게 드세요)&lt;br&gt;📌 비교: 不客气 (가장 일반적), 不用谢 (캐주얼), 没事儿 (편한 사이)" },
 ];
 
 const patterns10 = [
@@ -1091,7 +1140,7 @@ const setData = {
   7: { sentences: set7, patterns: patterns7, info: "&lt;strong&gt;Set 7&lt;/strong&gt;: 진행형/현재형/의문문/가족/그림 대화 - 68개 + 대화 17줄" },
   8: { sentences: set8, patterns: patterns8, info: "&lt;strong&gt;Set 8&lt;/strong&gt;: 베이징 길찾기 / 往 방향 / 离 거리 / 一边一边 / 56개" },
   9: { sentences: set9, patterns: patterns9, info: "&lt;strong&gt;Set 9&lt;/strong&gt;: 길찾기 심화/추천/연도·시각/회사·전화 - 128개" },
-  10: { sentences: set10, patterns: patterns10, info: "&lt;strong&gt;Set 10&lt;/strong&gt;: 📚 단어 복습 (어휘+예문+응용)" },
+  10: { sentences: set10, patterns: patterns10, info: "&lt;strong&gt;Set 10&lt;/strong&gt;: 📚 단어 복습 (어휘+예문+응용) - 64개" },
 };
 
 let currentSet = 10;
