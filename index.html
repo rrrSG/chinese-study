@@ -20,7 +20,7 @@
 <meta name="googlebot" content="noindex, nofollow">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<!-- Build version: 1781757967 -->
+<!-- Build version: 1782262100 -->
 <title>중국어 음성 학습 플레이어 (통합)</title>
 <style>
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -295,11 +295,12 @@
 </head>
 <body>
 <div class="container">
-  <h1>🎧 중국어 학습 플레이어 <span style="font-size:11px;opacity:0.6;font-weight:400;">v12 · Set 1-10</span></h1>
+  <h1>🎧 중국어 학습 플레이어 <span style="font-size:11px;opacity:0.6;font-weight:400;">v14 · Set 1-11</span></h1>
   <div class="subtitle">🇨🇳/🇬🇧 → 3초 → 같은 언어 → 3초 → 다른 언어 → 3초 → 같은 언어 → 3초</div>
 
   <div class="set-tabs">
-    <button class="set-tab active newest" id="tab-10" onclick="switchSet(10)">📚 단어<span class="tab-sub">64개 (어휘복습)</span></button>
+    <button class="set-tab active newest" id="tab-11" onclick="switchSet(11)">📚 Set 11<span class="tab-sub">55개 (도난·감정)</span></button>
+    <button class="set-tab" id="tab-10" onclick="switchSet(10)">📚 단어<span class="tab-sub">64개 (어휘복습)</span></button>
     <button class="set-tab" id="tab-9" onclick="switchSet(9)">Set 9<span class="tab-sub">128개 (길찾기심화)</span></button>
     <button class="set-tab" id="tab-8" onclick="switchSet(8)">Set 8<span class="tab-sub">45개 (길찾기)</span></button>
     <button class="set-tab" id="tab-7" onclick="switchSet(7)">Set 7<span class="tab-sub">85개 (그림 대화)</span></button>
@@ -311,7 +312,7 @@
     <button class="set-tab" id="tab-1" onclick="switchSet(1)">Set 1<span class="tab-sub">19개 (기초)</span></button>
   </div>
 
-  <div class="set-info" id="setInfo"><strong>Set 8</strong>: 베이징 길찾기 / 往 방향 / 离 거리 / 一边一边 / 56개</div>
+  <div class="set-info" id="setInfo"><strong>Set 11</strong>: 📚 도난·감정·시간 (단어19+문장36) - 55개</div>
 
   <div class="master-toggle-row">
     <button class="master-toggle" onclick="showAll()">👁️ 전체 보기</button>
@@ -1020,6 +1021,78 @@ const set10 = [
   { zh: "不客气", py: "bú kèqi", en: "you're welcome", ko: "천만에 / 별말씀을요", words: "不=not / 客气=polite/courteous", grammar: "&lt;b&gt;不客气&lt;/b&gt; 감사 답례 (정중함 ↑).&lt;br&gt;📌 예문: &lt;code&gt;不客气,请慢用!&lt;/code&gt; (천만에요, 맛있게 드세요)&lt;br&gt;📌 비교: 不客气 (가장 일반적), 不用谢 (캐주얼), 没事儿 (편한 사이)" },
 ];
 
+const set11 = [
+  { zh: "忘", py: "wàng", en: "forget", ko: "잊다", words: "기억을 잃다", grammar: "&lt;b&gt;忘 + 了&lt;/b&gt; = 잊었다.&lt;br&gt;📌 예문: &lt;code&gt;我忘了关门&lt;/code&gt; (문 잠그는 걸 잊었어)&lt;br&gt;📌 응용: 忘记 (잊다-정식), 别忘了 (잊지 마)" },
+  { zh: "偷", py: "tōu", en: "steal", ko: "훔치다", words: "몰래 가져가다", grammar: "&lt;b&gt;偷 + O&lt;/b&gt; = '~을 훔치다'.&lt;br&gt;📌 예문: &lt;code&gt;小偷偷了什么?&lt;/code&gt; (도둑이 뭘 훔쳤어?)&lt;br&gt;📌 응용: 小偷 (도둑), 偷东西 (물건 훔치다)" },
+  { zh: "游戏机", py: "yóuxìjī", en: "game console", ko: "게임기", words: "游戏=game / 机=machine", grammar: "&lt;b&gt;游戏机&lt;/b&gt; 게임 기기.&lt;br&gt;📌 예문: &lt;code&gt;我的游戏机在哪里?&lt;/code&gt; (내 게임기 어딨어?)&lt;br&gt;📌 응용: 玩游戏 (게임하다), 电子游戏 (비디오게임)" },
+  { zh: "认识", py: "rènshi", en: "know (a person) / recognize", ko: "(사람을) 알다 / 알아보다", words: "认=recognize / 识=know", grammar: "&lt;b&gt;认识 + 사람&lt;/b&gt; = '~를 알다' (안면).&lt;br&gt;📌 예문: &lt;code&gt;你认识她吗?&lt;/code&gt; (그녀 알아?)&lt;br&gt;📌 비교: 认识(사람 안다) vs 知道(정보 안다) vs 了解(이해한다)" },
+  { zh: "电梯", py: "diàntī", en: "elevator", ko: "엘리베이터", words: "电=electric / 梯=stairs ('전기 계단')", grammar: "&lt;b&gt;电梯&lt;/b&gt; 건물 시설.&lt;br&gt;📌 예문: &lt;code&gt;电梯在哪里?&lt;/code&gt; (엘리베이터 어디?)&lt;br&gt;📌 응용: 楼梯 (계단), 扶梯 (에스컬레이터)" },
+  { zh: "奥运会", py: "Àoyùnhuì", en: "Olympics", ko: "올림픽", words: "奥运=Olympic / 会=meeting", grammar: "&lt;b&gt;奥运会&lt;/b&gt; 국제 대회.&lt;br&gt;📌 예문: &lt;code&gt;我期待奥运会&lt;/code&gt; (올림픽 기대돼)&lt;br&gt;📌 응용: 冬奥会 (동계), 残奥会 (패럴림픽)" },
+  { zh: "队", py: "duì", en: "team", ko: "팀 / 대오", words: "무리, 팀", grammar: "&lt;b&gt;국가/이름 + 队&lt;/b&gt; = '~팀'.&lt;br&gt;📌 예문: &lt;code&gt;我支持中国队&lt;/code&gt; (중국팀 응원)&lt;br&gt;📌 응용: 国家队 (국가대표), 排队 (줄 서다)" },
+  { zh: "遛狗", py: "liù gǒu", en: "walk the dog", ko: "개 산책시키다", words: "遛=stroll / 狗=dog", grammar: "&lt;b&gt;遛狗&lt;/b&gt; = 개를 산책시키다.&lt;br&gt;📌 예문: &lt;code&gt;我每天都遛狗&lt;/code&gt; (매일 개 산책시켜)&lt;br&gt;📌 응용: 遛弯儿 (산책하다)" },
+  { zh: "看见", py: "kànjiàn", en: "see / catch sight of", ko: "보다 / 보이다", words: "看=look / 见=perceive (결과보어)", grammar: "&lt;b&gt;看见&lt;/b&gt; = 보다 (결과 강조: 봐서 보였다).&lt;br&gt;📌 예문: &lt;code&gt;他们看见了谁?&lt;/code&gt; (그들은 누굴 봤어?)&lt;br&gt;📌 비교: 看(보다-동작) vs 看见(봤다-결과) vs 看到(봤다)" },
+  { zh: "花园", py: "huāyuán", en: "garden", ko: "정원 / 화원", words: "花=flower / 园=garden", grammar: "&lt;b&gt;花园&lt;/b&gt; 장소 어휘.&lt;br&gt;📌 예문: &lt;code&gt;花园里有很多花&lt;/code&gt; (정원에 꽃이 많아)&lt;br&gt;📌 응용: 公园 (공원), 动物园 (동물원)" },
+  { zh: "啤酒", py: "píjiǔ", en: "beer", ko: "맥주", words: "啤=beer (음역) / 酒=alcohol", grammar: "&lt;b&gt;啤酒&lt;/b&gt; 음료.&lt;br&gt;📌 예문: &lt;code&gt;我想喝啤酒&lt;/code&gt; (맥주 마시고 싶어)&lt;br&gt;📌 술: 啤酒(맥주), 白酒(고량주), 红酒(와인)" },
+  { zh: "钱", py: "qián", en: "money", ko: "돈", words: "화폐, 돈", grammar: "&lt;b&gt;钱&lt;/b&gt; 기본 어휘.&lt;br&gt;📌 예문: &lt;code&gt;这个多少钱?&lt;/code&gt; (이거 얼마야?)&lt;br&gt;📌 응용: 钱包 (지갑), 零钱 (잔돈), 花钱 (돈 쓰다)" },
+  { zh: "生气", py: "shēngqì", en: "angry / get angry", ko: "화나다", words: "生=produce / 气=anger ('화가 나다')", grammar: "&lt;b&gt;生气&lt;/b&gt; = 화나다 (이합동사).&lt;br&gt;📌 예문: &lt;code&gt;我非常生气&lt;/code&gt; (정말 화났어)&lt;br&gt;📌 응용: 别生气 (화내지 마), 生气了 (화났다)" },
+  { zh: "害怕", py: "hàipà", en: "be afraid / scared", ko: "무서워하다", words: "害=harm / 怕=fear", grammar: "&lt;b&gt;害怕&lt;/b&gt; = 무서워하다.&lt;br&gt;📌 예문: &lt;code&gt;你们害怕吗?&lt;/code&gt; (무섭니?)&lt;br&gt;📌 비교: 害怕(무섭다), 怕(짧은 형태), 可怕(무서운-형용사)" },
+  { zh: "小偷", py: "xiǎotōu", en: "thief", ko: "도둑", words: "小=small / 偷=steal", grammar: "&lt;b&gt;小偷&lt;/b&gt; = 도둑.&lt;br&gt;📌 예문: &lt;code&gt;附近有小偷吗?&lt;/code&gt; (근처에 도둑 있어?)&lt;br&gt;📌 응용: 偷 (훔치다), 小偷小摸 (좀도둑질)" },
+  { zh: "进", py: "jìn", en: "enter / go in", ko: "들어가다", words: "안으로 들어가다", grammar: "&lt;b&gt;进 + 장소&lt;/b&gt; = '~에 들어가다'.&lt;br&gt;📌 예문: &lt;code&gt;小偷进了我家&lt;/code&gt; (도둑이 집에 들어왔어)&lt;br&gt;📌 응용: 进来 (들어오다), 进去 (들어가다), 走进 (걸어들어가다)" },
+  { zh: "当时", py: "dāngshí", en: "at that time / then", ko: "그때 / 당시", words: "当=at / 时=time", grammar: "&lt;b&gt;当时&lt;/b&gt; = 그 당시 (과거 특정 시점).&lt;br&gt;📌 예문: &lt;code&gt;我当时在遛狗&lt;/code&gt; (그때 개 산책시키고 있었어)&lt;br&gt;📌 응용: 那时候 (그때), 现在 (지금)" },
+  { zh: "没事吧", py: "méishì ba", en: "Are you OK? / It's fine, right?", ko: "괜찮아?", words: "没事=no problem / 吧=어조사", grammar: "&lt;b&gt;没事吧?&lt;/b&gt; 안부/걱정 표현.&lt;br&gt;📌 예문: &lt;code&gt;你没事吧?&lt;/code&gt; (너 괜찮아?)&lt;br&gt;📌 응용: 没事 (괜찮아), 没关系 (상관없어)" },
+  { zh: "报警", py: "bàojǐng", en: "call the police", ko: "신고하다 / 경찰에 알리다", words: "报=report / 警=police", grammar: "&lt;b&gt;报警&lt;/b&gt; = 경찰에 신고하다.&lt;br&gt;📌 예문: &lt;code&gt;你最好报警&lt;/code&gt; (신고하는 게 좋겠어)&lt;br&gt;📌 응용: 警察 (경찰), 110 (중국 신고번호)" },
+  { zh: "你认识她吗?", py: "Nǐ rènshi tā ma?", en: "Do you know her?", ko: "그녀를 알아?", words: "认识=know / 她=her", grammar: "&lt;b&gt;认识 + 사람 + 吗?&lt;/b&gt; = '~를 알아?'" },
+  { zh: "电梯在哪里?", py: "Diàntī zài nǎlǐ?", en: "Where is the elevator?", ko: "엘리베이터 어디 있어?", words: "电梯=elevator / 在哪里=where", grammar: "&lt;b&gt;N + 在哪里?&lt;/b&gt; 위치 질문" },
+  { zh: "你最好报警。", py: "Nǐ zuì hǎo bàojǐng.", en: "You'd better call the police.", ko: "신고하는 게 좋겠어", words: "最好=had better / 报警=call police", grammar: "&lt;b&gt;最好 + V&lt;/b&gt; 조언 (Set 9 복습)" },
+  { zh: "你们害怕吗?", py: "Nǐmen hàipà ma?", en: "Are you scared?", ko: "너희들 무서워?", words: "你们=you (plural) / 害怕=scared", grammar: "&lt;b&gt;害怕 + 吗?&lt;/b&gt; 의문문" },
+  { zh: "他们看见了谁?", py: "Tāmen kànjiàn le shéi?", en: "Who did they see?", ko: "그들은 누굴 봤어?", words: "看见=see / 了=완료 / 谁=who", grammar: "&lt;b&gt;看见 + 了 + 谁?&lt;/b&gt; = '누굴 봤어?'" },
+  { zh: "我当时在等电梯。", py: "Wǒ dāngshí zài děng diàntī.", en: "I was waiting for the elevator then.", ko: "그때 엘리베이터를 기다리고 있었어", words: "当时=at that time / 等=wait / 电梯=elevator", grammar: "&lt;b&gt;当时 + 在 + V&lt;/b&gt; = '그때 ~하고 있었다' (과거 진행)" },
+  { zh: "我当时在遛狗。", py: "Wǒ dāngshí zài liù gǒu.", en: "I was walking the dog then.", ko: "그때 개 산책시키고 있었어", words: "当时=then / 遛狗=walk the dog", grammar: "당시 + 在 + V 과거 진행" },
+  { zh: "我每天都遛狗。", py: "Wǒ měi tiān dōu liù gǒu.", en: "I walk the dog every day.", ko: "매일 개 산책시켜", words: "每天都=every day / 遛狗=walk dog", grammar: "&lt;b&gt;每天都 + V&lt;/b&gt; = '매일 ~한다' (都 강조)" },
+  { zh: "你认识那个人吗?", py: "Nǐ rènshi nàge rén ma?", en: "Do you know that person?", ko: "저 사람 알아?", words: "认识=know / 那个人=that person", grammar: "认识 + 사람 + 吗?" },
+  { zh: "我不认识他。", py: "Wǒ bú rènshi tā.", en: "I don't know him.", ko: "그를 몰라", words: "不认识=don't know", grammar: "&lt;b&gt;不 + 认识&lt;/b&gt; = 모른다" },
+  { zh: "电梯里只有一个人。", py: "Diàntī lǐ zhǐ yǒu yī gè rén.", en: "There's only one person in the elevator.", ko: "엘리베이터에 한 명만 있어", words: "电梯里=in the elevator / 只有=only have / 一个人=one person", grammar: "&lt;b&gt;只有 + 수량&lt;/b&gt; = '~만 있다'" },
+  { zh: "前天上午他在市中心。", py: "Qiántiān shàngwǔ tā zài shìzhōngxīn.", en: "He was downtown the morning before yesterday.", ko: "그저께 오전에 그는 시내에 있었어", words: "前天=day before yesterday / 上午=morning / 市中心=downtown", grammar: "&lt;b&gt;前天&lt;/b&gt; = 그저께. 昨天(어제), 前天(그저께), 大前天(그끄저께)" },
+  { zh: "我的狗也非常生气。", py: "Wǒ de gǒu yě fēicháng shēngqì.", en: "My dog is also very angry.", ko: "내 개도 정말 화났어", words: "狗=dog / 也=also / 非常=very / 生气=angry", grammar: "&lt;b&gt;也 + 非常 + 형용사&lt;/b&gt;" },
+  { zh: "我的邻居也很生气。", py: "Wǒ de línjū yě hěn shēngqì.", en: "My neighbor is also angry.", ko: "내 이웃도 화났어", words: "邻居=neighbor / 也=also / 生气=angry", grammar: "&lt;b&gt;邻居&lt;/b&gt; = 이웃. 也 + 很 + 형용사" },
+  { zh: "小偷偷了什么?", py: "Xiǎotōu tōu le shénme?", en: "What did the thief steal?", ko: "도둑이 뭘 훔쳤어?", words: "小偷=thief / 偷了=stole / 什么=what", grammar: "&lt;b&gt;偷 + 了 + 什么?&lt;/b&gt; = '뭘 훔쳤어?'" },
+  { zh: "我非常生气。", py: "Wǒ fēicháng shēngqì.", en: "I'm very angry.", ko: "정말 화났어", words: "非常=very / 生气=angry", grammar: "非常 + 生气" },
+  { zh: "我的游戏机在哪里?", py: "Wǒ de yóuxìjī zài nǎlǐ?", en: "Where is my game console?", ko: "내 게임기 어딨어?", words: "游戏机=game console / 在哪里=where", grammar: "N + 在哪里?" },
+  { zh: "我忘了关门。", py: "Wǒ wàng le guān mén.", en: "I forgot to close the door.", ko: "문 잠그는 걸 잊었어", words: "忘了=forgot / 关门=close the door", grammar: "&lt;b&gt;忘了 + V&lt;/b&gt; = '~하는 걸 잊었다'. 关门 (Set 10 打开 반대)" },
+  { zh: "她忘了报警。", py: "Tā wàng le bàojǐng.", en: "She forgot to call the police.", ko: "그녀는 신고하는 걸 잊었어", words: "忘了=forgot / 报警=call police", grammar: "忘了 + V 패턴" },
+  { zh: "她很生气。", py: "Tā hěn shēngqì.", en: "She is angry.", ko: "그녀는 화났어", words: "很=very / 生气=angry", grammar: "很 + 生气" },
+  { zh: "昨晚他们报警了吗?", py: "Zuówǎn tāmen bàojǐng le ma?", en: "Did they call the police last night?", ko: "어젯밤 그들이 신고했어?", words: "昨晚=last night / 报警=call police / 了吗=did?", grammar: "&lt;b&gt;V + 了 + 吗?&lt;/b&gt; 완료 의문" },
+  { zh: "我们马上报警了。", py: "Wǒmen mǎshàng bàojǐng le.", en: "We called the police right away.", ko: "우리는 바로 신고했어", words: "马上=right away / 报警了=called police", grammar: "&lt;b&gt;马上&lt;/b&gt; = 바로/즉시" },
+  { zh: "我女儿当时非常害怕。", py: "Wǒ nǚ'ér dāngshí fēicháng hàipà.", en: "My daughter was very scared then.", ko: "내 딸은 그때 정말 무서워했어", words: "女儿=daughter / 当时=then / 害怕=scared", grammar: "当时 + 非常 + 형용사" },
+  { zh: "昨晚我们都在加班。", py: "Zuówǎn wǒmen dōu zài jiābān.", en: "We were all working overtime last night.", ko: "어젯밤 우리 다 야근하고 있었어", words: "昨晚=last night / 都=all / 加班=work overtime", grammar: "&lt;b&gt;加班&lt;/b&gt; = 야근. 都 + 在 + V" },
+  { zh: "我当时在逛街。", py: "Wǒ dāngshí zài guàngjiē.", en: "I was shopping then.", ko: "그때 쇼핑하고 있었어", words: "当时=then / 逛街=shopping/stroll", grammar: "&lt;b&gt;逛街&lt;/b&gt; = 거리 구경/쇼핑. 当时在 + V" },
+  { zh: "当时我家没有人。", py: "Dāngshí wǒ jiā méiyǒu rén.", en: "There was no one at my home then.", ko: "그때 우리 집엔 아무도 없었어", words: "当时=then / 没有人=no one", grammar: "&lt;b&gt;没有人&lt;/b&gt; = 아무도 없다" },
+  { zh: "当时我们很紧张。", py: "Dāngshí wǒmen hěn jǐnzhāng.", en: "We were nervous then.", ko: "그때 우리 긴장했어", words: "当时=then / 紧张=nervous", grammar: "紧张 (Set 9 복습)" },
+  { zh: "他常常加班。", py: "Tā chángcháng jiābān.", en: "He often works overtime.", ko: "그는 자주 야근해", words: "常常=often / 加班=overtime", grammar: "&lt;b&gt;常常&lt;/b&gt; = 자주 (经常과 같음)" },
+  { zh: "我不害怕。", py: "Wǒ bú hàipà.", en: "I'm not scared.", ko: "안 무서워", words: "不害怕=not scared", grammar: "不 + 害怕" },
+  { zh: "昨晚小偷进了我家。", py: "Zuówǎn xiǎotōu jìn le wǒ jiā.", en: "A thief broke into my home last night.", ko: "어젯밤 도둑이 우리 집에 들어왔어", words: "昨晚=last night / 小偷=thief / 进了=entered", grammar: "&lt;b&gt;进 + 了 + 장소&lt;/b&gt; = '~에 들어왔다'" },
+  { zh: "小偷进了你的卧室吗?", py: "Xiǎotōu jìn le nǐ de wòshì ma?", en: "Did the thief enter your bedroom?", ko: "도둑이 네 침실에 들어왔어?", words: "卧室=bedroom / 进了=entered", grammar: "进了 + 장소 + 吗?" },
+  { zh: "附近有小偷吗?", py: "Fùjìn yǒu xiǎotōu ma?", en: "Are there thieves nearby?", ko: "근처에 도둑 있어?", words: "附近=nearby / 小偷=thief", grammar: "附近 + 有 + N + 吗? (Set 9 복습)" },
+  { zh: "我最怕小偷。", py: "Wǒ zuì pà xiǎotōu.", en: "I'm most afraid of thieves.", ko: "도둑이 제일 무서워", words: "最=most / 怕=afraid / 小偷=thief", grammar: "&lt;b&gt;最 + 怕&lt;/b&gt; = 가장 무서워하다. 怕 (害怕 축약)" },
+  { zh: "昨天她进了邻居的家。", py: "Zuótiān tā jìn le línjū de jiā.", en: "Yesterday she entered the neighbor's home.", ko: "어제 그녀는 이웃집에 들어갔어", words: "昨天=yesterday / 进了=entered / 邻居=neighbor", grammar: "进了 + N的家" },
+  { zh: "你前天在家吗?", py: "Nǐ qiántiān zài jiā ma?", en: "Were you home the day before yesterday?", ko: "그저께 집에 있었어?", words: "前天=day before yesterday / 在家=at home", grammar: "&lt;b&gt;前天&lt;/b&gt; = 그저께. 在家 = 집에 있다" },
+  { zh: "她没进书房。", py: "Tā méi jìn shūfáng.", en: "She didn't enter the study.", ko: "그녀는 서재에 안 들어갔어", words: "没进=didn't enter / 书房=study room", grammar: "&lt;b&gt;没 + V&lt;/b&gt; 과거 부정 (Set 3 복습). 书房 = 서재" },
+];
+
+const patterns11 = [
+  { name: "📌 Set 11 안내", desc: "Set 11은 &lt;b&gt;도난·감정·시간 테마&lt;/b&gt; 단어+문장 모음! 단어 19개 + 문장 36개." },
+  { name: "1. 当时 + 在 + V (그때 ~중이었다)", desc: "&lt;code&gt;当时 + 在 + V&lt;/code&gt; = 과거 진행&lt;br&gt;• 我当时在遛狗&lt;br&gt;• 我当时在等电梯&lt;br&gt;• 我当时在逛街" },
+  { name: "2. 进了 + 장소 (~에 들어갔다)", desc: "&lt;code&gt;进 + 了 + 장소&lt;/code&gt;&lt;br&gt;• 小偷进了我家&lt;br&gt;• 进了你的卧室吗?&lt;br&gt;• 没进书房 (부정: 没+进)" },
+  { name: "3. 忘了 + V (~잊었다)", desc: "&lt;code&gt;忘了 + V&lt;/code&gt;&lt;br&gt;• 我忘了关门&lt;br&gt;• 她忘了报警" },
+  { name: "4. 报警 (신고하다)", desc: "&lt;code&gt;报警&lt;/code&gt; = 경찰 신고&lt;br&gt;• 你最好报警&lt;br&gt;• 我们马上报警了&lt;br&gt;• 昨晚他们报警了吗?" },
+  { name: "5. 认识 vs 知道", desc: "&lt;code&gt;认识&lt;/code&gt; = 사람 안다(안면)&lt;br&gt;&lt;code&gt;知道&lt;/code&gt; = 정보 안다&lt;br&gt;• 你认识她吗? / 我不认识他" },
+  { name: "6. 看见 (결과보어)", desc: "&lt;code&gt;看见&lt;/code&gt; = 봐서 보였다&lt;br&gt;• 他们看见了谁?&lt;br&gt;💡 看(동작) vs 看见(결과)" },
+  { name: "7. 감정 (生气/害怕/紧张)", desc: "• &lt;code&gt;生气&lt;/code&gt; 화나다&lt;br&gt;• &lt;code&gt;害怕&lt;/code&gt; 무섭다&lt;br&gt;• &lt;code&gt;紧张&lt;/code&gt; 긴장&lt;br&gt;• 我非常生气 / 我不害怕" },
+  { name: "8. 怕 / 最怕", desc: "&lt;code&gt;最怕 + N&lt;/code&gt; = 제일 무서워하다&lt;br&gt;• 我最怕小偷&lt;br&gt;💡 害怕 = 怕" },
+  { name: "9. 시간 (当时/前天/昨晚/马上)", desc: "• &lt;code&gt;当时&lt;/code&gt; 그때&lt;br&gt;• &lt;code&gt;前天&lt;/code&gt; 그저께&lt;br&gt;• &lt;code&gt;昨晚&lt;/code&gt; 어젯밤&lt;br&gt;• &lt;code&gt;马上&lt;/code&gt; 즉시" },
+  { name: "10. 加班/逛街/遛狗 (활동)", desc: "• &lt;code&gt;加班&lt;/code&gt; 야근&lt;br&gt;• &lt;code&gt;逛街&lt;/code&gt; 쇼핑&lt;br&gt;• &lt;code&gt;遛狗&lt;/code&gt; 개 산책&lt;br&gt;• 他常常加班 / 我每天都遛狗" },
+];
+
 const patterns10 = [
   { name: "📌 Set 10 안내", desc: "Set 10은 &lt;b&gt;단어 복습용&lt;/b&gt;이에요!&lt;br&gt;새 단어가 추가될 때마다 여기 모입니다.&lt;br&gt;각 단어마다 어원/예문/응용 표현이 함께 제공됩니다." },
   { name: "1. 올림픽/대회 어휘", desc: "• &lt;code&gt;奥运会&lt;/code&gt; = 올림픽&lt;br&gt;• &lt;code&gt;比赛&lt;/code&gt; = 경기/시합&lt;br&gt;• &lt;code&gt;运动员&lt;/code&gt; = 선수&lt;br&gt;• &lt;code&gt;国家队&lt;/code&gt; = 국가대표팀&lt;br&gt;• &lt;code&gt;粉丝&lt;/code&gt; = 팬 (fans 음역)" },
@@ -1140,12 +1213,13 @@ const setData = {
   7: { sentences: set7, patterns: patterns7, info: "&lt;strong&gt;Set 7&lt;/strong&gt;: 진행형/현재형/의문문/가족/그림 대화 - 68개 + 대화 17줄" },
   8: { sentences: set8, patterns: patterns8, info: "&lt;strong&gt;Set 8&lt;/strong&gt;: 베이징 길찾기 / 往 방향 / 离 거리 / 一边一边 / 56개" },
   9: { sentences: set9, patterns: patterns9, info: "&lt;strong&gt;Set 9&lt;/strong&gt;: 길찾기 심화/추천/연도·시각/회사·전화 - 128개" },
-  10: { sentences: set10, patterns: patterns10, info: "&lt;strong&gt;Set 10&lt;/strong&gt;: 📚 단어 복습 (어휘+예문+응용) - 64개" },
+  10: { sentences: set10, patterns: patterns10, info: "&lt;strong&gt;Set 10&lt;/strong&gt;: 📚 단어 복습 (어휘) - 64개" },
+  11: { sentences: set11, patterns: patterns11, info: "&lt;strong&gt;Set 11&lt;/strong&gt;: 📚 도난·감정·시간 (단어19+문장36) - 55개" },
 };
 
-let currentSet = 10;
-let sentences = setData[10].sentences;
-let currentPatterns = setData[10].patterns;
+let currentSet = 11;
+let sentences = setData[11].sentences;
+let currentPatterns = setData[11].patterns;
 let stopRequested = false;
 let startLang = 'zh'; // 'zh' or 'en' - which language plays first
 
@@ -1175,7 +1249,7 @@ function switchSet(setNum) {
   currentSet = setNum;
   sentences = setData[setNum].sentences;
   currentPatterns = setData[setNum].patterns;
-  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].forEach(n => {
+  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].forEach(n => {
     const tab = document.getElementById(`tab-${n}`);
     if (tab) tab.classList.toggle('active', n === setNum);
   });
