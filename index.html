@@ -20,7 +20,7 @@
 <meta name="googlebot" content="noindex, nofollow">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<!-- Build version: 1782262100 -->
+<!-- Build version: 1782797392 -->
 <title>중국어 음성 학습 플레이어 (통합)</title>
 <style>
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -295,11 +295,12 @@
 </head>
 <body>
 <div class="container">
-  <h1>🎧 중국어 학습 플레이어 <span style="font-size:11px;opacity:0.6;font-weight:400;">v14 · Set 1-11</span></h1>
+  <h1>🎧 중국어 학습 플레이어 <span style="font-size:11px;opacity:0.6;font-weight:400;">v15 · Set 1-12</span></h1>
   <div class="subtitle">🇨🇳/🇬🇧 → 3초 → 같은 언어 → 3초 → 다른 언어 → 3초 → 같은 언어 → 3초</div>
 
   <div class="set-tabs">
-    <button class="set-tab active newest" id="tab-11" onclick="switchSet(11)">📚 Set 11<span class="tab-sub">55개 (도난·감정)</span></button>
+    <button class="set-tab active newest" id="tab-12" onclick="switchSet(12)">🚄 Set 12<span class="tab-sub">24개 (여행·교통)</span></button>
+    <button class="set-tab" id="tab-11" onclick="switchSet(11)">📚 Set 11<span class="tab-sub">55개 (도난·감정)</span></button>
     <button class="set-tab" id="tab-10" onclick="switchSet(10)">📚 단어<span class="tab-sub">64개 (어휘복습)</span></button>
     <button class="set-tab" id="tab-9" onclick="switchSet(9)">Set 9<span class="tab-sub">128개 (길찾기심화)</span></button>
     <button class="set-tab" id="tab-8" onclick="switchSet(8)">Set 8<span class="tab-sub">45개 (길찾기)</span></button>
@@ -312,7 +313,7 @@
     <button class="set-tab" id="tab-1" onclick="switchSet(1)">Set 1<span class="tab-sub">19개 (기초)</span></button>
   </div>
 
-  <div class="set-info" id="setInfo"><strong>Set 11</strong>: 📚 도난·감정·시간 (단어19+문장36) - 55개</div>
+  <div class="set-info" id="setInfo"><strong>Set 12</strong>: 🚄 여행·교통·학교·숙제 (새 강의) - 24개</div>
 
   <div class="master-toggle-row">
     <button class="master-toggle" onclick="showAll()">👁️ 전체 보기</button>
@@ -1079,6 +1080,47 @@ const set11 = [
   { zh: "她没进书房。", py: "Tā méi jìn shūfáng.", en: "She didn't enter the study.", ko: "그녀는 서재에 안 들어갔어", words: "没进=didn't enter / 书房=study room", grammar: "&lt;b&gt;没 + V&lt;/b&gt; 과거 부정 (Set 3 복습). 书房 = 서재" },
 ];
 
+const set12 = [
+  { zh: "她这次要走路去北京。", py: "Tā zhè cì yào zǒulù qù Běijīng.", en: "She will walk to Beijing this time.", ko: "그녀는 이번에 걸어서 베이징에 갈 거야", words: "这次=this time / 要=will / 走路=walk / 去=go", grammar: "&lt;b&gt;走路 + 去 + 장소&lt;/b&gt; = '걸어서 ~에 가다'. &lt;b&gt;这次&lt;/b&gt; = 이번" },
+  { zh: "我们走路去看熊猫吧。", py: "Wǒmen zǒulù qù kàn xióngmāo ba.", en: "Let's walk to see the pandas.", ko: "걸어서 판다 보러 가자", words: "走路=walk / 去看=go see / 熊猫=panda / 吧=(제안)", grammar: "&lt;b&gt;走路 + 去 + V&lt;/b&gt; = '걸어서 ~하러 가다'. 熊猫 = 판다 (곰고양이)" },
+  { zh: "快来成都。", py: "Kuài lái Chéngdū.", en: "Come to Chengdu quickly.", ko: "빨리 청두로 와", words: "快=quickly / 来=come / 成都=Chengdu", grammar: "&lt;b&gt;快 + V&lt;/b&gt; = '빨리 ~해'. 成都 = 청두 (판다의 고향, 쓰촨성)" },
+  { zh: "这次我们用电脑买车票吧。", py: "Zhè cì wǒmen yòng diànnǎo mǎi chēpiào ba.", en: "Let's buy tickets with the computer this time.", ko: "이번엔 컴퓨터로 차표 사자", words: "用=use / 电脑=computer / 买=buy / 车票=ticket", grammar: "&lt;b&gt;用 + 도구 + V&lt;/b&gt; = '~로 ~하다'. 车票 = 차표 (车 + 票)" },
+  { zh: "我要坐高铁去上海。", py: "Wǒ yào zuò gāotiě qù Shànghǎi.", en: "I'll take the high-speed rail to Shanghai.", ko: "고속철 타고 상하이 갈 거야", words: "坐=ride / 高铁=high-speed rail / 去=go / 上海=Shanghai", grammar: "&lt;b&gt;坐 + 교통수단 + 去 + 장소&lt;/b&gt; = '~타고 ~에 가다'. 高铁 = 고속철도(KTX 같은)" },
+  { zh: "这次我们坐火车吧！", py: "Zhè cì wǒmen zuò huǒchē ba!", en: "Let's take the train this time!", ko: "이번엔 기차 타자!", words: "这次=this time / 坐=ride / 火车=train", grammar: "&lt;b&gt;坐 + 교통수단 + 吧&lt;/b&gt;. 火车(기차) vs 高铁(고속철) vs 地铁(지하철)" },
+  { zh: "二十只熊猫", py: "èrshí zhī xióngmāo", en: "twenty pandas", ko: "판다 20마리", words: "二十=20 / 只=(동물 양사) / 熊猫=panda", grammar: "&lt;b&gt;수량 + 只 + 동물&lt;/b&gt;. 只 = 동물 양사 (Set 10 복습)" },
+  { zh: "上海的交通比纽约的交通方便。", py: "Shànghǎi de jiāotōng bǐ Niǔyuē de jiāotōng fāngbiàn.", en: "Shanghai's transport is more convenient than New York's.", ko: "상하이 교통이 뉴욕 교통보다 편리해", words: "交通=transport / 比=than / 纽约=New York / 方便=convenient", grammar: "&lt;b&gt;A 比 B + 형용사&lt;/b&gt; = 'A가 B보다 ~' (비교문, Set 2 복습)" },
+  { zh: "巴黎的交通", py: "Bālí de jiāotōng", en: "Paris's transportation", ko: "파리의 교통", words: "巴黎=Paris / 交通=transport", grammar: "&lt;b&gt;장소 + 的 + N&lt;/b&gt; = '~의 ~'. 巴黎 (Set 10 복습)" },
+  { zh: "今天我问了老师很多问题。", py: "Jīntiān wǒ wèn le lǎoshī hěn duō wèntí.", en: "Today I asked the teacher many questions.", ko: "오늘 선생님께 질문 많이 했어", words: "问=ask / 老师=teacher / 问题=question", grammar: "&lt;b&gt;问 + 사람 + 问题&lt;/b&gt; = '~에게 질문하다'. 问了 = 물었다(완료)" },
+  { zh: "我丢了一支笔。", py: "Wǒ diū le yī zhī bǐ.", en: "I lost a pen.", ko: "펜 하나 잃어버렸어", words: "丢=lose / 一支=a (가는 것 양사) / 笔=pen", grammar: "&lt;b&gt;丢 + 了 + N&lt;/b&gt; = '~을 잃어버렸다'. 支 = 가는 것 양사 (Set 10 복습)" },
+  { zh: "我们的作文题目是什么？", py: "Wǒmen de zuòwén tímù shì shénme?", en: "What's our essay topic?", ko: "우리 작문 제목이 뭐야?", words: "作文=essay / 题目=topic/title / 是什么=what is", grammar: "&lt;b&gt;N + 是什么?&lt;/b&gt; = '~가 뭐야?'. 作文 = 작문, 题目 = 제목/주제" },
+  { zh: "我不会翻译日语。", py: "Wǒ bú huì fānyì Rìyǔ.", en: "I can't translate Japanese.", ko: "일본어 번역 못 해", words: "不会=can't / 翻译=translate / 日语=Japanese", grammar: "&lt;b&gt;不会 + V&lt;/b&gt; = '~할 줄 모른다' (Set 7 복습). 翻译 = 번역하다" },
+  { zh: "这个网站有用吗？", py: "Zhège wǎngzhàn yǒuyòng ma?", en: "Is this website useful?", ko: "이 웹사이트 유용해?", words: "网站=website / 有用=useful", grammar: "&lt;b&gt;有用&lt;/b&gt; = 유용하다 (有 + 用). 网站 = 웹사이트" },
+  { zh: "昨晚他们讨论了一些问题。", py: "Zuówǎn tāmen tǎolùn le yīxiē wèntí.", en: "Last night they discussed some problems.", ko: "어젯밤 그들은 몇 가지 문제를 논의했어", words: "昨晚=last night / 讨论=discuss / 一些=some / 问题=problem", grammar: "&lt;b&gt;讨论 + 了 + N&lt;/b&gt; = '~을 논의했다'. 一些 = 약간/몇몇" },
+  { zh: "张老师给了我七支笔。", py: "Zhāng lǎoshī gěi le wǒ qī zhī bǐ.", en: "Teacher Zhang gave me seven pens.", ko: "장 선생님이 펜 7개 주셨어", words: "给=give / 七支=7 (가는 것 양사) / 笔=pen", grammar: "&lt;b&gt;给 + 了 + 사람 + 수량 + N&lt;/b&gt; = '~에게 ~을 줬다'" },
+  { zh: "我没带书。你可以借我你的书吗？", py: "Wǒ méi dài shū. Nǐ kěyǐ jiè wǒ nǐ de shū ma?", en: "I didn't bring my book. Can you lend me yours?", ko: "책 안 가져왔어. 네 책 빌려줄 수 있어?", words: "没带=didn't bring / 可以=can / 借=lend/borrow", grammar: "&lt;b&gt;借 + 사람 + N&lt;/b&gt; = '~에게 ~을 빌려주다'. 可以 = ~할 수 있다" },
+  { zh: "我们选一个地方吧。", py: "Wǒmen xuǎn yī gè dìfang ba.", en: "Let's choose a place.", ko: "장소 하나 고르자", words: "选=choose / 一个=a / 地方=place", grammar: "&lt;b&gt;选 + N + 吧&lt;/b&gt; = '~을 고르자'. 地方 = 장소/곳" },
+  { zh: "你写了几封邮件？", py: "Nǐ xiě le jǐ fēng yóujiàn?", en: "How many emails did you write?", ko: "이메일 몇 통 썼어?", words: "写=write / 几封=how many (편지 양사) / 邮件=email", grammar: "&lt;b&gt;几 + 封 + 邮件?&lt;/b&gt; = '몇 통의 이메일?'. 封 = 편지 양사 (Set 10 복습)" },
+  { zh: "他好像认识我们。", py: "Tā hǎoxiàng rènshi wǒmen.", en: "He seems to know us.", ko: "그가 우리를 아는 것 같아", words: "好像=seem / 认识=know", grammar: "&lt;b&gt;好像 + V&lt;/b&gt; = '~인 것 같다' (추측). 认识 (Set 11 복습)" },
+  { zh: "前天邻居帮了我们。", py: "Qiántiān línjū bāng le wǒmen.", en: "The neighbor helped us the day before yesterday.", ko: "그저께 이웃이 우리를 도와줬어", words: "前天=day before yesterday / 邻居=neighbor / 帮=help", grammar: "&lt;b&gt;帮 + 사람&lt;/b&gt; = '~를 돕다'. 前天/邻居 (Set 11 복습)" },
+  { zh: "昨天你交了英文作业吗？", py: "Zuótiān nǐ jiāo le Yīngwén zuòyè ma?", en: "Did you submit the English homework yesterday?", ko: "어제 영어 숙제 냈어?", words: "交=submit / 英文=English / 作业=homework", grammar: "&lt;b&gt;交 + N&lt;/b&gt; = '~을 제출하다'. 作业 = 숙제 (Set 3 복습)" },
+  { zh: "没交，怎么办！", py: "Méi jiāo, zěnme bàn!", en: "I didn't submit it, what should I do!", ko: "안 냈어, 어떡해!", words: "没交=didn't submit / 怎么办=what to do", grammar: "&lt;b&gt;没 + V&lt;/b&gt; 과거 부정 + &lt;b&gt;怎么办!&lt;/b&gt; (Set 3 복습)" },
+  { zh: "不开，多走路！", py: "Bù kāi, duō zǒulù!", en: "Don't drive, walk more!", ko: "운전하지 말고, 많이 걸어!", words: "不开=don't drive / 多=more / 走路=walk", grammar: "&lt;b&gt;多 + V&lt;/b&gt; = '많이 ~하다'. 不开(车) = 운전 안 함" },
+];
+
+const patterns12 = [
+  { name: "📌 Set 12 안내", desc: "Set 12는 &lt;b&gt;여행·교통·학교·숙제 테마&lt;/b&gt; 새 강의 모음! 24개 문장." },
+  { name: "1. 走路去 + 장소/V (걸어서 ~가다)", desc: "&lt;code&gt;走路 + 去 + 장소/V&lt;/code&gt; = '걸어서 ~가다/하다'&lt;br&gt;• 走路去北京 (걸어서 베이징)&lt;br&gt;• 走路去看熊猫 (걸어서 판다 보러)&lt;br&gt;💡 多走路 = 많이 걷다" },
+  { name: "2. 坐 + 교통수단 + 去 (타고 가다)", desc: "&lt;code&gt;坐 + 교통수단 + 去 + 장소&lt;/code&gt;&lt;br&gt;• 坐高铁去上海 (고속철로 상하이)&lt;br&gt;• 坐火车 (기차 타다)&lt;br&gt;💡 高铁(고속철)/火车(기차)/地铁(지하철)" },
+  { name: "3. 用 + 도구 + V (~로 ~하다)", desc: "&lt;code&gt;用 + 도구 + V&lt;/code&gt; = '~로 ~하다'&lt;br&gt;• 用电脑买车票 (컴퓨터로 차표 사기)&lt;br&gt;• 用手机 (휴대폰으로)" },
+  { name: "4. 비교문 (A 比 B + 형용사)", desc: "&lt;code&gt;A 比 B + 형용사&lt;/code&gt; = 'A가 B보다 ~'&lt;br&gt;• 上海的交通比纽约方便&lt;br&gt;(상하이 교통이 뉴욕보다 편리)&lt;br&gt;💡 Set 2 비교문 복습" },
+  { name: "5. 给了 + 사람 + N (~에게 줬다)", desc: "&lt;code&gt;给 + 了 + 사람 + 수량 + N&lt;/code&gt;&lt;br&gt;• 张老师给了我七支笔&lt;br&gt;(장 선생님이 펜 7개 주심)&lt;br&gt;💡 给 = ~에게 주다" },
+  { name: "6. 借 (빌리다/빌려주다)", desc: "&lt;code&gt;借 + 사람 + N&lt;/code&gt; = '~에게 ~ 빌려주다'&lt;br&gt;• 你可以借我你的书吗?&lt;br&gt;(네 책 빌려줄 수 있어?)&lt;br&gt;💡 借는 빌리다·빌려주다 둘 다" },
+  { name: "7. 好像 + V (~인 것 같다)", desc: "&lt;code&gt;好像 + V&lt;/code&gt; = '~인 것 같다' (추측)&lt;br&gt;• 他好像认识我们&lt;br&gt;(그가 우릴 아는 것 같아)&lt;br&gt;💡 확신 없는 추측 표현" },
+  { name: "8. 帮 (돕다)", desc: "&lt;code&gt;帮 + 사람&lt;/code&gt; = '~를 돕다'&lt;br&gt;• 前天邻居帮了我们&lt;br&gt;(그저께 이웃이 도와줌)&lt;br&gt;💡 帮忙 = 도움을 주다" },
+  { name: "9. 交 (제출하다)", desc: "&lt;code&gt;交 + N&lt;/code&gt; = '~을 제출하다'&lt;br&gt;• 交英文作业 (영어 숙제 제출)&lt;br&gt;• 没交 (제출 안 함)&lt;br&gt;💡 작업/숙제/과제 제출에 사용" },
+  { name: "10. 동사 + 了 (완료) 종합", desc: "이번 Set 완료(了) 동사들:&lt;br&gt;• 问了 (물었다)&lt;br&gt;• 丢了 (잃었다)&lt;br&gt;• 讨论了 (논의했다)&lt;br&gt;• 给了 (줬다)&lt;br&gt;• 帮了 (도왔다)&lt;br&gt;• 交了 (제출했다)" },
+];
+
 const patterns11 = [
   { name: "📌 Set 11 안내", desc: "Set 11은 &lt;b&gt;도난·감정·시간 테마&lt;/b&gt; 단어+문장 모음! 단어 19개 + 문장 36개." },
   { name: "1. 当时 + 在 + V (그때 ~중이었다)", desc: "&lt;code&gt;当时 + 在 + V&lt;/code&gt; = 과거 진행&lt;br&gt;• 我当时在遛狗&lt;br&gt;• 我当时在等电梯&lt;br&gt;• 我当时在逛街" },
@@ -1215,11 +1257,12 @@ const setData = {
   9: { sentences: set9, patterns: patterns9, info: "&lt;strong&gt;Set 9&lt;/strong&gt;: 길찾기 심화/추천/연도·시각/회사·전화 - 128개" },
   10: { sentences: set10, patterns: patterns10, info: "&lt;strong&gt;Set 10&lt;/strong&gt;: 📚 단어 복습 (어휘) - 64개" },
   11: { sentences: set11, patterns: patterns11, info: "&lt;strong&gt;Set 11&lt;/strong&gt;: 📚 도난·감정·시간 (단어19+문장36) - 55개" },
+  12: { sentences: set12, patterns: patterns12, info: "&lt;strong&gt;Set 12&lt;/strong&gt;: 🚄 여행·교통·학교·숙제 (새 강의) - 24개" },
 };
 
-let currentSet = 11;
-let sentences = setData[11].sentences;
-let currentPatterns = setData[11].patterns;
+let currentSet = 12;
+let sentences = setData[12].sentences;
+let currentPatterns = setData[12].patterns;
 let stopRequested = false;
 let startLang = 'zh'; // 'zh' or 'en' - which language plays first
 
@@ -1249,7 +1292,7 @@ function switchSet(setNum) {
   currentSet = setNum;
   sentences = setData[setNum].sentences;
   currentPatterns = setData[setNum].patterns;
-  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].forEach(n => {
+  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].forEach(n => {
     const tab = document.getElementById(`tab-${n}`);
     if (tab) tab.classList.toggle('active', n === setNum);
   });
