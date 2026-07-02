@@ -20,7 +20,7 @@
 <meta name="googlebot" content="noindex, nofollow">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<!-- Build version: 1782957116 -->
+<!-- Build version: 1782959426 -->
 <title>중국어 음성 학습 플레이어 (통합)</title>
 <style>
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -295,11 +295,11 @@
 </head>
 <body>
 <div class="container">
-  <h1>🎧 중국어 학습 플레이어 <span style="font-size:11px;opacity:0.6;font-weight:400;">v16 · Set 1-12</span></h1>
+  <h1>🎧 중국어 학습 플레이어 <span style="font-size:11px;opacity:0.6;font-weight:400;">v17 · Set 1-12</span></h1>
   <div class="subtitle">🇨🇳/🇬🇧 → 3초 → 같은 언어 → 3초 → 다른 언어 → 3초 → 같은 언어 → 3초</div>
 
   <div class="set-tabs">
-    <button class="set-tab active newest" id="tab-12" onclick="switchSet(12)">🚄 Set 12<span class="tab-sub">39개 (여행·결제)</span></button>
+    <button class="set-tab active newest" id="tab-12" onclick="switchSet(12)">🚄 Set 12<span class="tab-sub">49개 (여행·결제)</span></button>
     <button class="set-tab" id="tab-11" onclick="switchSet(11)">📚 Set 11<span class="tab-sub">55개 (도난·감정)</span></button>
     <button class="set-tab" id="tab-10" onclick="switchSet(10)">📚 단어<span class="tab-sub">64개 (어휘복습)</span></button>
     <button class="set-tab" id="tab-9" onclick="switchSet(9)">Set 9<span class="tab-sub">128개 (길찾기심화)</span></button>
@@ -313,7 +313,7 @@
     <button class="set-tab" id="tab-1" onclick="switchSet(1)">Set 1<span class="tab-sub">19개 (기초)</span></button>
   </div>
 
-  <div class="set-info" id="setInfo"><strong>Set 12</strong>: 🚄 여행·교통·학교·쇼핑·결제 (새 강의) - 39개</div>
+  <div class="set-info" id="setInfo"><strong>Set 12</strong>: 🚄 여행·교통·학교·쇼핑·결제 (새 강의) - 49개</div>
 
   <div class="master-toggle-row">
     <button class="master-toggle" onclick="showAll()">👁️ 전체 보기</button>
@@ -1120,6 +1120,16 @@ const set12 = [
   { zh: "账号、密码", py: "zhànghào, mìmǎ", en: "account, password", ko: "계정, 비밀번호", words: "账号=account / 密码=password", grammar: "&lt;b&gt;账号&lt;/b&gt; = 계정/계좌번호. 密码 = 비밀번호 (로그인 세트)" },
   { zh: "我们在哪里付钱？", py: "Wǒmen zài nǎlǐ fù qián?", en: "Where do we pay?", ko: "어디서 결제해?", words: "在哪里=where / 付钱=pay", grammar: "&lt;b&gt;在哪里 + V?&lt;/b&gt; = '어디서 ~해?'" },
   { zh: "谁付钱？", py: "Shéi fù qián?", en: "Who pays?", ko: "누가 내?", words: "谁=who / 付钱=pay", grammar: "&lt;b&gt;谁 + V?&lt;/b&gt; = '누가 ~해?' (Set 9 복습)" },
+  { zh: "我们开车去这个岛吧！", py: "Wǒmen kāichē qù zhège dǎo ba!", en: "Let's drive to this island!", ko: "이 섬으로 운전해서 가자!", words: "开车=drive / 去=go / 这个岛=this island / 吧=(제안)", grammar: "&lt;b&gt;开车 + 去 + 장소&lt;/b&gt; = '운전해서 ~에 가다'. 岛 = 섬 (Set 12 복습)" },
+  { zh: "你应该坐船去那个岛。", py: "Nǐ yīnggāi zuò chuán qù nàge dǎo.", en: "You should take a boat to that island.", ko: "저 섬엔 배 타고 가야 해", words: "应该=should / 坐船=take a boat / 那个岛=that island", grammar: "&lt;b&gt;坐船 + 去 + 장소&lt;/b&gt; = '배 타고 ~에 가다'. 船 (Set 12 복습)" },
+  { zh: "深圳离香港很近。", py: "Shēnzhèn lí Xiānggǎng hěn jìn.", en: "Shenzhen is very close to Hong Kong.", ko: "선전은 홍콩에서 가까워", words: "深圳=Shenzhen / 离=from / 香港=Hong Kong / 近=close", grammar: "&lt;b&gt;A 离 B 近&lt;/b&gt; = 'A는 B에서 가깝다' (Set 9 离 복습). 深圳/香港 지명" },
+  { zh: "我想走路去博物馆。", py: "Wǒ xiǎng zǒulù qù bówùguǎn.", en: "I want to walk to the museum.", ko: "박물관까지 걸어가고 싶어", words: "想=want / 走路=walk / 去=go / 博物馆=museum", grammar: "&lt;b&gt;走路 + 去 + 장소&lt;/b&gt; (Set 12 복습). 博物馆 = 박물관 (Set 9 복습)" },
+  { zh: "那里平时不拥挤。", py: "Nàlǐ píngshí bù yōngjǐ.", en: "It's usually not crowded there.", ko: "거긴 평소에 안 붐벼", words: "那里=there / 平时=usually / 不拥挤=not crowded", grammar: "&lt;b&gt;拥挤&lt;/b&gt; = 붐비다/혼잡하다. 平时 = 평소 (Set 8 복습)" },
+  { zh: "深圳有很多公园。", py: "Shēnzhèn yǒu hěn duō gōngyuán.", en: "Shenzhen has many parks.", ko: "선전엔 공원이 많아", words: "深圳=Shenzhen / 有=have / 很多=many / 公园=park", grammar: "&lt;b&gt;장소 + 有 + 很多 + N&lt;/b&gt; = '~에 ~이 많다'" },
+  { zh: "她平时怎么上学？", py: "Tā píngshí zěnme shàngxué?", en: "How does she usually go to school?", ko: "그녀는 평소에 어떻게 등교해?", words: "平时=usually / 怎么=how / 上学=go to school", grammar: "&lt;b&gt;怎么 + V?&lt;/b&gt; = '어떻게 ~해?'. 上学 = 등교하다" },
+  { zh: "你怎么去市中心？", py: "Nǐ zěnme qù shìzhōngxīn?", en: "How do you go downtown?", ko: "시내 어떻게 가?", words: "怎么=how / 去=go / 市中心=downtown", grammar: "&lt;b&gt;怎么 + 去 + 장소?&lt;/b&gt; = '~에 어떻게 가?'. 市中心 (Set 8 복습)" },
+  { zh: "我们可以怎么坐地铁？", py: "Wǒmen kěyǐ zěnme zuò dìtiě?", en: "How can we take the subway?", ko: "지하철 어떻게 타면 돼?", words: "可以=can / 怎么=how / 坐地铁=take subway", grammar: "&lt;b&gt;可以怎么 + V?&lt;/b&gt; = '어떻게 ~할 수 있어?'" },
+  { zh: "那个岛离这里远吗？", py: "Nàge dǎo lí zhèlǐ yuǎn ma?", en: "Is that island far from here?", ko: "저 섬 여기서 멀어?", words: "那个岛=that island / 离=from / 远=far", grammar: "&lt;b&gt;A 离 B 远吗?&lt;/b&gt; (Set 9 복습). 岛 (Set 12 복습)" },
 ];
 
 const patterns12 = [
@@ -1272,7 +1282,7 @@ const setData = {
   9: { sentences: set9, patterns: patterns9, info: "&lt;strong&gt;Set 9&lt;/strong&gt;: 길찾기 심화/추천/연도·시각/회사·전화 - 128개" },
   10: { sentences: set10, patterns: patterns10, info: "&lt;strong&gt;Set 10&lt;/strong&gt;: 📚 단어 복습 (어휘) - 64개" },
   11: { sentences: set11, patterns: patterns11, info: "&lt;strong&gt;Set 11&lt;/strong&gt;: 📚 도난·감정·시간 (단어19+문장36) - 55개" },
-  12: { sentences: set12, patterns: patterns12, info: "&lt;strong&gt;Set 12&lt;/strong&gt;: 🚄 여행·교통·학교·쇼핑·결제 (새 강의) - 39개" },
+  12: { sentences: set12, patterns: patterns12, info: "&lt;strong&gt;Set 12&lt;/strong&gt;: 🚄 여행·교통·학교·쇼핑·결제 (새 강의) - 49개" },
 };
 
 let currentSet = 12;
