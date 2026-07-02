@@ -20,7 +20,7 @@
 <meta name="googlebot" content="noindex, nofollow">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<!-- Build version: 1782797392 -->
+<!-- Build version: 1782957116 -->
 <title>중국어 음성 학습 플레이어 (통합)</title>
 <style>
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -295,11 +295,11 @@
 </head>
 <body>
 <div class="container">
-  <h1>🎧 중국어 학습 플레이어 <span style="font-size:11px;opacity:0.6;font-weight:400;">v15 · Set 1-12</span></h1>
+  <h1>🎧 중국어 학습 플레이어 <span style="font-size:11px;opacity:0.6;font-weight:400;">v16 · Set 1-12</span></h1>
   <div class="subtitle">🇨🇳/🇬🇧 → 3초 → 같은 언어 → 3초 → 다른 언어 → 3초 → 같은 언어 → 3초</div>
 
   <div class="set-tabs">
-    <button class="set-tab active newest" id="tab-12" onclick="switchSet(12)">🚄 Set 12<span class="tab-sub">24개 (여행·교통)</span></button>
+    <button class="set-tab active newest" id="tab-12" onclick="switchSet(12)">🚄 Set 12<span class="tab-sub">39개 (여행·결제)</span></button>
     <button class="set-tab" id="tab-11" onclick="switchSet(11)">📚 Set 11<span class="tab-sub">55개 (도난·감정)</span></button>
     <button class="set-tab" id="tab-10" onclick="switchSet(10)">📚 단어<span class="tab-sub">64개 (어휘복습)</span></button>
     <button class="set-tab" id="tab-9" onclick="switchSet(9)">Set 9<span class="tab-sub">128개 (길찾기심화)</span></button>
@@ -313,7 +313,7 @@
     <button class="set-tab" id="tab-1" onclick="switchSet(1)">Set 1<span class="tab-sub">19개 (기초)</span></button>
   </div>
 
-  <div class="set-info" id="setInfo"><strong>Set 12</strong>: 🚄 여행·교통·학교·숙제 (새 강의) - 24개</div>
+  <div class="set-info" id="setInfo"><strong>Set 12</strong>: 🚄 여행·교통·학교·쇼핑·결제 (새 강의) - 39개</div>
 
   <div class="master-toggle-row">
     <button class="master-toggle" onclick="showAll()">👁️ 전체 보기</button>
@@ -1105,6 +1105,21 @@ const set12 = [
   { zh: "昨天你交了英文作业吗？", py: "Zuótiān nǐ jiāo le Yīngwén zuòyè ma?", en: "Did you submit the English homework yesterday?", ko: "어제 영어 숙제 냈어?", words: "交=submit / 英文=English / 作业=homework", grammar: "&lt;b&gt;交 + N&lt;/b&gt; = '~을 제출하다'. 作业 = 숙제 (Set 3 복습)" },
   { zh: "没交，怎么办！", py: "Méi jiāo, zěnme bàn!", en: "I didn't submit it, what should I do!", ko: "안 냈어, 어떡해!", words: "没交=didn't submit / 怎么办=what to do", grammar: "&lt;b&gt;没 + V&lt;/b&gt; 과거 부정 + &lt;b&gt;怎么办!&lt;/b&gt; (Set 3 복습)" },
   { zh: "不开，多走路！", py: "Bù kāi, duō zǒulù!", en: "Don't drive, walk more!", ko: "운전하지 말고, 많이 걸어!", words: "不开=don't drive / 多=more / 走路=walk", grammar: "&lt;b&gt;多 + V&lt;/b&gt; = '많이 ~하다'. 不开(车) = 운전 안 함" },
+  { zh: "熊猫", py: "xióngmāo", en: "panda", ko: "판다", words: "熊=bear / 猫=cat ('곰고양이')", grammar: "&lt;b&gt;熊猫&lt;/b&gt; 중국의 국보 동물.&lt;br&gt;📌 예문: &lt;code&gt;成都有很多熊猫&lt;/code&gt; (청두에 판다가 많아)&lt;br&gt;📌 양사: 一只熊猫 (只 = 동물)" },
+  { zh: "小票", py: "xiǎopiào", en: "receipt", ko: "영수증", words: "小=small / 票=ticket ('작은 표')", grammar: "&lt;b&gt;小票&lt;/b&gt; = 영수증 (구어). 정식: 收据/发票.&lt;br&gt;📌 예문: &lt;code&gt;请给我小票&lt;/code&gt; (영수증 주세요)&lt;br&gt;📌 비교: 发票(정식 영수증/세금계산서), 小票(간이 영수증)" },
+  { zh: "岛", py: "dǎo", en: "island", ko: "섬", words: "물로 둘러싸인 땅", grammar: "&lt;b&gt;岛&lt;/b&gt; = 섬.&lt;br&gt;📌 예문: &lt;code&gt;这个岛很漂亮&lt;/code&gt; (이 섬 예뻐)&lt;br&gt;📌 응용: 半岛(반도), 岛屿(섬들), 海岛(바다 섬)" },
+  { zh: "T恤", py: "T-xù", en: "T-shirt", ko: "티셔츠", words: "T + 恤 (음역)", grammar: "&lt;b&gt;T恤&lt;/b&gt; = 티셔츠. 양사는 件.&lt;br&gt;📌 예문: &lt;code&gt;这件T恤很好看&lt;/code&gt; (이 티셔츠 예뻐)&lt;br&gt;📌 의류: 一件T恤/衬衫/外套, 一条裤子" },
+  { zh: "船", py: "chuán", en: "boat / ship", ko: "배 / 선박", words: "물 위 교통수단", grammar: "&lt;b&gt;坐 + 船&lt;/b&gt; = 배를 타다.&lt;br&gt;📌 예문: &lt;code&gt;我们坐船去岛上&lt;/code&gt; (배 타고 섬에 가)&lt;br&gt;📌 교통: 坐船(배), 坐飞机(비행기), 坐火车(기차)" },
+  { zh: "我想上网买这件T恤。", py: "Wǒ xiǎng shàngwǎng mǎi zhè jiàn T-xù.", en: "I want to buy this T-shirt online.", ko: "이 티셔츠 온라인으로 사고 싶어", words: "想=want / 上网=go online / 买=buy / 这件=this (옷) / T恤=T-shirt", grammar: "&lt;b&gt;上网 + V&lt;/b&gt; = '인터넷으로 ~하다'. 件 = 옷 양사" },
+  { zh: "他想用现金租车。", py: "Tā xiǎng yòng xiànjīn zū chē.", en: "He wants to rent a car with cash.", ko: "그는 현금으로 차를 빌리고 싶어해", words: "想=want / 用=use / 现金=cash / 租=rent / 车=car", grammar: "&lt;b&gt;用 + 现金 + V&lt;/b&gt; = '현금으로 ~'. 租 = 임대하다/빌리다" },
+  { zh: "这件T恤五十九块。", py: "Zhè jiàn T-xù wǔshíjiǔ kuài.", en: "This T-shirt is 59 yuan.", ko: "이 티셔츠 59위안이야", words: "这件=this / 五十九块=59 yuan", grammar: "&lt;b&gt;N + 가격 + 块&lt;/b&gt;. 块 = 위안 (구어, Set 8 복습)" },
+  { zh: "这件T恤多少钱？", py: "Zhè jiàn T-xù duōshao qián?", en: "How much is this T-shirt?", ko: "이 티셔츠 얼마야?", words: "多少钱=how much", grammar: "&lt;b&gt;N + 多少钱?&lt;/b&gt; = '~ 얼마?' (쇼핑 필수 표현)" },
+  { zh: "我们怎么付车票钱？", py: "Wǒmen zěnme fù chēpiào qián?", en: "How do we pay for the tickets?", ko: "차표 값 어떻게 내?", words: "怎么=how / 付=pay / 车票钱=ticket fare", grammar: "&lt;b&gt;怎么 + 付钱?&lt;/b&gt; = '어떻게 결제해?'. 付 = 지불하다" },
+  { zh: "她的信用卡密码很长。", py: "Tā de xìnyòngkǎ mìmǎ hěn cháng.", en: "Her credit card password is very long.", ko: "그녀의 신용카드 비밀번호는 길어", words: "信用卡=credit card / 密码=password / 长=long", grammar: "&lt;b&gt;信用卡&lt;/b&gt; = 신용카드. 密码 = 비밀번호" },
+  { zh: "我怎么付钱？", py: "Wǒ zěnme fù qián?", en: "How do I pay?", ko: "어떻게 결제해?", words: "怎么=how / 付钱=pay", grammar: "&lt;b&gt;怎么 + 付钱?&lt;/b&gt; 결제 방법 질문" },
+  { zh: "账号、密码", py: "zhànghào, mìmǎ", en: "account, password", ko: "계정, 비밀번호", words: "账号=account / 密码=password", grammar: "&lt;b&gt;账号&lt;/b&gt; = 계정/계좌번호. 密码 = 비밀번호 (로그인 세트)" },
+  { zh: "我们在哪里付钱？", py: "Wǒmen zài nǎlǐ fù qián?", en: "Where do we pay?", ko: "어디서 결제해?", words: "在哪里=where / 付钱=pay", grammar: "&lt;b&gt;在哪里 + V?&lt;/b&gt; = '어디서 ~해?'" },
+  { zh: "谁付钱？", py: "Shéi fù qián?", en: "Who pays?", ko: "누가 내?", words: "谁=who / 付钱=pay", grammar: "&lt;b&gt;谁 + V?&lt;/b&gt; = '누가 ~해?' (Set 9 복습)" },
 ];
 
 const patterns12 = [
@@ -1257,7 +1272,7 @@ const setData = {
   9: { sentences: set9, patterns: patterns9, info: "&lt;strong&gt;Set 9&lt;/strong&gt;: 길찾기 심화/추천/연도·시각/회사·전화 - 128개" },
   10: { sentences: set10, patterns: patterns10, info: "&lt;strong&gt;Set 10&lt;/strong&gt;: 📚 단어 복습 (어휘) - 64개" },
   11: { sentences: set11, patterns: patterns11, info: "&lt;strong&gt;Set 11&lt;/strong&gt;: 📚 도난·감정·시간 (단어19+문장36) - 55개" },
-  12: { sentences: set12, patterns: patterns12, info: "&lt;strong&gt;Set 12&lt;/strong&gt;: 🚄 여행·교통·학교·숙제 (새 강의) - 24개" },
+  12: { sentences: set12, patterns: patterns12, info: "&lt;strong&gt;Set 12&lt;/strong&gt;: 🚄 여행·교통·학교·쇼핑·결제 (새 강의) - 39개" },
 };
 
 let currentSet = 12;
